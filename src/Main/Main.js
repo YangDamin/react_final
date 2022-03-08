@@ -1,12 +1,15 @@
 import React from 'react';
-import Footer from '../Common/Footer';
 import Header from '../Common/Header';
+import Nav from '../Common/Nav';
+import Body from '../Common/Body';
+import Footer from '../Common/Footer';
 
 const Main = () => {
     return (
         <div>
             <Header></Header>
-            <h2>Main Page</h2>
+            <Nav></Nav>
+            <Body></Body>
             <Footer></Footer>
         </div>
     );
