@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
-.container {
+#nav_container {
     display: flex;
     flex: auto;
     font-family: 'Roboto', sans-serif;
