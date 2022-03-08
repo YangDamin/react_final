@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../Common/Footer';
 import Header from '../Common/Header';
-//s
+//see
 const Content = () => {
     return (
         <div>
