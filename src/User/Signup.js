@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Row, Button, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Common/Footer';
@@ -8,6 +8,20 @@ import './Signup.css';
 const Signup = () => {
     const navigate = useNavigate();
 
+    // 중복확인 하기 위해
+    const [userList, setUserList] = useState([]);  
+
+    useEffect( () => {
+        const result = axios({
+            url : "http://localhost:8080/users/signup",
+            method : 'get'
+        });
+
+        result.then((res) => {
+            console.log(res.data);
+            setUserList(res.data);
+        })
+    }, []);
 
     return (
         <div>
@@ -27,7 +41,21 @@ const Signup = () => {
                                     <input class="form-control" type="email" name="email" id="email" placeholder="@까지 정확하게 입력해주세요." required />
                                 </div>
                                 <div class="col-3">
-                                    <button class="btn bg-secondary text-white flex-shrink-0 me-2">중복확인</button>
+                                    <button class="btn bg-secondary text-white flex-shrink-0 me-2" onClick={ (e) => {
+                                        e.preventDefault();
+                                        
+                                        console.log("button 함수 클릭시 리스트: "+ userList);
+
+                                        {userList.map( (user) => {
+                                            console.log(user);
+                                            if( user.email == document.getElementById("email").value){
+                                                alert('이미 사용 중인 이메일 입니다.');
+                                            }
+
+                                        })}
+                                        
+
+                                    } }>중복확인</button>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +122,7 @@ const Signup = () => {
                                 formData.append('phoneNum', document.getElementById("phoneNum").value);
 
                                 console.log(document.getElementById("phoneNum").value);
+                                
                                 axios({
                                     url : "http://localhost:8080/users/signup",
                                     method: 'post',
@@ -101,13 +130,13 @@ const Signup = () => {
                                 }).then((res) => {
                                     console.log(res.data)
                                     if (res.data.code != 200) {
-                                        alert('🤦‍♂️회원가입 승인불가🤦‍♂️');
+                                        alert('회원가입 실패되었습니다.');
                                         document.querySelector('[name=email]').value = '';
                                         document.querySelector('[name=password]').value ='';
                                         document.querySelector('[name=name]').value ='';
                                         document.querySelector('[name=phone]').value ='';
                                       } else {
-                                        alert('👊회원가입 완료👊');
+                                        alert('회원가입 완료되었습니다.');
                                         navigate("/");
                                       }
                                 });
