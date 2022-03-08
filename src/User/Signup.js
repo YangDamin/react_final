@@ -4,6 +4,10 @@ import { Form, Row, Button, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Common/Footer';
 import './Signup.css';
+// import {
+// Form
+//   } from "reactstrap";
+
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -22,6 +26,34 @@ const Signup = () => {
             setUserList(res.data);
         })
     }, []);
+
+
+    function SendData(e) {
+        e.preventDefault();
+        console.log(e);
+        console.log(e.target['1'].value);
+
+        const formData = new FormData();
+    const email = e
+      .target['1']
+      .value;
+
+      formData.append("email", email);
+
+      axios({ url: 'http://localhost:8080/users', method: 'post', data: formData }).then(
+        function (res) {
+          console.log(res.data);
+        //   Swal.fire('Registration complete!', 'return to the login screen.', 'success')
+          setTimeout(function () {
+            window.location = '/';
+          }, 500);
+  
+        }
+  
+      )
+  
+    }
+
 
     return (
         <div>
