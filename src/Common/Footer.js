@@ -2,10 +2,10 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer class="bg-dark pt-5 mt-lg-5 text-white">
+        <footer class="bg-dark pt-2 mt-lg-5 text-white">
             <div class="container">
                 <div class="row">
-                    <div class=" me-auto py-3"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">VIARY</a>
+                    <div class=" me-auto py-1"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">VIARY</a>
                         <p>(주)VIARY</p>
                         <p>서울시 금천구 가산디지털1로 168, 우림라이온스밸리 A동 한가람IT전문교육센터</p>
                         <div class="mb-4"> <a href="#" class="link-light text-decoration-none">+1 1544-0000</a> <br /> <a href="#" class="link-light text-decoration-none">hello@VIARY.com</a>
