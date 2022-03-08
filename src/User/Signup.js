@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Form, Row, Button, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../Common/Footer';
 import './Signup.css';
 
 const Signup = () => {
-
+    const navigate = useNavigate();
 
 
     return (
@@ -97,28 +98,22 @@ const Signup = () => {
                                     url : "http://localhost:8080/users/signup",
                                     method: 'post',
                                     data: formData
-                                }).then((res) => console.log(res.data));
+                                }).then((res) => {
+                                    console.log(res.data)
+                                    if (res.data.code != 200) {
+                                        alert('🤦‍♂️회원가입 승인불가🤦‍♂️');
+                                        document.querySelector('[name=email]').value = '';
+                                        document.querySelector('[name=password]').value ='';
+                                        document.querySelector('[name=name]').value ='';
+                                        document.querySelector('[name=phone]').value ='';
+                                      } else {
+                                        alert('👊회원가입 완료👊');
+                                        navigate("/");
+                                      }
+                                });
 
                             }}></input>
 
-
-                            {/* <button class="btn bg-secondary text-white flex-shrink-0 me-2" type="button" onClick={(e) => {
-                                e.preventDefault();
-                                const formData = new FormData();
-
-                                formData.append('email', document.getElementById("email").value);
-                                formData.append('pwd', document.getElementById("pwd").value);
-                                formData.append('name', document.getElementById("name").value);
-                                formData.append('phoneNum', document.getElementById("phoneNum").value);
-
-                                console.log(document.getElementById("phoneNum").value);
-                                axios({
-                                    url : "http://localhost:8080/users/signup",
-                                    method: 'post',
-                                    data: formData
-                                }).then((res) => console.log(res.data));
-
-                            }}>회원가입</button> */}
                         </div>
                     </form>
 
