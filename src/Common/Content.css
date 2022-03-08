@@ -1,0 +1,12 @@
+.main-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item{
+  min-height: 200px;
+  flex-basis: 150px;
+  flex-grow: 1;
+}
