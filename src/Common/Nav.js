@@ -4,7 +4,7 @@ import './Nav.css';
 
 const Nav = () => {
     return (
-        <div class="container">
+        <div class="container" id="nav_container">
              
               <div className="n1"><span ><a className ="nav-link" style={{'color': 'white'}} href="/" >Home</a></span></div>
               <div className="n2"><span ><a className ="nav-link" style={{'color': 'white'}} href="/" >My feed</a></span></div>
