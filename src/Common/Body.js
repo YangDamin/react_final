@@ -20,12 +20,12 @@ const Body = () => {
     return (
         <>
     <CssBaseline />
-      <Container className="content-container" fixed>
+      <Container className="content-container" >
         <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0',borderStyle:'solid',borderColor:'rgba(153, 153, 153, 1)', height: '100vh' }}>
       <Box sx={{ flexGrow: 1,mt:6 }}>
         <Grid container spacing={3}>
           <Grid item xs={4}>
-            <Item>video1</Item>
+            <Item >video1</Item>
           </Grid>
           <Grid item xs={4}>
             <Item>video2</Item>

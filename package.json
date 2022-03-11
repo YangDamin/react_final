@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.0",
     "@mui/styled-engine-sc": "^5.4.2",
@@ -17,12 +17,9 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
-<<<<<<< HEAD
     "reactstrap": "^9.0.1",
-    "sweetalert": "^2.1.2",
-=======
     "styled-components": "^5.3.3",
->>>>>>> bfbc9de7fc96e52606dbefa16fec00f7df47c9c3
+    "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
