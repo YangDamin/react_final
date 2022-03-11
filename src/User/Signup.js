@@ -3,10 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Common/Footer';
 import './Signup.css';
-// import {
-// Form
-//   } from "reactstrap";
-
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -28,35 +24,8 @@ const Signup = () => {
     }, []);
 
 
-<<<<<<< HEAD
-    function SendData(e) {
-        e.preventDefault();
-        console.log(e);
-        console.log(e.target['1'].value);
-
-        const formData = new FormData();
-    const email = e
-      .target['1']
-      .value;
-
-      formData.append("email", email);
-
-      axios({ url: 'http://localhost:8080/users', method: 'post', data: formData }).then(
-        function (res) {
-          console.log(res.data);
-        //   Swal.fire('Registration complete!', 'return to the login screen.', 'success')
-          setTimeout(function () {
-            window.location = '/';
-          }, 500);
-  
-        }
-  
-      )
-  
-=======
     const onChangeEmail = (e) => {
         setUserEmail(e.target.value);
->>>>>>> 8c90c91b427a03456cc9e324deb6b0d88141c660
     }
 
 
