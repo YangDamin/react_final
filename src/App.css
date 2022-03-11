@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* 폰트 */
+@font-face {
+  font-family: 'LeferiPoint-WhiteObliqueA';
+  src: url("./fonts/LeferiPointWhiteOblique.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LeferiPoint-WhiteA';
+  src: url("./fonts/LeferiPointWhite.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LeferiPoint-BlackA';
+  src: url("./fonts/LeferiPointBlack.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
