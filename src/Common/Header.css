@@ -1,13 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 
-.container1 {
+#logo {
     
-    text-align: left;
     margin-left: 5%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'LeferiPoint-BlackA';
     font-size: 50px;
     font-weight: bold;
-    width: '100px'
-    
-    
+}
+
+/* #SignupLogin_css{
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    text-align: right;
+    margin-right: 3%;
+    padding-right: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+} */
+
+#signup_css{
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    text-align: right;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+#login_css{
+    /* width:120px; */
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    text-align: left;
+    font-size: 15px;
+    margin-top: 20px;
 }
