@@ -15,6 +15,7 @@ const Header = () => {
                             <Link class="nav-link text-dark" to="/users/signup"><i class="bi bi-person-circle"></i> 회원가입</Link>
                         </div>
                         <div class="col-5" id="login_css">
+
                             <Link class="nav-link text-dark" to="/users/signin"><i class="bi bi-door-open-fill"></i> 로그인</Link>
                         </div>
                     </div>

@@ -1,12 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import Header from "../Common/Header";
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Common/Footer';
 import './Signin.css';
 import {
   CardHeader,
   Button,
+  Form,
+  FormGroup,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Input,
 }
   from 'reactstrap';
 
@@ -34,8 +40,8 @@ const Signin = () => {
 
   function KakaoClick(e) {
     e.preventDefault();
-    window.location.href = "https://kauth.kakao.com/oauth/authorize?client_id=bb1062f029aa6ff58bbe4fc11289" +
-      "458c&redirect_uri=http://localhost:3000/&response_type=code"
+    window.location.href = "https://kauth.kakao.com/oauth/authorize?client_id=04c9a760d057d6ccbc3cdb399201" +
+      "c2a3&redirect_uri=http://localhost:3000/&response_type=code"
 
   }
 
@@ -57,7 +63,7 @@ const Signin = () => {
     formData.append("email", email);
     formData.append("pwd", pwd);
 
-    axios({ url: 'http://localhost:8080/api/log', method: 'post', data: formData }).then(
+    axios({ url: 'http://localhost:8080/log', method: 'post', data: formData }).then(
       function (res) {
         console.log(res.data);
 
@@ -66,8 +72,9 @@ const Signin = () => {
             sessionStorage.setItem('Managername', res.data.name);
             // Swal.fire({ icon: 'success', title: 'Good!', text: 'Login complete!' })
 
+            //사용자 계정
             setTimeout(function () {
-              window.location = '/Manager/index';
+              window.location = '/';
             }, 1000);
 
           } else {
@@ -90,25 +97,50 @@ const Signin = () => {
   }
 
   return (
+    <>
+    <Header/>
     <div>
       <div class="container" id="signup_container">
         <h3 class="h3 mt-5 mb-4">로그인</h3>
         <hr class="border-dark mt-5 mb-4" />
 
         <div class="row" style={{ textAlign: 'left' }}>
-          <form>
-            {/* 이메일 */}
+        <Form role="form" onSubmit={SendData}>
+          {/* <form> */}
+
+
             <div class="form-group mb-3">
               <div class="row">
                 <div class="col-3 text-left">
                   <label>이메일</label><span style={{ color: 'red' }}> *</span>
                 </div>
                 <div class="col-6">
-                  <input class="form-control" type="email" name="email" id="email" placeholder="@까지 정확하게 입력해주세요." required />
+             {/* 이메일 */}
+            <FormGroup>
+            <InputGroup>
+              {/* <InputGroupAddon addonType="prepend"> */}
+                <InputGroupText>
+                  <i className="ni ni-email-83" />
+                </InputGroupText>
+              {/* </InputGroupAddon> */}
+              <Input
+                placeholder="Email"
+                type="email"
+                id="email"
+                name="email"
+                autoComplete="new-email" />
+            </InputGroup>
+          </FormGroup>
                 </div>
 
               </div>
             </div>
+
+
+
+
+
+            
 
             {/* 비밀번호 */}
             <div class="form-group mb-3">
@@ -117,55 +149,40 @@ const Signin = () => {
                   <label>비밀번호</label><span style={{ color: 'red' }}> *</span>
                 </div>
                 <div class="col-6">
-                  <input class="form-control" type="password" name="password" id="pwd" placeholder="비밀번호를 입력해주세요." required />
+                <FormGroup>
+            <InputGroup>
+              {/* <InputGroupAddon addonType="prepend"> */}
+                <InputGroupText>
+                  <i className="ni ni-lock-circle-open" />
+                </InputGroupText>
+              {/* </InputGroupAddon> */}
+              <Input
+                placeholder="Password"
+                type="password"
+                id="pwd"
+                name="pwd"
+                autoComplete="new-password" />
+            </InputGroup>
+          </FormGroup>
                 </div>
               </div>
             </div>
 
             <div style={{ textAlign: 'center' }}>
-              <input type="submit" value="로그인" class="btn bg-secondary text-white flex-shrink-0 me-2"
-                onClick={(e) => {
-
-                  const formData = new FormData();
-                  //OOO님 안녕하세요!,로그인 성공이면 main페이지
-                  //잘못된 정보를 입력하셨습니다. 로그인 실패하면 signin페이지
-                  const email = document.getElementById("email").value;
-                  const password = document.getElementById("password").value;
-                  formData.append("email", email);
-                  formData.append("password", password);
-                  const result = axios({
-                    url: 'http://localhost:8080/users/signin',
-                    method: 'post',
-                    data: formData
-                  });
-                  result.then((res) => {
-                    const result = res.data;
-                    if (result.code == 200) {
-                      //로그인 성공하였을 때, SessionStorage에 값 넣고 
-                      sessionStorage.setItem("userId", result.user.id);
-                      sessionStorage.setItem("email", result.user.email);
-                      sessionStorage.setItem("password", result.user.password);
-                      console.log(sessionStorage.getItem("userId"), sessionStorage.getItem("email"), sessionStorage.getItem("pwd"));
-                      alert(result.msg);
-                      navigate("/");
-                    } else if (result.code == 400) {
-                      alert(result.msg);
-                      document.getElementById("email").value = "";
-                      document.getElementById("password").value = "";
-                    }
-                  });
-                }}></input>
-
+            <Button className="my-4" color="primary" type="submit">
+             로그인
+            </Button>
 
               <a class="btn bg-secondary text-white flex-shrink-0 me-2" href="/users/signup">
                 <small>회원가입</small>
               </a>
 
-
-
-
-
             </div>
+
+
+
+
+
             <CardHeader className="bg-transparent">
                 <div className="text-muted text-center mt-2 mb-3">
                   <small>Sign in with</small>
@@ -205,10 +222,10 @@ const Signin = () => {
                   </Button>
                 </div>
               </CardHeader>
-          </form>
+          {/* </form> */}
 
           
-
+          </Form>
         </div>
 
         
@@ -216,7 +233,7 @@ const Signin = () => {
 
     </div>
 
-    
+    </>
   );
 }
 
