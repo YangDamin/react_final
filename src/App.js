@@ -21,10 +21,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<Main></Main>}></Route> */}
-          <Route path="/" element={<Main/>}></Route>
-          <Route path="/users/signup" element={<SignupFinal/>}></Route>
-          <Route path="/users/signin" element={<SigninFinal/>}></Route>
-          <Route path="/users/logout" element={<Logout/>}></Route>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/myfeed" element={<MyFeed />}></Route>
+          <Route path="/like" element={<Like />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/calendar" element={<Calendar />}></Route>
+          <Route path="/users/signup" element={<SignupFinal />}></Route>
+          <Route path="/users/signin" element={<SigninFinal />}></Route>
+          <Route path="/users/logout" element={<Logout />}></Route>
         </Routes>
       </BrowserRouter>
 
