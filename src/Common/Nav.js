@@ -1,20 +1,27 @@
-import React from 'react';
+// import React, { useState } from 'react';
+import { getValue } from '@testing-library/user-event/dist/utils';
 import './Nav.css';
+import React from 'react';
 
 
 const Nav = () => {
+
+  
     return (
+
+      // <input className='input' onClick={getValue} />
         <div class="container" id="nav_container">
-             
-              <div className="n1"><span ><a className ="nav-link" style={{'color': 'white'}} href="/" >Home</a></span></div>
-              <div className="n2"><span ><a className ="nav-link" style={{'color': 'white'}} href="/" >My feed</a></span></div>
-              <div className="n3"><span ><a className ="nav-link" style={{'color': 'white'}} href="/" >Like</a></span></div>
-              <div className="n4"><span ><a className="nav-link" style={{'color': 'white'}} href="/">My Page</a></span></div>
-              <div className="n5"><span ><a className="nav-link" style={{'color': 'white'}} href="/">Calendar</a></span></div>
-              <div className="n6"><span ><a className="nav-link" style={{'color': 'white'}} href="/" >Log Out</a></span></div>
+
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/" >Home</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/myfeed" >My feed</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/like" >Like</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/mypage">My Page</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/calendar">Calendar</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/" >Log Out</a></div>
 
         </div>
     );
 }
+
 
 export default Nav;

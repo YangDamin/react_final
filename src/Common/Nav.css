@@ -6,98 +6,34 @@
     font-family: 'Roboto', sans-serif;
     justify-content: center;
     align-items: center;
-
-
-}
-
-.n1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: gray;
-    height: 40px;
-    width: 70px;
-    border-radius: 15px 15px 0px 0px;
-    color: white;
-    text-align: center;
-    margin: 0.4rem;
-    font-size: small;
-    text-decoration-line: none;;
     
-
 }
-.n2{
+
+.nav{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: gray;
     height: 40px;
-    width: 70px;
-    border-radius: 15px 15px 0px 0px;
-    color: white;
+    width: 90px;
+    border-radius: 13px 13px 0px 0px;
     margin: 0.4rem;
-    font-size: small;
-    text-transform: auto;
+    margin-bottom: 0%;
 }
 
-.n3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: gray;
-    height: 40px;
-    width: 70px;
-    border-radius: 15px 15px 0px 0px;
-    color: white;
-    margin: 0.4rem;
-    font-size: small;
-    text-align: auto;
-}
-
-.n4{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: gray;
-    height: 40px;
-    width: 70px;
-    border-radius: 15px 15px 0px 0px;
-    color: white;
-    text-align: auto;
-    margin: 0.4rem;
+#menu {
+    flex: none;
     font-size: small;
 }
 
-.n5{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: gray;
-    height: 40px;
-    width: 70px;
-    border-radius: 15px 15px 0px 0px;
-    color: white;
-    margin: 0.4rem;
-    font-size: small;
-    text-align: auto;
+.nav .blue{
+    background-color: rgb(65, 65, 219);
 }
 
-.n6{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: gray;
-    height: 40px;
-    width: 70px;
-    border-radius: 15px 15px 0px 0px;
-    color: white;
-    text-align: center;
-    margin: 0.4rem;
-    font-size: small;
+/* .clicked{
+    background-color: rgb(65, 65, 219);
+} */
 
-}
-
-.a{
-    text-decoration: none;
-}
-
+/* .nav:checked + label{
+    background-color: rgb(65, 65, 219);
+} */
