@@ -22,6 +22,7 @@
     text-align: right;
     font-size: 15px;
     margin-top: 20px;
+    font-weight: bold;
 }
 
 #login_css{
@@ -30,4 +31,5 @@
     text-align: left;
     font-size: 15px;
     margin-top: 20px;
+    font-weight: bold;
 }

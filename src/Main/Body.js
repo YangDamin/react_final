@@ -1,5 +1,4 @@
 import React from 'react';
-import './Header.css';
 import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";

@@ -9,20 +9,31 @@
     
 }
 
-.clicked {
-    background-color: rgb(69, 69, 240);
-    color: white;
-}
-
-.nav-item{
-    display: inline-block;
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: gray;
     height: 40px;
-    width: 70px;
-    border-radius: 15px 15px 0px 0px;
-    color: white;
-    text-align: center;
+    width: 90px;
+    border-radius: 13px 13px 0px 0px;
     margin: 0.4rem;
-    font-size: small;
     margin-bottom: 0%;
 }
+
+#menu {
+    flex: none;
+    font-size: small;
+}
+
+.nav .blue{
+    background-color: rgb(65, 65, 219);
+}
+
+/* .clicked{
+    background-color: rgb(65, 65, 219);
+} */
+
+/* .nav:checked + label{
+    background-color: rgb(65, 65, 219);
+} */
