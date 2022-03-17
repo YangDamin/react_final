@@ -18,7 +18,7 @@
 } */
 
 #signup_css{
-    font-family: 'LeferiPoint-WhiteObliqueA';
+    font-family: 'LeferiPoint-WhiteA';
     text-align: right;
     font-size: 15px;
     margin-top: 20px;
@@ -26,7 +26,7 @@
 
 #login_css{
     /* width:120px; */
-    font-family: 'LeferiPoint-WhiteObliqueA';
+    font-family: 'LeferiPoint-WhiteA';
     text-align: left;
     font-size: 15px;
     margin-top: 20px;

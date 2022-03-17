@@ -4,6 +4,8 @@ import Signin from './User/Signin';
 import './App.css';
 import Main from './Main/Main';
 import SignupFinal from './User/SignupFinal';
+import SigninFinal from './User/SigninFinal';
+import Logout from './User/Logout';
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
           {/* <Route path="/" element={<Main></Main>}></Route> */}
           <Route path="/" element={<Main/>}></Route>
           <Route path="/users/signup" element={<SignupFinal/>}></Route>
-          <Route path="/users/signin" element={<Signin/>}></Route>
+          <Route path="/users/signin" element={<SigninFinal/>}></Route>
+          <Route path="/users/logout" element={<Logout/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
