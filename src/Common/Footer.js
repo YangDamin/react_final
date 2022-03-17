@@ -1,9 +1,10 @@
 import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
     return (
-        <footer class="bg-dark pt-2 mt-lg-5 text-white">
-            <div class="container">
+        <footer class="bg-dark pt-5 mt-lg-5 text-white">
+            <div class="container" id="footer_container">
                 <div class="row">
                     <div class=" me-auto py-1"> <a href="#" class="d-inline-block fw-bold h2 link-light mb-4 text-decoration-none text-uppercase" target="_pg_blank">VIARY</a>
                         <p>(주)VIARY</p>
