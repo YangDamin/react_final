@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+#nav_container {
+    display: flex;
+    flex: auto;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    height: 40px;
+    width: 90px;
+    border-radius: 13px 13px 0px 0px;
+    margin: 0.4rem;
+    margin-bottom: 0%;
+}
+
+#menu {
+    flex: none;
+    font-size: small;
+}
+
+.nav .blue{
+    background-color: rgb(65, 65, 219);
+}
+
+/* .clicked{
+    background-color: rgb(65, 65, 219);
+} */
+
+/* .nav:checked + label{
+    background-color: rgb(65, 65, 219);
+} */
