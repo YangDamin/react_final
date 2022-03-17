@@ -57,7 +57,7 @@ const Signin = () => {
     formData.append("email", email);
     formData.append("pwd", pwd);
 
-    axios({ url: 'http://localhost:8080/api/log', method: 'post', data: formData }).then(
+    axios({ url: 'http://localhost:8080/api', method: 'post', data: formData }).then(
       function (res) {
         console.log(res.data);
 

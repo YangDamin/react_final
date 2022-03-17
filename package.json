@@ -21,10 +21,7 @@
     "reactstrap": "^9.0.1",
     "styled-components": "^5.3.3",
     "sweetalert": "^2.1.2",
-<<<<<<< HEAD
-=======
     "sweetalert2": "^11.4.4",
->>>>>>> 148d7f1a4cd98add58c997858093dbe831f5111c
     "web-vitals": "^2.1.4"
   },
   "scripts": {
