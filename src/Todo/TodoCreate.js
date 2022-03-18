@@ -101,6 +101,11 @@ function TodoCreate() {
     nextId.current += 1;
   };
 
+  const onClick = (e) => {
+    e.preventDefault();
+
+  }
+
   return (
     <>
      {open && (
@@ -111,6 +116,7 @@ function TodoCreate() {
               placeholder="할 일을 입력 후, Enter 를 누르세요"
               onChange={onChange}
               value={value}
+              onClick={onClick}
             />
           </InsertForm>
         </InsertFormPositioner>
