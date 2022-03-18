@@ -13,6 +13,7 @@ const Nav = () => {
         <div class="container" id="nav_container">
 
             <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/" >Home</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/write" >Write</a></div>
             <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/myfeed" >My feed</a></div>
             <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/like" >Like</a></div>
             <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/mypage">My Page</a></div>
