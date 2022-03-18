@@ -73,8 +73,10 @@ const Signin = () => {
                   const email = document.getElementById("email").value;
                   const password = document.getElementById("password").value;
                   
+                  
                   formData.append("email", email);
                   formData.append("pwd", password);
+                 
 
                   axios({
                     url: 'http://localhost:8080/users/signin',
@@ -87,6 +89,8 @@ const Signin = () => {
                       sessionStorage.setItem("email", result.user.email);
                       sessionStorage.setItem("password", result.user.pwd);
                       sessionStorage.setItem("name", result.user.name);
+                    
+
                       
                       Swal.fire(
                         '',

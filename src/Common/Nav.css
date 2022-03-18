@@ -19,11 +19,13 @@
     border-radius: 13px 13px 0px 0px;
     margin: 0.4rem;
     margin-bottom: 0%;
+    
 }
 
 #menu {
     flex: none;
     font-size: small;
+    
 }
 
 .nav .blue{
