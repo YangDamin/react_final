@@ -1,13 +1,9 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Signin from './User/Signin';
 import './App.css';
+
 import Main from './Main/Main';
 import SignupFinal from './User/SignupFinal';
-import Header from './Common/Header';
-import Nav from './Common/Nav';
-import Body from './Main/Body';
-import Footer from './Common/Footer';
 import MyFeed from './Main/MyFeed';
 import Like from './Main/Like';
 import MyPage from './Main/MyPage';
