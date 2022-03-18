@@ -2,15 +2,15 @@
 .videoCard_thubmnail{
   height: 270px;
   width: 270px;
-};
+}
 
 .video_title{
-  color: rgba(49, 141, 251, 1);
+  color: rgb(49, 141, 251, 1);
   font-weight: bold;
-  font-size: 20pt;
-};
+  font-size: 12pt;
+}
 .video_viewcount_timestamp{
   color:rgb(151, 151, 151);
   font-weight: normal;
   font-size: 10pt;
-};
+}
