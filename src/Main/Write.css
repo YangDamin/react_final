@@ -1,0 +1,25 @@
+.button{
+
+    background-color: white;
+    color: black;
+    border: 2px solid  #008CBA;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 20px;
+    font-family: 'LeferiPoint-WhiteA';
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#content.form-control{
+    margin-top: 15px;
+    border: 2px solid   #008CBA;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+/* 
+.form-group{
+    font-family: 'LeferiPoint-WhiteA';
+    font-weight: bold;
+    font-size: 20px;
+} */

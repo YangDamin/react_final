@@ -5,8 +5,9 @@ import './App.css';
 import Main from './Main/Main';
 import SignupFinal from './User/SignupFinal';
 import MyFeed from './Main/MyFeed';
+import Write from './Main/Write';
 import Like from './Main/Like';
-import MyPage from './Main/MyPage';
+import MyPage from './User/MyPage';
 import Calendar from './Main/Calendar';
 import SigninFinal from './User/SigninFinal';
 import Logout from './User/Logout';
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Main></Main>}></Route> */}
           <Route path="/" element={<Main />}></Route>
+          <Route path="/write" element={<Write />}></Route>
           <Route path="/myfeed" element={<MyFeed />}></Route>
           <Route path="/like" element={<Like />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>

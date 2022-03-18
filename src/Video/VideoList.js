@@ -8,10 +8,10 @@ import Container, { containerClasses } from "@mui/material/Container";
 const VideoList = () => {
   return (
     <>
-      <Container className = "video_content">
-      <Box classNAme="item" sx={{ flexGrow: 1 ,mt: 8,px:12 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
+      {/* <Container className = "video_content"> */}
+      <Box classNAme="item" sx={{ flexGrow: 1 ,mt: 8,px:5}}>
+        <Grid container spacing={12}>
+          <Grid item col-xs={4}>
             <VideoCards
               title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
               views="12.3M Views "
@@ -19,7 +19,7 @@ const VideoList = () => {
               image="../assets/img/thumbnail.png"
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item col-xs={4}>
             <VideoCards
               title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
               views="12.3M Views "
@@ -27,7 +27,7 @@ const VideoList = () => {
               image="../assets/img/thumbnail.png"
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item col-xs={4}>
             <VideoCards
               title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
               views="12.3M Views "
@@ -35,7 +35,7 @@ const VideoList = () => {
               image="../assets/img/thumbnail.png"
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item col-xs={4}>
             <VideoCards
               title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
               views="12.3M Views "
@@ -43,7 +43,7 @@ const VideoList = () => {
               image="../assets/img/thumbnail.png"
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item col-xs={4}>
             <VideoCards
               title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
               views="12.3M Views "
@@ -51,7 +51,7 @@ const VideoList = () => {
               image="../assets/img/thumbnail.png"
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item col-xs={4}>
             <VideoCards
               title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
               views="12.3M Views "
@@ -61,7 +61,7 @@ const VideoList = () => {
           </Grid>
         </Grid>
       </Box>
-      </Container>
+      {/* </Container> */}
     </>
   );
 };

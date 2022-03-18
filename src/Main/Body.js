@@ -8,20 +8,20 @@ import Container from "@mui/material/Container";
 import VideoList from '../Video/VideoList';
 
 
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-//   ...theme.typography.body2,
-//   padding: theme.spacing(14),
-//   textAlign: "center",
-//   color: theme.palette.text.secondary,
-// }));
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(14),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
 
 
 const Body = () => {
     return (
       <>
         <CssBaseline />
-        <Container className="content-container" fixed>
+        <Container className="content-container">
           <Box
             sx={{
               bgcolor: "rgba(238, 238, 238, 1)",
@@ -29,7 +29,7 @@ const Body = () => {
               borderWidth: "thin",
               borderStyle: "solid",
               borderColor: "rgba(153, 153, 153, 1)",
-              height: "80vh",
+              height: "130vh",
             }}
           >
             <VideoList></VideoList>
