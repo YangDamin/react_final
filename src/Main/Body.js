@@ -21,7 +21,7 @@ const Body = () => {
     return (
       <>
         <CssBaseline />
-        <Container className="content-container" fixed>
+        <Container className="content-container">
           <Box
             sx={{
               bgcolor: "rgba(238, 238, 238, 1)",
@@ -29,7 +29,11 @@ const Body = () => {
               borderWidth: "thin",
               borderStyle: "solid",
               borderColor: "rgba(153, 153, 153, 1)",
+<<<<<<< HEAD
               height: "130vh",
+=======
+              height: "100vh",
+>>>>>>> sjw
             }}
           >
             <VideoList></VideoList>
