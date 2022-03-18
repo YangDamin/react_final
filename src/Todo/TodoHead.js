@@ -13,6 +13,7 @@ const TodoHeadBlock = styled.div`
     font-size: 18px;
     color: #343a40;
     font-weight: bold;
+    
   }
   .day {
     margin-top: 4px;
