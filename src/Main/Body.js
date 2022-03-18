@@ -29,11 +29,7 @@ const Body = () => {
               borderWidth: "thin",
               borderStyle: "solid",
               borderColor: "rgba(153, 153, 153, 1)",
-<<<<<<< HEAD
               height: "130vh",
-=======
-              height: "100vh",
->>>>>>> sjw
             }}
           >
             <VideoList></VideoList>
