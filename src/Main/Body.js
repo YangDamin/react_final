@@ -21,7 +21,7 @@ const Body = () => {
     return (
       <>
         <CssBaseline />
-        <Container className="content-container" fixed>
+        <Container className="content-container">
           <Box
             sx={{
               bgcolor: "rgba(238, 238, 238, 1)",
