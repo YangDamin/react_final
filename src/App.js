@@ -27,6 +27,7 @@ function App() {
           <Route path="/users/signup" element={<SignupFinal />}></Route>
           <Route path="/users/signin" element={<SigninFinal />}></Route>
           <Route path="/users/logout" element={<Logout />}></Route>
+          <Route path="/oauth/kakao"element={<Main />}></Route>
         </Routes>
       </BrowserRouter>
 

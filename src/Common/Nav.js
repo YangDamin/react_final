@@ -28,6 +28,10 @@ const Nav = () => {
         <div class="container" id="nav_container">
 
             <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/" >Home</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/write"  onClick={ (e) => {
+                e.preventDefault();
+                loginStart("write");
+                }}>Write</a></div>
             <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/myfeed" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("myfeed");
@@ -44,7 +48,7 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("calendar");
             }}>Calendar</a></div>
-
+            
         </div>
     );
 }

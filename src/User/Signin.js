@@ -24,7 +24,7 @@ const Signin = () => {
   function KakaoClick(e) {
     e.preventDefault();
     window.location.href = "https://kauth.kakao.com/oauth/authorize?client_id=04c9a760d057d6ccbc3cdb399201" +
-      "c2a3&redirect_uri=http://localhost:3000/&response_type=code"
+      "c2a3&redirect_uri=http://localhost:3000/oauth/kakao&response_type=code"
 
   }
 
@@ -116,15 +116,6 @@ const Signin = () => {
                   
                 }}></input>
 
-
-              <a class="btn bg-secondary text-white flex-shrink-0 me-2" href="/users/signup">
-                <small>회원가입</small>
-              </a>
-
-
-
-
-
             </div>
             <CardHeader className="bg-transparent">
               <div className="text-muted text-center mt-2 mb-3">
@@ -147,8 +138,10 @@ const Signin = () => {
                   <span className="btn-inner--text">Github</span>
                 </Button>
 
+
+
                 {/* Kakao Login */}
-                <Button
+                {/* <Button
                   className="btn-neutral btn-icon"
                   color="default"
                   href="#pablo"
@@ -162,9 +155,18 @@ const Signin = () => {
                   <span className="btn-inner--text">
                     Kakao
                   </span>
-                </Button>
+                </Button> */}
+                <a class="btn-neutral btn-icon" href="https://kauth.kakao.com/oauth/authorize?client_id=04c9a760d057d6ccbc3cdb399201c2a3&redirect_uri=http://localhost:3000/oauth/kakao&response_type=code">
+                <img
+                      alt="..."
+                      src={require("../assets/img/KakaoTalk_logo.svg").default
+                      } />
+</a>
               </div>
             </CardHeader>
+
+
+            
           </form>
 
 
