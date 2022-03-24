@@ -16,8 +16,9 @@
     align-items:center;
     margin-top: 6%;
     margin-bottom: 6%;
+/*       */
   }
-
+  
   .video_item{
     display: flex;
     justify-content: center;
