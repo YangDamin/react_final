@@ -6,6 +6,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import VideoList from '../Video/VideoList';
+import './Body.css';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -22,13 +23,15 @@ const Body = () => {
       <>
         <CssBaseline />
         <Container className="content-container">
-          <Box
+          <Box className="video_items"
             sx={{
+              display: 'inline-block',
               bgcolor: "rgba(238, 238, 238, 1)",
               borderRadius: "40px 40px 0 0",
               borderWidth: "thin",
               borderStyle: "solid",
               borderColor: "rgba(153, 153, 153, 1)",
+              textAlign:'center',
             }}
             
             // col-6
