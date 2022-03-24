@@ -29,8 +29,14 @@ const Body = () => {
               borderWidth: "thin",
               borderStyle: "solid",
               borderColor: "rgba(153, 153, 153, 1)",
-              height: "130vh",
             }}
+            
+            // col-6
+            // col-sm-6
+            // col-md-4
+            // col-lg-4
+            // col-xl-4
+            // col-xxl-4
           >
             <VideoList></VideoList>
           </Box>
