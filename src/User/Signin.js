@@ -89,6 +89,7 @@ const Signin = () => {
                       sessionStorage.setItem("email", result.user.email);
                       sessionStorage.setItem("password", result.user.pwd);
                       sessionStorage.setItem("name", result.user.name);
+                      sessionStorage.setItem("phoneNum", result.user.phoneNum);
                     
 
                       
