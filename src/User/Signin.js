@@ -37,33 +37,32 @@ const Signin = () => {
 
         <div class="row" style={{ textAlign: 'left' }}>
           <form>
-            {/* 이메일 */}
-            <div class="form-group mb-3">
-              <div class="row">
-                <div class="col-3 text-left">
-                  <label>이메일</label><span style={{ color: 'red' }}> *</span>
+
+            <div class="row">
+              {/* 이메일, 비번 label */}
+              <div class="col-3">
+                <div class="row" style={{ "marginBottom": "2rem" }}>
+                  <label>이메일<span style={{ color: 'red' }}> *</span></label>
                 </div>
-                <div class="col-6">
+                <div class="row">
+                  <label>비밀번호<span style={{ color: 'red' }}> *</span></label>
+                </div>
+              </div>
+
+              {/* 이메일, 비번 input */}
+              <div class="col-6">
+                <div class="row mb-3">
                   <input class="form-control" type="email" name="email" id="email" placeholder="@까지 정확하게 입력해주세요." required />
                 </div>
-
-              </div>
-            </div>
-
-            {/* 비밀번호 */}
-            <div class="form-group mb-3">
-              <div class="row">
-                <div class="col-3 text-left">
-                  <label>비밀번호</label><span style={{ color: 'red' }}> *</span>
-                </div>
-                <div class="col-6">
+                <div class="row">
                   <input class="form-control" type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요." required />
                 </div>
               </div>
-            </div>
 
-            <div style={{ textAlign: 'center' }}>
-              <input type="submit" value="로그인" class="btn bg-secondary text-white flex-shrink-0 me-2"
+              {/* 로그인 button */}
+              <div class="col-3">
+                <div class="row">
+                <input type="submit" value="로그인" class="btn bg-secondary text-white flex-shrink-0 me-2" style={{"height":"5.7rem","width":"7rem","marginLeft":"2rem"}}
                 onClick={(e) => {
                   e.preventDefault();
 
@@ -72,11 +71,11 @@ const Signin = () => {
                   //잘못된 정보를 입력하셨습니다. 로그인 실패하면 signin페이지
                   const email = document.getElementById("email").value;
                   const password = document.getElementById("password").value;
-                  
-                  
+
+
                   formData.append("email", email);
                   formData.append("pwd", password);
-                 
+
 
                   axios({
                     url: 'http://localhost:8080/users/signin',
@@ -89,18 +88,17 @@ const Signin = () => {
                       sessionStorage.setItem("email", result.user.email);
                       sessionStorage.setItem("password", result.user.pwd);
                       sessionStorage.setItem("name", result.user.name);
-                      sessionStorage.setItem("phoneNum", result.user.phoneNum);
-                    
 
-                      
+
+
                       Swal.fire(
                         '',
                         '로그인 성공',
                         'success'
                       )
-                    setTimeout(function(){
+                      setTimeout(function () {
                         window.location = '/';
-                    },2000)
+                      }, 2000)
 
                     } else if (result.code == 400) {
                       Swal.fire({
@@ -110,23 +108,20 @@ const Signin = () => {
                       document.getElementById("email").value = "";
                       document.getElementById("password").value = "";
                     }
-                  }).catch( (error) => {
+                  }).catch((error) => {
                     console.log(error);
                   })
 
-                  
+
                 }}></input>
-
-
-              <a class="btn bg-secondary text-white flex-shrink-0 me-2" href="/users/signup">
-                <small>회원가입</small>
-              </a>
-
-
-
-
+                </div>
+              </div>
 
             </div>
+
+
+            
+
             <CardHeader className="bg-transparent">
               <div className="text-muted text-center mt-2 mb-3">
                 <small>Sign in with</small>
@@ -171,7 +166,6 @@ const Signin = () => {
 
 
         </div>
-
 
       </div>
 

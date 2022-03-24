@@ -12,7 +12,7 @@ const Header = () => {
                 <div class="col-3">
                     <div class="row">
                         <div class="col-7" id="signup_css">
-                            <Link class="nav-link text-dark" to={sessionStorage.getItem("email") ? "/" : "/users/signup"} >     {/* 마이페이지로 가게끔 수정하기! */}
+                            <Link class="nav-link text-dark" to={sessionStorage.getItem("email") ? "/mypage" : "/users/signup"} >     {/* 마이페이지로 가게끔 수정하기! */}
                                 <i class="bi bi-person-circle"></i> {sessionStorage.getItem("email") ? sessionStorage.getItem("name") + "님" : "회원가입"}</Link>
                         </div>
                         <div class="col-5" id="login_css">
