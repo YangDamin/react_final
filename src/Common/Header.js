@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import Search from './Search';
 
 const Header = () => {
     return (
@@ -21,6 +22,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
+                <Search />
             </div>
 
         </div>
