@@ -34,18 +34,19 @@ const MyFeed = () => {
             <CssBaseline />
             <Container className="content-container" >
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
-              
-                       <TodoProvider>
-                            {/* <GlobalStyles /> */}
-                            {/* <Todo>
+                    <div className='container' id='myfeed'>
+                    </div>
+                    <TodoProvider>
+                        {/* <GlobalStyles /> */}
+                        {/* <Todo>
                             <div>TO-DO List</div>
                         </Todo> */}
-                            <TodoTemplate>
-                                <TodoHead />
-                                <TodoList />
-                                <TodoCreate />
-                            </TodoTemplate>
-                        </TodoProvider>
+                        <TodoTemplate>
+                            <TodoHead />
+                            <TodoList />
+                            <TodoCreate />
+                        </TodoTemplate>
+                    </TodoProvider>
                 </Box>
             </Container>
             <Footer></Footer>

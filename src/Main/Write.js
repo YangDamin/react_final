@@ -26,7 +26,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
+
 const Write = () => {
+
+    const[writeContent, setWriteContent] = useState({
+        title: '',
+        content:''
+    })
+
+    const[viewContent, setViewContent] = useState([]);
+
+    const getValue = e =>{
+        const {name, value} = e.target;
+        setWriteContent({
+            ...writeContent, [name]: value
+        })
+        console.log(writeContent);
+    }
     return (
         <>
             <Header></Header>
@@ -36,7 +52,15 @@ const Write = () => {
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper'>
-                            <input className="title-input" type='text' placeholder='제목' />
+                        {viewContent.map(element =>
+                            <div>
+                                <h2>{element.title}</h2>
+                                <div>
+                                    {element.content}
+                                </div>
+                            </div>)}
+                            <input className="title-input" type='text' placeholder='제목'
+                             onChange={getValue} name='title'/>
                             <CKEditor
                                 editor={ClassicEditor}
                                 styled={{'width':'80%'}}
@@ -48,6 +72,10 @@ const Write = () => {
                                 onChange={(event, editor) => {
                                     const data = editor.getData();
                                     console.log({ event, editor, data });
+                                    setWriteContent({
+                                        ...writeContent, content: data
+                                    })
+                                    console.log(writeContent);
                                 }}
                                 onBlur={(event, editor) => {
                                     console.log('Blur.', editor);
@@ -57,7 +85,10 @@ const Write = () => {
                                 }}
                             />
                         </div>
-                        <button className="submit-button">입력</button>
+                        <button className="submit-button"
+                        onClick={() => {
+                            setViewContent(viewContent.concat({...writeContent}));
+                        }}>입력</button>
 
                     </Box>
                 </Box>
