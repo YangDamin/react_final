@@ -67,3 +67,10 @@ a.btn-icon-only {
     white-space: nowrap;
     text-overflow: ellipsis;
     vertical-align: middle; }
+
+#findcss{
+  text-decoration: none;
+  display: flex;
+  font-size: 13px;
+  color: black;
+}

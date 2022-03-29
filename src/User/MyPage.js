@@ -143,7 +143,7 @@ const MyPage = () => {
                                     <label>휴대폰번호</label>
                                 </div>
                                 <div>
-                                    {sessionStorage.getItem('phoneNum')}
+                                    {sessionStorage.getItem('phone')}
                                 </div>
                             </div>
 
@@ -163,7 +163,6 @@ const MyPage = () => {
                                         {/* 모달창 */}
                                         <Modal show={newPWshow} onHide={handleClose} style={modalStyle} size="md">
                                             <Modal.Header closeButton>
-                                                {/* <Modal.Title><img src="./img/인조이.PNG" width="100px"></img></Modal.Title> */}
                                             </Modal.Header>
                                             <Modal.Body>
                                                 <h3 style={{ "fontWeight": "bold", "marginBottom": "2rem", "marginTop": "2rem" }}>비밀번호 변경하기</h3>

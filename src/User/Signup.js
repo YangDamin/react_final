@@ -114,7 +114,7 @@ const Signup = () => {
                         <hr class="border-dark mt-5" />
 
                         {/* 이용약관동의 */}
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-5">
                             <div class="row">
                                 <div class="col-3 text-left">
                                     <label>이용약관동의</label><span style={{ color: 'red' }}> *</span>
@@ -177,7 +177,7 @@ const Signup = () => {
                                         formData.append('email', document.getElementById("email").value);
                                         formData.append('pwd', document.getElementById("pwd").value);
                                         formData.append('name', document.getElementById("name").value);
-                                        formData.append('phoneNum', document.getElementById("phoneNum").value);
+                                        formData.append('phone', document.getElementById("phoneNum").value);
 
                                         axios({
                                             url: "http://localhost:8080/users/signup",
