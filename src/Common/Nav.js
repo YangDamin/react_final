@@ -32,6 +32,10 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("myfeed");
             }}>My feed</a></div>
+            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/write" onClick={ (e) => {
+                e.preventDefault();
+                loginStart("write");
+            }}>Write</a></div>
             <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/like" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("like");

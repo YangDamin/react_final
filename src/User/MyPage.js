@@ -57,7 +57,7 @@ const MyPage = () => {
         if (CheckPass(document.getElementById("newpw").value)) {
 
             // 현재 비밀번호와 변경 비밀번호가 같으면 변경 안되게
-            if (sessionStorage.getItem("password") === document.getElementById("newpw").value) {
+            if (sessionStorage.getItem("password") == document.getElementById("newpw").value) {
                 Swal.fire({
                     icon: 'error',
                     text: '동일한 비밀번호 입니다. 새로운 비밀번호를 입력해주세요.'

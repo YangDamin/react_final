@@ -3,7 +3,7 @@
 #logo {
     
     margin-left: 5%;
-    font-family: 'LeferiPoint-BlackA';
+    font-family: 'SuncheonB';
     font-size: 50px;
     font-weight: bold;
 }
@@ -18,18 +18,18 @@
 } */
 
 #signup_css{
-    font-family: 'LeferiPoint-WhiteA';
+    font-family: 'SuncheonB';
     text-align: right;
     font-size: 15px;
     margin-top: 20px;
-    font-weight: bold;
+   
 }
 
 #login_css{
     /* width:120px; */
-    font-family: 'LeferiPoint-WhiteA';
+    font-family: 'SuncheonB';
     text-align: left;
     font-size: 15px;
     margin-top: 20px;
-    font-weight: bold;
+    
 }
