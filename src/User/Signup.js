@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 
 const Signup = () => {
-    const navigate = useNavigate();
+    
     const [userEmail, setUserEmail] = useState("");
     const [userPw, setUserPw] = useState("");
     const [userPhone, setUserPhone] = useState("");
@@ -33,12 +33,7 @@ const Signup = () => {
         return (reg1.test(str) && reg2.test(str) && reg3.test(str));
     };
 
-    // 전화번호 조합
-    function CheckPhone(str) {
-        var reg3 = /^[0-9]/g;
-        return (reg3.test(str));
-    };
-
+    
     return (
         <div>
             <div class="container" id="signup_container">
