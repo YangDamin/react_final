@@ -10,20 +10,18 @@ const Signin = () => {
 
 
 
-  function GithubClick(e) {
-    e.preventDefault();
-    window.location.href = "https://github.com/login/oauth/authorize?client_id=51a830e8c4702bbaaaf7&redire" +
-      "ct_uri=http://localhost:3000/"
 
-  }
+<<<<<<< HEAD
+=======
+function KakaoClick() {
+  const REST_API_KEY = "04c9a760d057d6ccbc3cdb399201c2a3";
+  const REDIRECT_URI = "http://localhost:3000/oauth/kakao";
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  
+  
+}
 
-  function KakaoClick(e) {
-    e.preventDefault();
-    window.location.href = "https://kauth.kakao.com/oauth/authorize?client_id=04c9a760d057d6ccbc3cdb399201" +
-      "c2a3&redirect_uri=http://localhost:3000/oauth/kakao&response_type=code"
-
-  }
-
+>>>>>>> dc3d84508052284ae72a00b7698ba87dcca6ad47
   return (
     <div>
       <div class="container" id="signup_container">
@@ -139,25 +137,10 @@ const Signin = () => {
               </div>
               <div className="btn-wrapper text-center">
 
-                {/* Github Login  */}
-                <Button
-                  className="btn-neutral btn-icon"
-                  color="default"
-                  href="#pablo"
-                  onClick={GithubClick}>
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("../assets/img/github.svg").default
-                      } />
-                  </span>
-                  <span className="btn-inner--text">Github</span>
-                </Button>
-
 
 
                 {/* Kakao Login */}
-                {/* <Button
+                <Button
                   className="btn-neutral btn-icon"
                   color="default"
                   href="#pablo"
@@ -171,13 +154,7 @@ const Signin = () => {
                   <span className="btn-inner--text">
                     Kakao
                   </span>
-                </Button> */}
-                <a class="btn-neutral btn-icon" href="https://kauth.kakao.com/oauth/authorize?client_id=04c9a760d057d6ccbc3cdb399201c2a3&redirect_uri=http://localhost:3000/oauth/kakao&response_type=code">
-                <img
-                      alt="..."
-                      src={require("../assets/img/KakaoTalk_logo.svg").default
-                      } />
-</a>
+                </Button>
               </div>
 <<<<<<< HEAD
             </CardHeader>
