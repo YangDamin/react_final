@@ -4,12 +4,12 @@
 }
 
 .video_title{
-  color: rgb(49, 141, 251, 1);
+  color: rgba(49, 141, 251, 1);
   font-weight: bold;
   font-size: 12pt;
 }
 .video_viewcount_timestamp{
-  color:rgb(151, 151, 151);
+  color:rgba(151, 151, 151);
   font-weight: normal;
   font-size: 10pt;
 }
