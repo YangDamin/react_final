@@ -180,13 +180,18 @@ const Signup = () => {
                                             data: formData
                                         }).then((res) => {
                                             console.log(res.data)
-                                            if (res.data.code != 200) {
+                                            if (res.data.code == 201) {
                                                 Swal.fire({
                                                     icon: 'error',
                                                     text: '중복된 이메일입니다. 다시 입력해주세요.'
                                                   })
                                                 document.getElementById("email").focus();
-                                            } else {
+                                            } else if( res.data.code == 401){
+                                                Swal.fire({
+                                                    icon: 'error',
+                                                    text: '이미 가입된 회원정보 입니다.'
+                                                  })
+                                            } else if(res.data.code == 200) {
                                                 Swal.fire(
                                                     '',
                                                     '회원가입 완료되었습니다.',

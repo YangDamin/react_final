@@ -118,7 +118,7 @@ const Signin = () => {
 
                     <span class="mt-3">|</span>
                     <div className='mt-3'>
-                      <a id="findcss" style={{ "cursor": "pointer" }}>비밀번호 찾기</a>
+                      <a id="findcss" style={{ "cursor": "pointer" }} onClick={(e)=> {e.preventDefault();  window.location="/users/findPassword" }}>비밀번호 찾기</a>
                     </div>
                   </div>
 
