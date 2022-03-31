@@ -11,7 +11,7 @@ const FindPassword = () => {
             <h3 style={{ "fontWeight": "bold", "marginBottom": "2rem", "marginTop": "2rem" }}>비밀번호 찾기</h3>
             <hr style={{ "height": "2px", "width": "50%", "color": "#000000", "margin": "0 auto" }} />
             <h6 style={{ "marginTop": "2rem" }}>회원가입 시 등록하신 정보로</h6>
-            <h6>비밀번호를 확인할 수 있습니다.</h6>
+            <h6>임시 비밀번호를 발급 받으실 수 있습니다.</h6>
 
             <form style={{"paddingBottom":"2rem"}}>
                 <div style={{ "width": "500px", "margin": "50px auto", "border": "0.2px solid", "borderColor": "lightgray" }}>
@@ -38,14 +38,17 @@ const FindPassword = () => {
                                     console.log(res.data);
                                     if(res.data.code == 200){
                                         Swal.fire(
-                                            '<h5>비밀번호 찾았습니다!</h5>',
+                                            '<h5>임시 비밀번호 발급했습니다!</h5>',
                                             res.data.findPwd,
                                             'success'
                                           )
+                                          document.getElementById("find_email").value = '';
+                                          document.getElementById("find_name").value = '';
+                                          document.getElementById("find_phone").value = '';
                                     }else{
                                         Swal.fire({
                                             icon: 'error',
-                                            text: '비밀번호를 찾지 못했습니다.'
+                                            text: '가입된 계정이 없습니다.'
                                           })
                                     }
                                 })
