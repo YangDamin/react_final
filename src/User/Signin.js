@@ -1,13 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
 import './Signin.css';
-import {
-  CardHeader,
-  Button,
-}
-  from 'reactstrap';
+import { CardHeader, Button, } from 'reactstrap';
 import Swal from 'sweetalert2';
+import { Modal } from 'react-bootstrap';
 
 
 const Signin = () => {
@@ -15,6 +11,8 @@ const Signin = () => {
 
 
 
+<<<<<<< HEAD
+=======
 function KakaoClick() {
   const REST_API_KEY = "04c9a760d057d6ccbc3cdb399201c2a3";
   const REDIRECT_URI = "http://localhost:3000/oauth/kakao";
@@ -23,6 +21,7 @@ function KakaoClick() {
   
 }
 
+>>>>>>> dc3d84508052284ae72a00b7698ba87dcca6ad47
   return (
     <div>
       <div class="container" id="signup_container">
@@ -31,88 +30,108 @@ function KakaoClick() {
 
         <div class="row" style={{ textAlign: 'left' }}>
           <form>
-            {/* 이메일 */}
-            <div class="form-group mb-3">
-              <div class="row">
-                <div class="col-3 text-left">
-                  <label>이메일</label><span style={{ color: 'red' }}> *</span>
+
+            <div class="row">
+              {/* 이메일, 비번 label */}
+              <div class="col-3">
+                <div class="row" style={{ "marginBottom": "2rem" }}>
+                  <label>이메일<span style={{ color: 'red' }}> *</span></label>
                 </div>
-                <div class="col-6">
+                <div class="row">
+                  <label>비밀번호<span style={{ color: 'red' }}> *</span></label>
+                </div>
+              </div>
+
+              {/* 이메일, 비번 input */}
+              <div class="col-6">
+                <div class="row mb-3">
                   <input class="form-control" type="email" name="email" id="email" placeholder="@까지 정확하게 입력해주세요." required />
                 </div>
-
-              </div>
-            </div>
-
-            {/* 비밀번호 */}
-            <div class="form-group mb-3">
-              <div class="row">
-                <div class="col-3 text-left">
-                  <label>비밀번호</label><span style={{ color: 'red' }}> *</span>
-                </div>
-                <div class="col-6">
+                <div class="row">
                   <input class="form-control" type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요." required />
                 </div>
               </div>
-            </div>
 
-            <div style={{ textAlign: 'center' }}>
-              <input type="submit" value="로그인" class="btn bg-secondary text-white flex-shrink-0 me-2"
-                onClick={(e) => {
-                  e.preventDefault();
+              {/* 로그인 button */}
+              <div class="col-3">
+                <div class="row">
+                  <input type="submit" value="로그인" class="btn bg-secondary text-white flex-shrink-0 me-2" style={{ "height": "5.7rem", "width": "8rem", "marginLeft": "2rem" }}
+                    onClick={(e) => {
+                      e.preventDefault();
 
-                  const formData = new FormData();
-                  //OOO님 안녕하세요!,로그인 성공이면 main페이지
-                  //잘못된 정보를 입력하셨습니다. 로그인 실패하면 signin페이지
-                  const email = document.getElementById("email").value;
-                  const password = document.getElementById("password").value;
-                  
-                  
-                  formData.append("email", email);
-                  formData.append("pwd", password);
-                 
+                      const formData = new FormData();
+                      //OOO님 안녕하세요!,로그인 성공이면 main페이지
+                      //잘못된 정보를 입력하셨습니다. 로그인 실패하면 signin페이지
+                      const email = document.getElementById("email").value;
+                      const password = document.getElementById("password").value;
 
-                  axios({
-                    url: 'http://localhost:8080/users/signin',
-                    method: 'post',
-                    data: formData
-                  }).then((res) => {
-                    const result = res.data;
-                    if (result.code == 200) {
-                      //로그인 성공하였을 때, SessionStorage에 값 넣고 
-                      sessionStorage.setItem("email", result.user.email);
-                      sessionStorage.setItem("password", result.user.pwd);
-                      sessionStorage.setItem("name", result.user.name);
-                      sessionStorage.setItem("phoneNum", result.user.phoneNum);
-                    
 
-                      
-                      Swal.fire(
-                        '',
-                        '로그인 성공',
-                        'success'
-                      )
-                    setTimeout(function(){
-                        window.location = '/';
-                    },2000)
+                      formData.append("email", email);
+                      formData.append("pwd", password);
 
-                    } else if (result.code == 400) {
-                      Swal.fire({
-                        icon: 'error',
-                        text: '로그인 실패! 다시 입력해주세요.'
+
+                      axios({
+                        url: 'http://localhost:8080/users/signin',
+                        method: 'post',
+                        data: formData
+                      }).then((res) => {
+                        const result = res.data;
+                        if (result.code == 200) {
+                          //로그인 성공하였을 때, SessionStorage에 값 넣고 
+                          sessionStorage.setItem("email", result.user.email);
+                          sessionStorage.setItem("password", result.user.pwd);
+                          sessionStorage.setItem("name", result.user.name);
+                          sessionStorage.setItem("phone", result.user.phone);
+
+
+
+                          Swal.fire(
+                            '',
+                            '로그인 성공',
+                            'success'
+                          )
+                          setTimeout(function () {
+                            window.location = '/';
+                          }, 2000)
+
+                        } else if (result.code == 400) {
+                          Swal.fire({
+                            icon: 'error',
+                            text: '로그인 실패! 다시 입력해주세요.'
+                          })
+                          document.getElementById("email").value = "";
+                          document.getElementById("password").value = "";
+                        }
+                      }).catch((error) => {
+                        console.log(error);
                       })
-                      document.getElementById("email").value = "";
-                      document.getElementById("password").value = "";
-                    }
-                  }).catch( (error) => {
-                    console.log(error);
-                  })
 
-                  
-                }}></input>
+<<<<<<< HEAD
+=======
 
+                    }}></input>
+
+                  <div style={{ "display": "flex", "justifyContent": "space-between" }}>
+                    <div className='mt-3'>
+                      <a id="findcss" style={{ "cursor": "pointer" }} onClick={(e)=> {e.preventDefault();  window.location="/users/findEmail" }}>이메일 찾기</a>
+                    </div>
+
+                    <span class="mt-3">|</span>
+                    <div className='mt-3'>
+                      <a id="findcss" style={{ "cursor": "pointer" }}>비밀번호 찾기</a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+>>>>>>> 073c33dea0382f7c6c52b72af4abea52f7a19c7e
             </div>
-            <CardHeader className="bg-transparent">
+
+
+
+
+            <div className="bg-transparent">
               <div className="text-muted text-center mt-2 mb-3">
                 <small>Sign in with</small>
               </div>
@@ -137,16 +156,22 @@ function KakaoClick() {
                   </span>
                 </Button>
               </div>
+<<<<<<< HEAD
             </CardHeader>
 
 
             
+=======
+            </div>
+>>>>>>> 073c33dea0382f7c6c52b72af4abea52f7a19c7e
           </form>
 
+          <hr class="border-dark mt-5 mb-4" />
 
-
+          <div style={{ "display": "flex" }}>
+            <span>아직 회원이 아니신가요?</span> <a href="/users/signup" style={{ "textDecoration": "none", "color": "rgba(49, 141, 251, 1)", "marginLeft": "1rem" }}>회원 가입하기</a>
+          </div>
         </div>
-
 
       </div>
 

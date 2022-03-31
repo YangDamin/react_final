@@ -1,12 +1,16 @@
-.main-content{
+.content-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
+  /* align-items: center; */
   justify-content: space-around;
 }
-
+.video_items{
+  display: inline-block;
+}
+/* 
 .item{
   min-height: 200px;
   flex-basis: 150px;
   flex-grow: 1;
-}
+} */

@@ -7,3 +7,20 @@
     display: flex;
 
   }
+
+  #grid{
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    text-align: center;
+    align-items:center;
+    margin-top: 6%;
+    margin-bottom: 6%;
+/*       */
+  }
+  
+  .video_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
