@@ -2,10 +2,10 @@
 
 #logo {
     
-    margin-left: 5%;
-    font-family: 'Pretendard-Medium';
-    font-size: 50px;
-    font-weight: bold;
+    display: flex;
+    flex: auto;
+    justify-content: left;
+    
 }
 
 /* #SignupLogin_css{

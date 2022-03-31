@@ -33,7 +33,7 @@ const MyFeed = () => {
             <Nav></Nav>
             <CssBaseline />
             <Container className="content-container" >
-                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
+                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderWidth: "6px",borderStyle: 'solid', borderColor: 'black', height: '100vh' }}>
                     <div className='container' id='myfeed'>
                     </div>
                     <TodoProvider>
