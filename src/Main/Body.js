@@ -28,9 +28,9 @@ const Body = () => {
               display: 'inline-block',
               bgcolor: "rgba(238, 238, 238, 1)",
               borderRadius: "40px 40px 0 0",
-              borderWidth: "thin",
+              borderWidth: "6px",
               borderStyle: "solid",
-              borderColor: "rgba(153, 153, 153, 1)",
+              borderColor: "black",
               textAlign:'center',
             }}
             

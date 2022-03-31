@@ -100,8 +100,6 @@ const Signup = () => {
                                 <div class="col-6">
                                     <input class="form-control" type="phone" name="phone" id="phoneNum" value={userPhone} placeholder="숫자만 입력해주세요." required
                                         onChange={onChnagePhone} />
-                                    {/* 휴대폰번호 제한(숫자만) */}
-                                    {/* {CheckPhone(userPhone) ? null : (<span style={{ color: 'red', fontSize: 'small' }}><i class="bi bi-info-circle"></i> 숫자만 입력해주세요.</span>) } */}
                                 </div>
                             </div>
                         </div>
