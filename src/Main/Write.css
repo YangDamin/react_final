@@ -70,7 +70,7 @@
 
   
   .form-wrapper{
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     display: center;
     flex: auto;
@@ -79,8 +79,8 @@
   .title-input {
     width: -webkit-fill-available;
     height: 40px;
-    margin: 10px;
     margin-bottom: 20px;
+    margin-top: 70px;
     border: none;
     background-color: rgb(184, 182, 182);
     display: flex;
@@ -88,8 +88,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    font-family: 'LeferiPoint-WhiteA';
-    
+    font-family: 'Pretendard-Medium';
   
   }
   
@@ -99,16 +98,16 @@
     font-size: 20px;
     padding: auto;
     border: none;
-    background: rgb(79, 119, 238);
+    background: rgba(255, 118, 118, 1);
     border-radius: 5px;
     margin-top: 15px;
     vertical-align: middle;
-    font-family: 'LeferiPoint-WhiteA';
+    font-family: 'Pretendard-Medium';
   }
   
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-    min-height: 400px;
-    font-family: 'LeferiPoint-WhiteA';
+    min-height: 450px;
+    font-family: 'Pretendard-Medium';
   }
   
   .ck.ck-toolbar.ck-toolbar_grouping{
