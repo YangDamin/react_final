@@ -6,22 +6,20 @@ import Swal from 'sweetalert2';
 import { Modal } from 'react-bootstrap';
 
 
+
 const Signin = () => {
 
 
+  function KakaoClick(e) {
+    e.preventDefault();
+    window.location.href = "https://kauth.kakao.com/oauth/authorize?client_id=04c9a760d057d6ccbc3cdb399201c2a3" +
+      "&redirect_uri=http://localhost:8080/oauth/kakao&response_type=code"
+  }
 
-
-<<<<<<< HEAD
-=======
-function KakaoClick() {
   const REST_API_KEY = "04c9a760d057d6ccbc3cdb399201c2a3";
-  const REDIRECT_URI = "http://localhost:3000/oauth/kakao";
+  const REDIRECT_URI = "http://localhost:8080/oauth/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   
-  
-}
-
->>>>>>> dc3d84508052284ae72a00b7698ba87dcca6ad47
   return (
     <div>
       <div class="container" id="signup_container">
@@ -106,8 +104,6 @@ function KakaoClick() {
                         console.log(error);
                       })
 
-<<<<<<< HEAD
-=======
 
                     }}></input>
 
@@ -125,7 +121,6 @@ function KakaoClick() {
                 </div>
               </div>
 
->>>>>>> 073c33dea0382f7c6c52b72af4abea52f7a19c7e
             </div>
 
 
@@ -136,7 +131,6 @@ function KakaoClick() {
                 <small>Sign in with</small>
               </div>
               <div className="btn-wrapper text-center">
-
 
 
                 {/* Kakao Login */}
@@ -156,14 +150,7 @@ function KakaoClick() {
                   </span>
                 </Button>
               </div>
-<<<<<<< HEAD
-            </CardHeader>
-
-
-            
-=======
             </div>
->>>>>>> 073c33dea0382f7c6c52b72af4abea52f7a19c7e
           </form>
 
           <hr class="border-dark mt-5 mb-4" />

@@ -2,19 +2,19 @@ import React from 'react';
 import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Auth = () => {
 
 const REST_API_KEY = "04c9a760d057d6ccbc3cdb399201c2a3";
-const REDIRECT_URI = "http://localhost:3000/oauth/kakao";
+const REDIRECT_URI = "http://localhost:8080/oauth/kakao";
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
 
 const code = new URL(window.location.href).searchParams.get("code");
-const history = useHistory();
+const history = useNavigate();
 const getToken = async () => {
   const payload = qs.stringify({
     grant_type: "authorization_code",

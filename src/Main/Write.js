@@ -52,6 +52,10 @@ const Write = () => {
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper'>
+                        <form method="post" enctype="multipart/form-data">
+ <input type="file" name="file" multiple/><br/>
+ <input type="submit" value="업로드"/>
+</form>
                         {viewContent.map(element =>
                             <div>
                                 <h2>{element.title}</h2>
