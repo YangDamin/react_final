@@ -100,8 +100,6 @@ const Signup = () => {
                                 <div class="col-6">
                                     <input class="form-control" type="phone" name="phone" id="phoneNum" value={userPhone} placeholder="숫자만 입력해주세요." required
                                         onChange={onChnagePhone} />
-                                    {/* 휴대폰번호 제한(숫자만) */}
-                                    {/* {CheckPhone(userPhone) ? null : (<span style={{ color: 'red', fontSize: 'small' }}><i class="bi bi-info-circle"></i> 숫자만 입력해주세요.</span>) } */}
                                 </div>
                             </div>
                         </div>
@@ -180,13 +178,18 @@ const Signup = () => {
                                             data: formData
                                         }).then((res) => {
                                             console.log(res.data)
-                                            if (res.data.code != 200) {
+                                            if (res.data.code == 201) {
                                                 Swal.fire({
                                                     icon: 'error',
                                                     text: '중복된 이메일입니다. 다시 입력해주세요.'
                                                   })
                                                 document.getElementById("email").focus();
-                                            } else {
+                                            } else if( res.data.code == 401){
+                                                Swal.fire({
+                                                    icon: 'error',
+                                                    text: '이미 가입된 회원정보 입니다.'
+                                                  })
+                                            } else if(res.data.code == 200) {
                                                 Swal.fire(
                                                     '',
                                                     '회원가입 완료되었습니다.',

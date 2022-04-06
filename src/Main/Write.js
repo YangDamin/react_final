@@ -11,7 +11,8 @@ import Footer from '../Common/Footer';
 import './Write.css';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import Axios from 'axios';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 
@@ -29,19 +30,18 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Write = () => {
 
-    const[writeContent, setWriteContent] = useState({
+    const [writeContent, setWriteContent] = useState({
         title: '',
-        content:''
+        content: ''
     })
 
-    const[viewContent, setViewContent] = useState([]);
+    const [viewContent, setViewContent] = useState([]);
 
-    const getValue = e =>{
-        const {name, value} = e.target;
+    const getValue = e => {
+        const { name, value } = e.target;
         setWriteContent({
             ...writeContent, [name]: value
         })
-        console.log(writeContent);
     }
     return (
         <>
@@ -64,10 +64,10 @@ const Write = () => {
                                 </div>
                             </div>)}
                             <input className="title-input" type='text' placeholder='제목'
-                             onChange={getValue} name='title'/>
+                                onChange={getValue} name='title' />
                             <CKEditor
                                 editor={ClassicEditor}
-                                styled={{'width':'80%'}}
+                                styled={{ 'width': '80%' }}
                                 data=""
                                 onReady={editor => {
                                     // You can store the "editor" and use when it is needed.
@@ -90,9 +90,42 @@ const Write = () => {
                             />
                         </div>
                         <button className="submit-button"
-                        onClick={() => {
-                            setViewContent(viewContent.concat({...writeContent}));
-                        }}>입력</button>
+                            onClick={(e) => {
+                                e.preventDefault();
+
+                                let today = new Date();
+                                let date = today.toLocaleDateString();      // 현재 날짜
+
+                                setViewContent(viewContent.concat({ ...writeContent }));
+
+                                const formData = new FormData();
+                                formData.append("title", writeContent.title);
+                                formData.append("content", writeContent.content);
+                                formData.append("date", date);
+                                formData.append("userEmail", sessionStorage.getItem("email"));
+
+                                axios({
+                                    url: "http://localhost:8080/write",
+                                    method: "post",
+                                    data: formData
+                                }).then( (res) => {
+                                    console.log(res.data);
+
+                                    Swal.fire(
+                                        '',
+                                        '업로드 완료!',
+                                        'success'
+                                      )
+                                    setTimeout(function(){
+                                        window.location = '/myfeed';
+                                    },2000)
+
+                                }).catch( (error) => {
+                                    console.log(error);
+                                })
+
+
+                            }}>업로드</button>
 
                     </Box>
                 </Box>
