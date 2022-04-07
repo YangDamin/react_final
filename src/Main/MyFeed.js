@@ -63,12 +63,22 @@ class MyFeed extends React.Component {
 	// 등록
 	handleCreate(inputValue) {
 		const { todos } = this.state;
+		const Toast = Swal.mixin({
+			toast: true,
+			position: 'middle-',
+			showConfirmButton: false,
+			timer:2000,
+			didOpen: (toast) => {
+				toast.addEventListener('mouseenter', Swal.stopTimer)
+				toast.addEventListener('mouseleave', Swal.resumeTimer)
+			  }
+			})
+
 		if (inputValue === "") {
-            Swal.fire(
-                '',
-                '할 일을 입력해주세요.',
-                'warning'
-              )
+			Toast.fire({
+				icon: 'warning',
+				title: '할 일을 입력해주세요.'
+			  })
 			return;
 		}
 
@@ -113,6 +123,8 @@ class MyFeed extends React.Component {
 	// 수정
 	handleToggle(id) {
 		const { todos } = this.state;
+
+		
 
 		const isComplete = todos.find(todo => todo.id === id).isComplete;
 		if(!Swal.fire(isComplete ? 

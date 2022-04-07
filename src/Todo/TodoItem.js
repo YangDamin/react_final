@@ -22,6 +22,7 @@ class TodoItem extends React.Component {
                     isComplete && (<div className="isComplete-mark">✓</div>)
                 }
             </div>
+           
         )
     }
 }

@@ -22,6 +22,7 @@ const Form = ({ onCreate }) => {
 
 
 	return (
+		
 		<div className="form">
 			{/* <div> */}
 			<input

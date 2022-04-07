@@ -1,6 +1,7 @@
 .form {
     display: flex;
     flex: auto;
+    padding: 10px;
   }
   
 .form input {
@@ -23,7 +24,7 @@
     padding-right: 1rem;
     margin-left: 5px;
     margin-right: 5px;
-    background: #353b54e0;
+    background: #000000d0;
     border-radius: 3px;
     color: white;
     font-weight: 500;
@@ -33,5 +34,5 @@
 }
   
 .create-button:hover {
-    background: #353b54e0;
+    background: #3c7ff4e0;
 }
