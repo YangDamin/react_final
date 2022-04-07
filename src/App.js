@@ -14,6 +14,8 @@ import Logout from './User/Logout';
 import FindEmail from './User/FindEmail';
 import FindPassword from './User/FindPassword';
 import AddCalendar from './Main/AddCalendar';
+import View from './View/View';
+
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
           <Route path="/users/logout" element={<Logout />}></Route>
           <Route path="/users/findEmail" element={<FindEmail />}></Route>
           <Route path="/users/findPassword" element={<FindPassword />}></Route>
+          <Route path="/view" element={<View />}></Route>
         </Routes>
       </BrowserRouter>
 
