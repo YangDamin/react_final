@@ -1,0 +1,30 @@
+.todo-list-template{
+    background: rgba(238, 238, 238, 0.427);
+    width: 280px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+    margin:  0 right;
+    margin-top: 4rem;
+   
+}
+  
+.todo-list-title {
+    padding: 1rem;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 100;
+    border-radius: 7px 7px 0 0;
+    background: #090a0ad0;
+    color: white;
+}
+  
+.form-wrapper {
+    padding: 1rem;
+    /* border-bottom: 1px solid #22b8cf; */
+    border-bottom: 1px solid #090a0ad0;
+}
+  
+.todoItemList-wrapper {
+    min-height: 5rem;
+    
+}
+ 
