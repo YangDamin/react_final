@@ -13,12 +13,9 @@ import SigninFinal from './User/SigninFinal';
 import Logout from './User/Logout';
 import FindEmail from './User/FindEmail';
 import FindPassword from './User/FindPassword';
-<<<<<<< HEAD
 import AddCalendar from './Main/AddCalendar';
-=======
 import View from './View/View';
 
->>>>>>> c4fc040729a4b95c3102c27fd140894a9d50551e
 
 function App() {
   return (
