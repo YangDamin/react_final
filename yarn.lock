@@ -1541,6 +1541,14 @@
     "@fullcalendar/common" "~5.10.1"
     "tslib" "^2.1.0"
 
+"@fullcalendar/interaction@^5.10.1":
+  "integrity" "sha512-H1g1QeXg7yXtUcKmVtfg7uzm5R5ElFTvYniiXU+8kJda69IDg7Lee+Y7UDv5dvLb5/HxO86RhPVxRtcOQ8XdXw=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-5.10.1.tgz"
+  "version" "5.10.1"
+  dependencies:
+    "@fullcalendar/common" "~5.10.1"
+    "tslib" "^2.1.0"
+
 "@fullcalendar/react@^5.10.1":
   "integrity" "sha512-+kV5+o9qGjkoO5j0r3oawhig+hP3inE68bHKBl6dtGQ8mi3GkEGsTL12MY2n5N0hXon6+2psIQLnAjMyRYZbmg=="
   "resolved" "https://registry.npmjs.org/@fullcalendar/react/-/react-5.10.1.tgz"
@@ -5463,11 +5471,6 @@
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
-"fsevents@^2.3.2", "fsevents@~2.3.2":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
-
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
@@ -7307,8 +7310,6 @@
     "brace-expansion" "^1.1.7"
 
 "minimatch@^5.0.1":
-  "integrity" "sha512-nLDxIFRyhDblz3qMuq+SoRZED4+miJ/G+tdDrjkkkRnjAsBexeGpgjLEQ0blJy7rHhR2b93rhQY4SvyWu9v03g=="
-  "resolved" "https://registry.npmjs.org/minimatch/-/minimatch-5.0.1.tgz"
   "version" "5.0.1"
   dependencies:
     "brace-expansion" "^2.0.1"

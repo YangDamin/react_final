@@ -13,6 +13,7 @@ import SigninFinal from './User/SigninFinal';
 import Logout from './User/Logout';
 import FindEmail from './User/FindEmail';
 import FindPassword from './User/FindPassword';
+import AddCalendar from './Main/AddCalendar';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/like" element={<Like />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/calendar" element={<Calendar />}></Route>
+          <Route path="/addCalendar" element={<AddCalendar/>}></Route>
           <Route path="/users/signup" element={<SignupFinal />}></Route>
           <Route path="/users/signin" element={<SigninFinal />}></Route>
           <Route path="/users/logout" element={<Logout />}></Route>

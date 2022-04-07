@@ -45,6 +45,10 @@ const Nav = () => {
                 let current = document.getElementById("btn_calendar");
                 current.style.backgroundColor =  "rgba(49, 141, 251, 1)";
             }
+            else if(temp === '/addCalendar'){
+                let current = document.getElementById("btn_calendar");
+                current.style.backgroundColor =  "rgba(49, 141, 251, 1)";
+            }
         }
     );
         
