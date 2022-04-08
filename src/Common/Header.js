@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import Search from './Search';
-import myimage from "./black_1.jpg";
+import myimage from "./black_0.jpg";
 
 const Header = () => {
 

@@ -2,7 +2,10 @@ import React from 'react';
 import Footer from '../Common/Footer';
 import Nav from '../Common/Nav';
 import Header from '../Common/Header';
-import Body from './Body';
+import Home from './Home';
+
+
+
 
 
 const Main = () => {
@@ -10,7 +13,7 @@ const Main = () => {
         <div>
             <Header></Header>
             <Nav></Nav>
-            <Body></Body>
+            <Home></Home>
             <Footer></Footer>
         </div>
     );
