@@ -14,9 +14,9 @@
     justify-content: space-around;
     text-align: center;
     align-items:center;
-    margin-top: 6%;
-    margin-bottom: 6%;
-/*       */
+    /* margin-top: 6%;
+    margin-bottom: 6%; */
+    padding: 5%;
   }
   
   .video_item{
