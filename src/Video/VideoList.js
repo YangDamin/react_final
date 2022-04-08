@@ -63,6 +63,30 @@ const VideoList = () => {
               image="../assets/img/thumbnail.png"
             />
           </Grid>
+          <Grid item col-xs={4}>
+            <VideoCards
+              title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
+              views="12.3M Views "
+              timestamp=" 2022.02.13"
+              image="../assets/img/thumbnail.png"
+            />
+          </Grid>
+          <Grid item col-xs={4}>
+            <VideoCards
+              title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
+              views="12.3M Views "
+              timestamp=" 2022.02.13"
+              image="../assets/img/thumbnail.png"
+            />
+          </Grid>
+          <Grid item col-xs={4}>
+            <VideoCards
+              title="❤️ 일상 브이로그 | 코딩공부,후추랑 산책까지"
+              views="12.3M Views "
+              timestamp=" 2022.02.13"
+              image="../assets/img/thumbnail.png"
+            />
+          </Grid>
         </Grid>
       </Box>
       </Container>
