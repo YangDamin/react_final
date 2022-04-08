@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,6 +10,8 @@ import Nav from '../Common/Nav';
 import Footer from '../Common/Footer';
 import Container from "@mui/material/Container";
 import './View.css';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const View = () => {
 
@@ -20,10 +23,6 @@ const View = () => {
         color: theme.palette.text.secondary,
     }));
 
-
-
-
-
     return(
         <>
          <Header></Header>
@@ -32,14 +31,20 @@ const View = () => {
             <Container className="content-container">
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
-                        <div className='form-wrapper' style={{"marginBottom":"30px"}}>
+                        <div className='form-wrapper'id="view" style={{"marginBottom":"30px"}}>
                             <div className="container" id="video">
-                            <ReactPlayer  controls url='https://viary.s3.us-west-1.amazonaws.com/upload/KakaoTalk_20220407_134344348.mp4' />
+                            <ReactPlayer 
+                            width='500px'
+                            height='300px'
+                            controls url='https://viary.s3.us-west-1.amazonaws.com/upload/KakaoTalk_20220407_134344348.mp4' />
                             </div>
                             <div className="container" id ="content">
-                                
+                              
+                 
                             </div>
-                            </div>
+
+    
+                        </div>
                     </Box>
                 </Box>
             </Container >

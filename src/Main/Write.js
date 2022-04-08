@@ -51,7 +51,7 @@ const Write = () => {
             <Container className="content-container">
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
-                        <div className='form-wrapper' style={{"marginBottom":"30px"}}>
+                        <div className='form-wrapper' id="write" style={{"marginBottom":"30px"}}>
                             
                             <input className="title-input" type='text' placeholder='제목'
                                 onChange={getValue} name='title' />
@@ -107,7 +107,7 @@ const Write = () => {
                                         'success'
                                       )
                                     setTimeout(function(){
-                                        window.location = '/myfeed';
+                                        window.location = '/';
                                     },2000)
 
                                 }).catch( (error) => {

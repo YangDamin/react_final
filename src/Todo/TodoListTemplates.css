@@ -17,7 +17,7 @@
     color: white;
 }
   
-.form-wrapper {
+#todoList {
     padding: 1rem;
     /* border-bottom: 1px solid #22b8cf; */
     border-bottom: 1px solid #090a0ad0;
