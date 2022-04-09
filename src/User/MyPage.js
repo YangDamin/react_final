@@ -126,10 +126,10 @@ const MyPage = () => {
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div
                             style={{
-                                'width': '100%', 'height': '30%', 'margin': 'auto',
-                                'margin': 'center', 'marginTop': '30px', 'fontFamily': 'LeferiPoint-WhiteA'
+                                'width': '100%', 'height': '30%', 'margin': '0 auto',
+                                 'marginTop': '30px', 'fontFamily': 'Pretendard-Medium'
                             }}>
-                            <h3 style={{ 'fontFamily': 'LeferiPoint-BlackA' }}>회원정보 조회</h3>
+                            <h3 style={{ 'fontFamily': 'Pretendard-Medium' , "fontWeight":"bold", "paddingTop":"1rem"}}>마이페이지</h3>
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
                             <div style={divStyle}>
@@ -207,6 +207,8 @@ const MyPage = () => {
                             </div>
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
+
+                            <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(255, 118, 118, 1)"}} />
 
 
 

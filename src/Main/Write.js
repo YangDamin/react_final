@@ -13,6 +13,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Server from '../S3/Server';
 
 
 
@@ -49,10 +50,10 @@ const Write = () => {
             <Nav></Nav>
             <CssBaseline />
             <Container className="content-container">
-                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '120vh' }}>
+                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '115vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper' id="write" style={{"marginBottom":"30px"}}>
-                            
+                            <Server/>
                             <input className="title-input" type='text' placeholder='제목'
                                 onChange={getValue} name='title' />
                             <CKEditor
