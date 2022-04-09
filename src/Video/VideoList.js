@@ -40,7 +40,9 @@ const VideoList = () => {
                   <div className="container" id="home">
                     <Link to={`/post/detail/`} className="link">
                       <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
-                      <h6 className="video_title" >{p.title}<br/>{p.date}<br/>{p.viewCnt}</h6>
+                      <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
+                      {/* {p.viewCnt} */}
+                      </h6>
                     </Link>
                     {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
                     </div>

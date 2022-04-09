@@ -107,7 +107,7 @@ const Write = () => {
                                         'success'
                                       )
                                     setTimeout(function(){
-                                        window.location = '/';
+                                        window.location = '/view';
                                     },2000)
 
                                 }).catch( (error) => {

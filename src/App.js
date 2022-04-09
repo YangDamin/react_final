@@ -29,6 +29,7 @@ function App() {
           <Route path="/like" element={<Like />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/calendar" element={<Calendar />}></Route>
+          <Route path="/calendar/delete" element={<Calendar />}></Route>
           <Route path="/addCalendar" element={<AddCalendar/>}></Route>
           <Route path="/users/signup" element={<SignupFinal />}></Route>
           <Route path="/users/signin" element={<SigninFinal />}></Route>
