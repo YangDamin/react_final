@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
-import axios from 'axios';
 
 
 
@@ -42,7 +41,7 @@ const Payment = (effect, deps) => {
     }
 
     
-    function callback(response){
+   const callback = (response) =>{
         const { 
             success, 
             error_msg, 
@@ -53,18 +52,19 @@ const Payment = (effect, deps) => {
             status } = response;
 
         if (success) {
+          // alert('결제 성공');
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'middle-',
                     showConfirmButton: false,
-                    timer:1000,
+                    timer:2000,
                     didOpen: (toast) => {
                       toast.addEventListener('mouseenter', Swal.stopTimer)
                       toast.addEventListener('mouseleave', Swal.resumeTimer)
                       }
                     })
                   Toast.fire({
-                    icon: 'sucess',
+                    icon: 'success',
                     title: '결제가 완료되었습니다.'
                     })
                   setTimeout(function () {

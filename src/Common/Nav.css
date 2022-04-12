@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     
+    
 }
 
 .nav{
@@ -17,7 +18,7 @@
     align-items: center;
     background-color: rgb(255, 255, 255);
     height: 40px;
-    width: 90px;
+    width: 85px;
     border: solid 3px rgb(0, 0, 0);
     border-radius: 13px 13px 0px 0px;
     border-bottom: 0px;
@@ -29,8 +30,10 @@
 
 .menu {
     flex: none;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 800;
+
+
 }
 
 

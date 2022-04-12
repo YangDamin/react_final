@@ -53,23 +53,10 @@ const Home = () => {
         <CssBaseline />
         <Container className="content-container">
           <Box className="video_items"
-            sx={{
-              display: 'inline-block',
-              bgcolor: "rgba(238, 238, 238, 1)",
-              borderRadius: "40px 40px 0 0",
-              borderWidth: "6px",
-              borderStyle: "solid",
-              borderColor: "black",
-              textAlign:'center',
-            }}
-            
-            // col-6
-            // col-sm-6
-            // col-lg-4
-            // col-xl-4
-            // col-md-4
-            // col-xxl-4
-          >
+            sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
+            borderWidth: "5px",borderColor:'black',borderStyle:'solid',
+            borderColor:'black', height: '100vh',overflow:'overlay' }}>
+       
             {videoList.map((item,index) =>(
               <VideoList></VideoList>
             ))}

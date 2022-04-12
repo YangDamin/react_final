@@ -21,6 +21,7 @@ const Signin = () => {
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   
   return (
+    
     <div>
       <div class="container" id="signup_container">
         <h3 class="h3 mt-5 mb-4">로그인</h3>

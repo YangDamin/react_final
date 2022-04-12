@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Header from '../Common/Header';
-import Nav from '../Common/Nav';
-import Footer from '../Common/Footer';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
@@ -47,8 +44,7 @@ const Calendar = () => {
 
   return (
     <div>
-      <Header></Header>
-      <Nav></Nav>
+    
       <CssBaseline />
       <Container className="content-container" style={{ "fontFamily": "Pretendard-Medium" }}>
       <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
@@ -110,7 +106,7 @@ const Calendar = () => {
           </Container>
         </Box>
       </Container>
-      <Footer></Footer>
+
     </div>
   );
 }
