@@ -13,8 +13,9 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
-
+import AWS from 'aws-sdk';
+import { Row, Col, Button, Input, Alert } from 'reactstrap';
+import Server from '../S3/Server';
 
 
 
@@ -27,8 +28,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-
 const Write = () => {
+
+    const [progress , setProgress] = useState(0);
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [showAlert, setShowAlert] = useState(false);
+
 
     const [writeContent, setWriteContent] = useState({
         title: '',
@@ -51,11 +56,14 @@ const Write = () => {
             <Container className="content-container">
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
+
                         <div className='form-wrapper'>
                         <form method="post" enctype="multipart/form-data">
- <input type="file" name="file" multiple/><br/>
- <input type="submit" value="업로드"/>
-</form>
+
+                        </form>
+                        <form method="post" enctype="multipart/form-data">
+                        <Server />
+                        </form>
                         {viewContent.map(element =>
                             <div>
                                 <h2>{element.title}</h2>
@@ -103,9 +111,10 @@ const Write = () => {
                                 formData.append("content", writeContent.content);
                                 formData.append("date", date);
                                 formData.append("userEmail", sessionStorage.getItem("email"));
+                                // formData.append("filePath", sessionStorage.getItem("filePath"));
 
                                 axios({
-                                    url: "http://localhost:8080/write",
+                                    url: "http://localhost:8080/post/write",
                                     method: "post",
                                     data: formData
                                 }).then( (res) => {
@@ -131,6 +140,10 @@ const Write = () => {
                 </Box>
             </Container >
             <Footer></Footer>
+
+
+
+            
         </>
     );
 }

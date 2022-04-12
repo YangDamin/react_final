@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-
 const Profile = () => {
+
   const [user_id, setUserId] = useState();
   const [nickName, setNickName] = useState();
   const [profileImage, setProfileImage] = useState();
+  
   const getProfile = async () => {
     try {
       // Kakao SDK API를 이용해 사용자 정보 획득

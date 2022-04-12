@@ -69,17 +69,8 @@ const Nav = () => {
       // <input className='input' onClick={getValue} />
         <div class="container" id="nav_container">
 
-<<<<<<< HEAD
-            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/" >Home</a></div>
-            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/write"  onClick={ (e) => {
-                e.preventDefault();
-                loginStart("write");
-                }}>Write</a></div>
-            <div className="nav"><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/myfeed" onClick={ (e) => {
-=======
             <div className="nav " id="btn_home" onClick={getClick}><a className="nav-link menu" id="btn_home"  style={{ 'color': 'black'}} href="/" >Home</a></div>
             <div className="nav"  id="btn_myfeed" onClick={getClick}><a className="nav-link menu" id="btn_myfeed"  style={{ 'color': 'black'}} href="/myfeed" onClick={ (e) => {
->>>>>>> 63bb5bad1cc73f50c64779182b59389a625f65dd
                 e.preventDefault();
                 loginStart("myfeed")
                 getClick();
@@ -100,33 +91,8 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("calendar");
             }}>Calendar</a></div>
-<<<<<<< HEAD
-            
-=======
-{/* 
-            <div className="nav" id="btn_home" onClick={getClick} ><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/" >Home</a></div>
-            <div className="nav" id="btn_myfeed" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/myfeed" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("myfeed");
-            }}>My feed</a></div>
-            <div className="nav" id="btn_write" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/write" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("write");
-            }}>Write</a></div>
-            <div className="nav" id="btn_like" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/like" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("like");
-            }}>Like</a></div>
-            <div className="nav" id="btn_mypege" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/mypage" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("mypage");
-            }}>My Page</a></div>
-            <div className="nav" id="btn_calendar" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/calendar" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("calendar");
-            }}>Calendar</a></div> */}
 
->>>>>>> 63bb5bad1cc73f50c64779182b59389a625f65dd
+
         </div>
     );
 }

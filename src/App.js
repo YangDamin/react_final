@@ -12,12 +12,11 @@ import Calendar from './Main/Calendar';
 import SigninFinal from './User/SigninFinal';
 import Logout from './User/Logout';
 import FindEmail from './User/FindEmail';
-<<<<<<< HEAD
-import Profile from "./User/Profile";
+// import Profile from "./User/Profile";
 import Auth from './User/Auth';
-=======
-import FindPassword from './User/FindPassword';
->>>>>>> 63bb5bad1cc73f50c64779182b59389a625f65dd
+import PostDetail from './Video/PostDetail';
+import BoardDetail from './Video/PostDetail';
+
 
 function App() {
   return (
@@ -34,14 +33,10 @@ function App() {
           <Route path="/users/signup" element={<SignupFinal />}></Route>
           <Route path="/users/signin" element={<SigninFinal />}></Route>
           <Route path="/users/logout" element={<Logout />}></Route>
-          {/* <Route path="/oauth/kakao" element={<Main />}></Route> */}
+          <Route path="/oauth/kakao" element={<Auth />}></Route>
           <Route path="/users/findEmail" element={<FindEmail />}></Route>
-<<<<<<< HEAD
-          {/* <Route path="/oauth/kakao"><Auth /></Route>
-          <Route path="/profile"><Profile /></Route> */}
-=======
-          <Route path="/users/findPassword" element={<FindPassword />}></Route>
->>>>>>> 63bb5bad1cc73f50c64779182b59389a625f65dd
+          <Route path="/post/detail/*" element={<PostDetail />}></Route>
+          {/* <Route path="/profile"><Profile /></Route> */}
         </Routes>
       </BrowserRouter>
 

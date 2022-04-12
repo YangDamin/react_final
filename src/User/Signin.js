@@ -17,7 +17,7 @@ const Signin = () => {
   }
 
   const REST_API_KEY = "04c9a760d057d6ccbc3cdb399201c2a3";
-  const REDIRECT_URI = "http://localhost:8080/oauth/kakao";
+  const REDIRECT_URI = "http://localhost:3000/oauth/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   
   return (
@@ -134,6 +134,7 @@ const Signin = () => {
 
 
                 {/* Kakao Login */}
+                <h1><a href={KAKAO_AUTH_URL}>Kakao Login</a></h1>
                 <Button
                   className="btn-neutral btn-icon"
                   color="default"
