@@ -1,10 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import Search from './Search';
-import myimage from "./black_0.jpg";
+import myimage from "./logo_4.png";
 
 const Header = () => {
+    const [text, setText] = useState('');
+    const navigate = useNavigate();
+
+    const onChange = (e) => {
+        setText(e.target.value);
+    }
+
+    const handleClick = ()=>{
+        if(text.length>0){
+          navigate("/search/"+text);
+        }
+      }
 
 
     return (
@@ -31,10 +43,59 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <Search />
+                <ul class="flex-row ms-auto navbar-nav order-lg-1 ps-2 pe-2 col-3">
+                    <li class="search-container"> 
+                    <div class="search-bar p-2 pb-3 ps-2 pe-2 pt-3 text-dark" title="Search"  
+                  >
+                    <div class="input-group mb-3" >
+                        <input 
+                        id="search_txt"
+                        class="col-4"
+                        className="searchbar_input"
+                        onChange={(e)=>onChange(e)}
+                        type="text"
+                        placeholder="Search"
+                        width="14px"
+                        style={{
+                          marginLeft: "auto",
+                          textAlign: "center",
+                          borderRadius: "25px 0px 0px 25px",
+                          height: 35,
+                          width: 150,
+                          borderWidth: '2.5px',
+                          borderStyle: "solid",
+                          borderColor: "rgba(219, 219, 219, 1)",
+                        }}
+                       >
+                       </input>
+                       <button 
+                       class="btn-search col-2" 
+                       id="search_btn"
+                       onClick={()=>handleClick()}
+                       style={{
+                        color:"rgba(169, 169, 169, 1)",
+                        textAlign:"center",
+                        backgroundColor:"white",
+                        borderRadius: "0px 25px 25px 0px",
+                        borderRight:'2.5px solid rgba(219, 219, 219, 1)',
+                        borderTop:'2.5px solid rgba(219, 219, 219, 1)' ,
+                        borderBottom:'2.5px solid rgba(219, 219, 219, 1)',
+                        borderStyle: "solid",
+                        borderColor: "rgba(219, 219, 219, 1)"
+                    }}
+                       ><i class="bi bi-search"></i></button>
+                      
+                       </div>
+                    
+                    </div>
+            </li>
+            </ul>
+                    
+                {/* <Search /> */}
+            </div>
+            
             </div>
 
-        </div>
     );
 }
 

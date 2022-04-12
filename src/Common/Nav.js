@@ -78,28 +78,32 @@ const Nav = () => {
       // <input className='input' onClick={getValue} />
         <div class="container" id="nav_container">
 
-            <div className="nav " id="btn_home" onClick={getClick}><a className="nav-link menu" id="btn_home"  style={{ 'color': 'black'}} href="/" >Home</a></div>
+            <div className="nav " id="btn_home" onClick={getClick}><a className="nav-link menu" id="btn_home"  style={{ 'color': 'black'}} href="/" >HOME</a></div>
             <div className="nav"  id="btn_myfeed" onClick={getClick}><a className="nav-link menu" id="btn_myfeed"  style={{ 'color': 'black'}} href="/myfeed" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("myfeed")
                 getClick();
-            }}>My feed</a></div>
+            }}>MY FEED</a></div>
             <div className="nav" id="btn_write" onClick={getClick}><a className="nav-link menu" id="btn_write"  style={{ 'color': 'black' }} href="/write" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("write");
-            }}>Write</a></div>
+            }}>WRITE</a></div>
+             <div className="nav" id="btn_like" onClick={getClick}><a className="nav-link menu" id="btn_like"  style={{ 'color': 'black'}} href="/like" onClick={ (e) => {
+                e.preventDefault();
+                loginStart("like");
+            }}>LIKE</a></div>
             <div className="nav"id="btn_mypage" onClick={getClick}><a className="nav-link menu" id="btn_mypege"  style={{ 'color': 'black'}} href="/mypage" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("mypage");
-            }}>My Page</a></div>
+            }}>MY PAGE</a></div>
             <div className="nav" id="btn_calendar" onClick={getClick}><a className="nav-link menu" id="btn_calendar"  style={{ 'color': 'black'}} href="/calendar" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("calendar");
-            }}>Calendar</a></div>
-             <div className="nav" id="btn_buy" onClick={getClick}><a className="nav-link menu" id="btn_calendar"  style={{ 'color': 'black'}} href="/buy" onClick={ (e) => {
+            }}>CALENDAR</a></div>
+            <div className="nav" id="btn_myfeed" onClick={getClick}><a className="nav-link menu" id="btn_buy"  style={{ 'color': 'black' }} href="/buy" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("buy");
-            }}>Buy</a></div>
+            }}>BUY</a></div>
 
 
         </div>

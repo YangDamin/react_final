@@ -34,25 +34,21 @@ const VideoList = () => {
           <Grid container id='grid' >
             {postList.map((p) => {
               return (
-                <tr>
+                
                 <Grid item col-xs={4} col-6 col-md-4>
-                  <div className="video_text">
-                    
-                    <Link to={`/post/detail/${p.id}`}>
-                      
+                <Grid item col-xs={4}>
+                  <div className="container" id="home">
+                    <Link to={`/post/detail/`} className="link">
                       <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
-                      <h1>{p.id}</h1>
-                      <h6 className="video_title" >{p.title}</h6>
+                      <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
+                      {/* {p.viewCnt} */}
+                      </h6>
                     </Link>
-                    <span className="video_viewcount_">
-                      <h9 className="video_viewcount">{p.date}</h9>
-                    </span>
-                    <div>
-                      {/* <h9 className="video_viewcount">{p.viewCnt}</h9> */}
+                    {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
                     </div>
-                  </div>
                 </Grid>
-                </tr>
+                </Grid>
+                
               );
             })}
 
