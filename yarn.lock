@@ -1572,6 +1572,13 @@
   dependencies:
     "tslib" "^2.1.0"
 
+"@fullcalendar/common@~5.11.0":
+  "integrity" "sha512-gWjbMAnN1u73Oqlgjbyky7i+3bY0hvFSnGT0YBPx44n874AkQa9e9OU12PMLTMOPy0tXPb8DEwRelFQ7CJNbcw=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/common/-/common-5.11.0.tgz"
+  "version" "5.11.0"
+  dependencies:
+    "tslib" "^2.1.0"
+
 "@fullcalendar/daygrid@^5.10.1":
   "integrity" "sha512-sfUMP+rew0krsBffgNcWWKhBCiyytGfRKZJoc64E8ohX7VWjPcPZuB1xgO5U4wPLmNkT0rZiHoGeQGTXw1+ZKg=="
   "resolved" "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-5.10.1.tgz"
@@ -1580,12 +1587,12 @@
     "@fullcalendar/common" "~5.10.1"
     "tslib" "^2.1.0"
 
-"@fullcalendar/interaction@^5.10.1":
-  "integrity" "sha512-H1g1QeXg7yXtUcKmVtfg7uzm5R5ElFTvYniiXU+8kJda69IDg7Lee+Y7UDv5dvLb5/HxO86RhPVxRtcOQ8XdXw=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-5.10.1.tgz"
-  "version" "5.10.1"
+"@fullcalendar/interaction@^5.11.0":
+  "integrity" "sha512-9XTI5+ydqrSX+IL3iWgKBURXfnPewn57Tmsv9mJZhiqrUEF7/+qtftLoKEAc8ZdWk/+01aBe67PFL16uPXj2Jg=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-5.11.0.tgz"
+  "version" "5.11.0"
   dependencies:
-    "@fullcalendar/common" "~5.10.1"
+    "@fullcalendar/common" "~5.11.0"
     "tslib" "^2.1.0"
 
 "@fullcalendar/react@^5.10.1":

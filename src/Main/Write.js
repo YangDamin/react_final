@@ -99,6 +99,7 @@ const Write = () => {
                                 formData.append("content", writeContent.content);
                                 formData.append("date", date);
                                 formData.append("userEmail", sessionStorage.getItem("email"));
+                                formData.append("videoPath", sessionStorage.getItem("videoPath"));
                                 // formData.append("filePath", sessionStorage.getItem("filePath"));
 
                                 axios({
