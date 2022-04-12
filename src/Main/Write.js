@@ -13,9 +13,15 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+<<<<<<< HEAD
+import AWS from 'aws-sdk';
+import { Row, Col, Button, Input, Alert } from 'reactstrap';
+import Server from '../S3/Server';
+=======
 import Server from '../S3/Server';
 
 
+>>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
 
 
 
@@ -28,8 +34,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-
 const Write = () => {
+
+    const [progress , setProgress] = useState(0);
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [showAlert, setShowAlert] = useState(false);
+
 
     const [writeContent, setWriteContent] = useState({
         title: '',
@@ -53,8 +63,26 @@ const Write = () => {
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', 
                 borderColor: 'rgba(153, 153, 153, 1)', height: '120vh' ,overflow:'overlay'}}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
+<<<<<<< HEAD
+
+                        <div className='form-wrapper'>
+                        <form method="post" enctype="multipart/form-data">
+
+                        </form>
+                        <form method="post" enctype="multipart/form-data">
+                        <Server />
+                        </form>
+                        {viewContent.map(element =>
+                            <div>
+                                <h2>{element.title}</h2>
+                                <div>
+                                    {element.content}
+                                </div>
+                            </div>)}
+=======
                         <div className='form-wrapper' id="write" style={{"marginBottom":"30px"}}>
                             <Server/>
+>>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
                             <input className="title-input" type='text' placeholder='제목'
                                 onChange={getValue} name='title' />
                             <CKEditor
@@ -95,9 +123,10 @@ const Write = () => {
                                 formData.append("content", writeContent.content);
                                 formData.append("date", date);
                                 formData.append("userEmail", sessionStorage.getItem("email"));
+                                // formData.append("filePath", sessionStorage.getItem("filePath"));
 
                                 axios({
-                                    url: "http://localhost:8080/write",
+                                    url: "http://localhost:8080/post/write",
                                     method: "post",
                                     data: formData
                                 }).then( (res) => {
@@ -122,6 +151,10 @@ const Write = () => {
                 </Box>
             </Container >
             <Footer></Footer>
+
+
+
+            
         </>
     );
 }

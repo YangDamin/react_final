@@ -100,6 +100,8 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("buy");
             }}>Buy</a></div>
+
+
         </div>
     );
 }

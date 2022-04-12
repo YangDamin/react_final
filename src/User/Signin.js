@@ -6,24 +6,20 @@ import Swal from 'sweetalert2';
 import { Modal } from 'react-bootstrap';
 
 
+
 const Signin = () => {
 
 
-
-  function GithubClick(e) {
-    e.preventDefault();
-    window.location.href = "https://github.com/login/oauth/authorize?client_id=51a830e8c4702bbaaaf7&redire" +
-      "ct_uri=http://localhost:3000/"
-
-  }
-
   function KakaoClick(e) {
     e.preventDefault();
-    window.location.href = "https://kauth.kakao.com/oauth/authorize?client_id=bb1062f029aa6ff58bbe4fc11289" +
-      "458c&redirect_uri=http://localhost:3000/&response_type=code"
-
+    window.location.href = "https://kauth.kakao.com/oauth/authorize?client_id=04c9a760d057d6ccbc3cdb399201c2a3" +
+      "&redirect_uri=http://localhost:8080/oauth/kakao&response_type=code"
   }
 
+  const REST_API_KEY = "04c9a760d057d6ccbc3cdb399201c2a3";
+  const REDIRECT_URI = "http://localhost:3000/oauth/kakao";
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  
   return (
     <div>
       <div class="container" id="signup_container">
@@ -137,22 +133,9 @@ const Signin = () => {
               </div>
               <div className="btn-wrapper text-center">
 
-                {/* Github Login  */}
-                <Button
-                  className="btn-neutral btn-icon"
-                  color="default"
-                  href="#pablo"
-                  onClick={GithubClick}>
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("../assets/img/github.svg").default
-                      } />
-                  </span>
-                  <span className="btn-inner--text">Github</span>
-                </Button>
 
                 {/* Kakao Login */}
+                <h1><a href={KAKAO_AUTH_URL}>Kakao Login</a></h1>
                 <Button
                   className="btn-neutral btn-icon"
                   color="default"
