@@ -76,9 +76,9 @@ const Home = () => {
             
             // col-6
             // col-sm-6
-            // col-md-4
             // col-lg-4
             // col-xl-4
+            // col-md-4
             // col-xxl-4
           >
             {videoList.map((item,index) =>(
@@ -93,4 +93,5 @@ const Home = () => {
 }
 
 export default Home;
+
 

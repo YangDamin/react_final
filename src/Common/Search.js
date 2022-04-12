@@ -1,54 +1,62 @@
 import React from 'react';
-import { useState} from 'react';
-import './Header.css';
-import './Search.css';
+import axios from 'axios';
+import { useEffect,useState} from 'react';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import { styled } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Header from '../Common/Header';
+import Nav from '../Common/Nav';
+import Footer from '../Common/Footer';
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import VideoCards from '../Video/VideoCard';
+
 
 const Search = () => {
-  const [keyword,setKeyword] = useState('');
-  const keywordChange = (event) => {
-    setKeyword(event.target.value);
-  }
+  const { word } = useParams();
+  // useParams = word 값이 들어감
+  const [videoList,setVideoList] = useState([]);
+
+
+  useEffect(()=>{
+    const result = axios({
+      url: `http://localhost:8080/search/${word}`,
+      method: 'get'
+    });
+    result.then((res) => {
+      console.log(res);
+      console.log(res.data);
+      setVideoList(res.data);
+    });
+    console.log("##################"+word);
+  }, [word]);
+  //word 값이 변경 되었을 때 useEffect 실행
 
   return (
-    <div>
-      <div className="search-container">
-        <form
-          class="col-11"
-          id="search-bar"
-          style={{
-            display: "flex",
-            // display: 'grid',
-            // gridAutoFlow: 'column',
-            // gridTemplateColumns: '1fr',
-          }}
-        >
-          <input
-            class="col-1"
-            className="searchbar_input"
-            onChange={keywordChange}
-            value={keyword}
-            style={{
-              marginLeft: "auto",
-              textAlign: "center",
-              borderRadius: "25px 25px 25px 25px",
-              height: 35,
-              width: 170,
-              borderWidth: '2.5px',
+    <>
+         <Header></Header>
+            <Nav></Nav>
+            <CssBaseline />
+            <Container className="content-container">
+            <Box className="video_items"
+            sx={{
+              display: 'inline-block',
+              bgcolor: "rgba(238, 238, 238, 1)",
+              borderRadius: "40px 40px 0 0",
+              borderWidth: "6px",
               borderStyle: "solid",
-              borderColor: "rgba(219, 219, 219, 1)",
-              marginBottom: "20px",
-              marginTop: "-30px"
-              
+              borderColor: "black",
+              textAlign:'center',
             }}
-            type="text"
-            placeholder="Search"
-          />
-          {/* <button className="search_Btn" id="search_Btn">
-            <i class="bi bi-search-heart-fill"></i>
-          </button> */}
-        </form>
-      </div>
-    </div>
+            >
+            </Box>
+            </Container>
+            <Footer></Footer>
+
+        </>
   );
 };
 
