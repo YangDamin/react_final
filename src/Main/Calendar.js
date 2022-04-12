@@ -54,7 +54,7 @@ const Calendar = () => {
       <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
 			   borderWidth: "5px",borderColor:'black',borderStyle:'solid',
 			   borderColor:'black', height: '100vh', overflow:'overlay' }}>
-          <Box sx={{ flexGrow: 1, mt: 6, pl: 5, pr: 5 }}>
+          <Container style={{"height":"90%", "width":"90%", "marginTop":"3rem"}}>
             <div class="mypage-body">
               <div class="body-wrapper box">
                 <div class="body-info-container">
