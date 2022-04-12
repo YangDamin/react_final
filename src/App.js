@@ -15,6 +15,7 @@ import FindEmail from './User/FindEmail';
 import FindPassword from './User/FindPassword';
 import AddCalendar from './Main/AddCalendar';
 import View from './View/View';
+import Search from './Common/Search';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/users/findEmail" element={<FindEmail />}></Route>
           <Route path="/users/findPassword" element={<FindPassword />}></Route>
           <Route path="/view" element={<View />}></Route>
+          <Route path="/search/:word" element={<Search />}></Route>
         </Routes>
       </BrowserRouter>
 
