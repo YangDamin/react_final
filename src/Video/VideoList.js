@@ -34,7 +34,7 @@ const VideoList = () => {
           <Grid container id='grid' >
             {postList.map((p) => {
               return (
-                <tr>
+                
                 <Grid item col-xs={4} col-6 col-md-4>
                 <Grid item col-xs={4}>
                   <div className="container" id="home">
@@ -48,7 +48,7 @@ const VideoList = () => {
                     </div>
                 </Grid>
                 </Grid>
-                </tr>
+                
               );
             })}
 
