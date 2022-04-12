@@ -80,14 +80,23 @@ const Calendar = () => {
                             method: "delete",
                             data: formData
                           }).then((res) => {
-                            Swal.fire(
-                              '',
-                              '삭제 완료되었습니다!',
-                              'success'
-                            )
+                            const Toast = Swal.mixin({
+                              toast: true,
+                              position: 'middle-',
+                              showConfirmButton: false,
+                              timer:1000,
+                              didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                              })
+                            Toast.fire({
+                              icon: 'success',
+                              title: '삭제가 완료되었습니다.'
+                              })
                             setTimeout(function () {
                               window.location = '/calendar';
-                            }, 2000)
+                            }, 1000)
                           })
                         }
                       })

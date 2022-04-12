@@ -1,14 +1,4 @@
-.button{
 
-    background-color: white;
-    color: black;
-    border: 2px solid  #008CBA;
-    border-radius: 5px 5px 5px 5px;
-    margin-top: 20px;
-    font-family: 'Pretendard-Medium';
-    font-weight: bold;
-    font-size: 15px;
-}
 
 #content.form-control{
     margin-top: 15px;
@@ -51,16 +41,34 @@
     border: none;
     background: rgba(255, 118, 118, 1);
     border-radius: 5px;
-    margin-top: 15px;
+    margin-top: 10px;
     vertical-align: middle;
     font-family: 'Pretendard-Medium';
+    margin-bottom: 40px;
   }
   
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-    min-height: 450px;
+    min-height: 400px;
     font-family: 'Pretendard-Medium';
   }
   
   .ck.ck-toolbar.ck-toolbar_grouping{
       background-color:rgb(184, 182, 182);
     }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eeeeee;
+      border-radius: 5px;
+    }
+     
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(rgb(66, 66, 66));
+      border-radius: 10px 10px 10px 10px;
+    }
+
+::-webkit-scrollbar-track {
+  display: none;
+}

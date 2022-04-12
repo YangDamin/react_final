@@ -9,12 +9,11 @@ import Container from "@mui/material/Container";
 import Header from '../Common/Header';
 import Nav from '../Common/Nav';
 import Footer from '../Common/Footer';
-
-
+import Payment from './Payment';
 
 
       
-      const MyFeed = () => {
+      const Buy = () => {
           return (
               <>
               <Header></Header>
@@ -23,7 +22,10 @@ import Footer from '../Common/Footer';
             <Container className="content-container" >
               <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0',borderStyle:'solid',borderColor:'rgba(153, 153, 153, 1)', height: '100vh' }}>
             <Box sx={{ flexGrow: 1,mt:6 }}>
-              
+              <div></div>
+              <div>
+                 <Payment />   
+              </div>
             </Box>
             </Box>
             </Container>
@@ -33,4 +35,4 @@ import Footer from '../Common/Footer';
 }
 
 
-export default MyFeed;
+export default Buy;

@@ -15,6 +15,7 @@ import FindEmail from './User/FindEmail';
 import FindPassword from './User/FindPassword';
 import AddCalendar from './Main/AddCalendar';
 import View from './View/View';
+import Buy from './Pay/Buy';
 
 
 function App() {
@@ -26,7 +27,6 @@ function App() {
           <Route path="/" element={<Main />}></Route>
           <Route path="/write" element={<Write />}></Route>
           <Route path="/myfeed" element={<MyFeed />}></Route>
-          <Route path="/like" element={<Like />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/calendar" element={<Calendar />}></Route>
           <Route path="/calendar/delete" element={<Calendar />}></Route>
@@ -37,6 +37,7 @@ function App() {
           <Route path="/users/findEmail" element={<FindEmail />}></Route>
           <Route path="/users/findPassword" element={<FindPassword />}></Route>
           <Route path="/view" element={<View />}></Route>
+          <Route path="/buy" element={<Buy />}></Route>
         </Routes>
       </BrowserRouter>
 

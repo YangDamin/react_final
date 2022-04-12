@@ -70,14 +70,23 @@ const AddCalendar = () => {
                                                             }).then((res) => {
                                                                 console.log(res.data);
 
-                                                                Swall.fire(
-                                                                    '',
-                                                                    '일정 추가되었습니다.',
-                                                                    'success'
-                                                                )
-                                                                setTimeout(function () {
+                                                                const Toast = Swal.mixin({
+                                                                    toast: true,
+                                                                    position: 'middle-',
+                                                                    showConfirmButton: false,
+                                                                    timer:1000,
+                                                                    didOpen: (toast) => {
+                                                                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                                      }
+                                                                    })
+                                                                  Toast.fire({
+                                                                    icon: 'success',
+                                                                    title: '일정이 추가되었습니다.'
+                                                                    })
+                                                                  setTimeout(function () {
                                                                     window.location = '/calendar';
-                                                                  }, 2000)
+                                                                  }, 1000)
 
 
                                                             }).catch((error) => {

@@ -39,16 +39,21 @@ const Nav = () => {
             }
             else if(temp === '/mypage'){
                 let current = document.getElementById("btn_mypage");
-                current.style.backgroundColor =  "rgba(255, 118, 118, 1)";
+                current.style.backgroundColor =   "rgba(49, 141, 251, 1)";
             }
-            else if(temp === '/calendar'){
+             else if(temp === '/calendar'){
                 let current = document.getElementById("btn_calendar");
-                current.style.backgroundColor =  "rgba(49, 141, 251, 1)";
+                current.style.backgroundColor =  "rgba(255, 118, 118, 1)";
             }
             else if(temp === '/addCalendar'){
                 let current = document.getElementById("btn_calendar");
                 current.style.backgroundColor =  "rgba(49, 141, 251, 1)";
+            } else if(temp === '/buy'){
+                let current = document.getElementById("btn_buy");
+                current.style.backgroundColor =  "rgba(49, 141, 251, 1)";
             }
+            
+
         }
     );
         
@@ -83,10 +88,6 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("write");
             }}>Write</a></div>
-             <div className="nav" id="btn_like" onClick={getClick}><a className="nav-link menu" id="btn_like"  style={{ 'color': 'black'}} href="/like" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("like");
-            }}>Like</a></div>
             <div className="nav"id="btn_mypage" onClick={getClick}><a className="nav-link menu" id="btn_mypege"  style={{ 'color': 'black'}} href="/mypage" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("mypage");
@@ -95,29 +96,10 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("calendar");
             }}>Calendar</a></div>
-{/* 
-            <div className="nav" id="btn_home" onClick={getClick} ><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/" >Home</a></div>
-            <div className="nav" id="btn_myfeed" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/myfeed" onClick={ (e) => {
+             <div className="nav" id="btn_buy" onClick={getClick}><a className="nav-link menu" id="btn_calendar"  style={{ 'color': 'black'}} href="/buy" onClick={ (e) => {
                 e.preventDefault();
-                loginStart("myfeed");
-            }}>My feed</a></div>
-            <div className="nav" id="btn_write" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/write" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("write");
-            }}>Write</a></div>
-            <div className="nav" id="btn_like" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/like" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("like");
-            }}>Like</a></div>
-            <div className="nav" id="btn_mypege" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/mypage" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("mypage");
-            }}>My Page</a></div>
-            <div className="nav" id="btn_calendar" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/calendar" onClick={ (e) => {
-                e.preventDefault();
-                loginStart("calendar");
-            }}>Calendar</a></div> */}
-
+                loginStart("buy");
+            }}>Buy</a></div>
         </div>
     );
 }
