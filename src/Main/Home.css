@@ -6,7 +6,14 @@
   justify-content: space-around;
 }
 .video_items{
-  display: inline-block;
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto;
+    display: center;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+  
 }
 /* 
 .item{

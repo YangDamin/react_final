@@ -51,7 +51,9 @@ const Calendar = () => {
       <Nav></Nav>
       <CssBaseline />
       <Container className="content-container" style={{ "fontFamily": "Pretendard-Medium" }}>
-        <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '130vh' }}>
+      <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
+			   borderWidth: "5px",borderColor:'black',borderStyle:'solid',
+			   borderColor:'black', height: '100vh', overflow:'overlay' }}>
           <Box sx={{ flexGrow: 1, mt: 6, pl: 5, pr: 5 }}>
             <div class="mypage-body">
               <div class="body-wrapper box">

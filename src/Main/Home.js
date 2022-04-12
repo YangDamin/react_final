@@ -10,17 +10,6 @@ import './Home.css';
 import ReactLoading from "react-loading";
 import Loader from "../Video/Loader";
 
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(14),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
-
-
-
 const Home = () => {
   const [target, setTarget] = useState(null);
   const [videoList,setVideoList]= useState([1]);
