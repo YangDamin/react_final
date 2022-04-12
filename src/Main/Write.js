@@ -1,13 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import React from 'react';
-import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
-import Header from '../Common/Header';
-import Nav from '../Common/Nav';
-import Footer from '../Common/Footer';
 import './Write.css';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -19,10 +14,6 @@ import Server from '../S3/Server';
 
 
 const Write = () => {
-
-    const [progress , setProgress] = useState(0);
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [showAlert, setShowAlert] = useState(false);
 
 
     const [writeContent, setWriteContent] = useState({
@@ -40,8 +31,7 @@ const Write = () => {
     }
     return (
         <>
-            <Header></Header>
-            <Nav></Nav>
+            
             <CssBaseline />
             <Container className="content-container">
             <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
@@ -117,7 +107,7 @@ const Write = () => {
                     </Box>
                 </Box>
             </Container >
-            <Footer></Footer>
+          
 
 
 

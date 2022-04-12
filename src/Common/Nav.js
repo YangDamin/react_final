@@ -88,10 +88,10 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("write");
             }}>WRITE</a></div>
-             <div className="nav" id="btn_like" onClick={getClick}><a className="nav-link menu" id="btn_like"  style={{ 'color': 'black'}} href="/like" onClick={ (e) => {
+             {/* <div className="nav" id="btn_like" onClick={getClick}><a className="nav-link menu" id="btn_like"  style={{ 'color': 'black'}} href="/like" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("like");
-            }}>LIKE</a></div>
+            }}>LIKE</a></div> */}
             <div className="nav"id="btn_mypage" onClick={getClick}><a className="nav-link menu" id="btn_mypege"  style={{ 'color': 'black'}} href="/mypage" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("mypage");
@@ -100,7 +100,7 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("calendar");
             }}>CALENDAR</a></div>
-            <div className="nav" id="btn_myfeed" onClick={getClick}><a className="nav-link menu" id="btn_buy"  style={{ 'color': 'black' }} href="/buy" onClick={ (e) => {
+            <div className="nav" id="btn_buy" onClick={getClick}><a className="nav-link menu" id="btn_buy"  style={{ 'color': 'black' }} href="/buy" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("buy");
             }}>BUY</a></div>

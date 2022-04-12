@@ -1,17 +1,12 @@
 // import React, { useState } from 'react';
 import React from 'react';
-import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Header from '../Common/Header';
-import Nav from '../Common/Nav';
-import Footer from '../Common/Footer';
 import TodoListTemplate from '../Todo/TodoListTemplates';
 import Form from '../Todo/Form';
 import TodoItemList from '../Todo/TodoItemList';
 import Swal from 'sweetalert2';
-import { fireEvent } from '@testing-library/react';
 
 
 // const MyFeed  = () =>{
@@ -199,8 +194,7 @@ class MyFeed extends React.Component {
 	render() {
 		return (
             <>
-            <Header></Header>
-            <Nav></Nav>
+   
         <CssBaseline />
           <Container className="content-container" >
                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
@@ -221,7 +215,7 @@ class MyFeed extends React.Component {
             </Box>
             </Box>
             </Container>
-            <Footer></Footer>
+          
             </>
 		);
 	}

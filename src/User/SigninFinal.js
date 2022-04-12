@@ -6,9 +6,7 @@ import Footer from "../Common/Footer";
 const SigninFinal = () => {
     return (
         <div>
-            <Header></Header>
             <Signin/>
-            <Footer></Footer>
         </div>
     );
 }
