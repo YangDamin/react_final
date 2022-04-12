@@ -111,8 +111,7 @@ const MyPage = () => {
     return (
 
         <>
-            <Header></Header>
-            <Nav></Nav>
+            
             <CssBaseline />
             <Container className="content-container" >
             <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
@@ -239,7 +238,7 @@ const MyPage = () => {
                     </Box>
                 </Box>
             </Container>
-            <Footer></Footer>
+            
         </>
     );
 }

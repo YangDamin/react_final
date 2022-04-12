@@ -5,7 +5,7 @@ import Signup from "./Signup";
 const SignupFinal = () => {
     return (
         <div>
-            <Header></Header>
+            {/* <Header></Header> */}
             <Signup/>
         </div>
     );
