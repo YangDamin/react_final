@@ -100,7 +100,7 @@ const Nav = () => {
                 e.preventDefault();
                 loginStart("calendar");
             }}>CALENDAR</a></div>
-            <div className="nav" id="btn_myfeed" onClick={getClick}><a className="nav-link" id="menu"  style={{ 'color': 'white' }} href="/myfeed" onClick={ (e) => {
+            <div className="nav" id="btn_myfeed" onClick={getClick}><a className="nav-link menu" id="btn_buy"  style={{ 'color': 'black' }} href="/buy" onClick={ (e) => {
                 e.preventDefault();
                 loginStart("buy");
             }}>BUY</a></div>
