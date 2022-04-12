@@ -35,8 +35,12 @@ const Server = () => {
         //   alert('jpg 파일만 업로드 가능합니다.');
         //   return;
         // }
+        const s3Url="https://viary.s3.us-west-1.amazonaws.com/upload/";
+        const filePath2= s3Url + file.name;
+        console.log(filePath2);
         setSelectedFile(e.target.files[0]);
-    }
+    } 
+        
 
     const uploadFile = file => { //챕터4!의 사진을 업로드 하는 코드
         const params = {
