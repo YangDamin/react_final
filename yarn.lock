@@ -3351,24 +3351,10 @@
   "resolved" "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
   "version" "1.0.5"
 
-<<<<<<< HEAD
 "aws-sdk@^2.1112.0":
   "integrity" "sha512-8FKr3zwD2bHZQLmxJ7d1VwvDkW9kKx4YPdNXawV+CqNUzQC/9ZmSmHyx8mZCv6J722tqxIZh5c567499QawuZw=="
   "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1112.0.tgz"
   "version" "2.1112.0"
-=======
-<<<<<<< HEAD
-"aws-sdk@^2.1108.0":
-  "integrity" "sha512-BpoHW6vk8cXQDf0M+j7LSti7db4vIWocfUDTFbmkOT0hH9pR3f4IDzbnGzGmlka6IOFWkb9sVHl+P5S2meswOg=="
-  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1108.0.tgz"
-  "version" "2.1108.0"
-=======
-"aws-sdk@^2.1111.0":
-  "integrity" "sha512-WRyNcCckzmu1djTAWfR2r+BuI/PbuLrhG3oa+oH39v4NZ4EecYWFL1CoCPlC2kRUML4maSba5T4zlxjcNl7ELQ=="
-  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1111.0.tgz"
-  "version" "2.1111.0"
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
->>>>>>> 645a0503efcf7a2c18dafb2b03e482d834a38853
   dependencies:
     "buffer" "4.9.2"
     "events" "1.1.1"
@@ -4961,15 +4947,9 @@
     "stackframe" "^1.1.1"
 
 "es-abstract@^1.17.2", "es-abstract@^1.18.5", "es-abstract@^1.19.0", "es-abstract@^1.19.1":
-<<<<<<< HEAD
-  "integrity" "sha512-gfSBJoZdlL2xRiOCy0g8gLMryhoe1TlimjzU99L/31Z8QEGIhVQI+EWwt5lT+AuU9SnorVupXFqqOGqGfsyO6w=="
-  "resolved" "https://registry.npmjs.org/es-abstract/-/es-abstract-1.19.2.tgz"
-  "version" "1.19.2"
-=======
   "integrity" "sha512-2vJ6tjA/UfqLm2MPs7jxVybLoB8i1t1Jd9R3kISld20sIxPcTbLuggQOUxeWeAvIUkduv/CfMjuh4WmiXr2v9w=="
   "resolved" "https://registry.npmjs.org/es-abstract/-/es-abstract-1.19.1.tgz"
   "version" "1.19.1"
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
   dependencies:
     "call-bind" "^1.0.2"
     "es-to-primitive" "^1.2.1"
@@ -7445,19 +7425,12 @@
   dependencies:
     "fs-monkey" "1.0.3"
 
-"memoize-one@^5.1.1":
-  "integrity" "sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q=="
-  "resolved" "https://registry.npmjs.org/memoize-one/-/memoize-one-5.2.1.tgz"
-  "version" "5.2.1"
 
-<<<<<<< HEAD
 "memoize-one@^6.0.0":
   "integrity" "sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw=="
   "resolved" "https://registry.npmjs.org/memoize-one/-/memoize-one-6.0.0.tgz"
   "version" "6.0.0"
 
-=======
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
 "merge-descriptors@1.0.1":
   "integrity" "sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E="
   "resolved" "https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.1.tgz"
@@ -9559,14 +9532,11 @@
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
 
-<<<<<<< HEAD
-=======
 "react-loading@^2.0.3":
   "integrity" "sha512-Vdqy79zq+bpeWJqC+xjltUjuGApyoItPgL0vgVfcJHhqwU7bAMKzysfGW/ADu6i0z0JiOCRJjo+IkFNkRNbA3A=="
   "resolved" "https://registry.npmjs.org/react-loading/-/react-loading-2.0.3.tgz"
   "version" "2.0.3"
 
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
 "react-player@^2.10.0":
   "integrity" "sha512-PccIqea9nxSHAdai6R+Yj9lp6tb2lyXWbaF6YVHi5uO4FiXYMKKr9rMXJrivwV5vXwQa65rYKBmwebsBmRTT3w=="
   "resolved" "https://registry.npmjs.org/react-player/-/react-player-2.10.0.tgz"
@@ -9989,11 +9959,7 @@
   dependencies:
     "queue-microtask" "^1.2.2"
 
-<<<<<<< HEAD
 "safe-buffer@^5.1.0", "safe-buffer@^5.1.2", "safe-buffer@>=5.1.0", "safe-buffer@~5.1.0", "safe-buffer@~5.1.1", "safe-buffer@5.1.2":
-=======
-"safe-buffer@^5.0.1", "safe-buffer@^5.1.0", "safe-buffer@^5.1.2", "safe-buffer@>=5.1.0", "safe-buffer@~5.1.0", "safe-buffer@~5.1.1", "safe-buffer@5.1.2":
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
   "integrity" "sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g=="
   "resolved" "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz"
   "version" "5.1.2"
@@ -10026,16 +9992,12 @@
     "klona" "^2.0.4"
     "neo-async" "^2.6.2"
 
-<<<<<<< HEAD
 "sax@>=0.6.0", "sax@1.2.1":
   "integrity" "sha1-e45lYZCyKOgaZq6nSEgNgozS03o="
   "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.1.tgz"
   "version" "1.2.1"
 
 "sax@~1.2.4":
-=======
-"sax@>=0.6.0", "sax@~1.2.4":
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
   "integrity" "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw=="
   "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
   "version" "1.2.4"
