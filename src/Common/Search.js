@@ -13,6 +13,7 @@ import Footer from '../Common/Footer';
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import VideoCards from '../Video/VideoCard';
+import thumbnail from '../assets/img/thumbnail.png'
 
 
 const Search = () => {
@@ -52,6 +53,28 @@ const Search = () => {
               textAlign:'center',
             }}
             >
+               <Grid container id='grid' >
+            {videoList.map((p) => {
+              return (
+                <tr>
+                <Grid item col-xs={4} col-6 col-md-4>
+                <Grid item col-xs={4}>
+                  <div className="container" id="home">
+                    <Link to={`/view/${p.id}`} className="link">
+                      <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
+                      <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
+                      {/* {p.viewCnt} */}
+                      </h6>
+                    </Link>
+                    {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
+                    </div>
+                </Grid>
+                </Grid>
+                </tr>
+              );
+            })}
+
+          </Grid>
             </Box>
             </Container>
             <Footer></Footer>
