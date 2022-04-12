@@ -53,6 +53,8 @@ const Server = () => {
             .send((err) => {
                 if (err) console.log(err)
             })
+
+        console.log("파일 이름 :" + file.name);
     }
 
 

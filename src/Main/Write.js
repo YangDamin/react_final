@@ -102,7 +102,7 @@ const Write = () => {
                                 // formData.append("filePath", sessionStorage.getItem("filePath"));
 
                                 axios({
-                                    url: "http://localhost:8080/post/write",
+                                    url: "http://localhost:8080/write",
                                     method: "post",
                                     data: formData
                                 }).then( (res) => {
