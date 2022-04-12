@@ -13,15 +13,9 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-<<<<<<< HEAD
-import AWS from 'aws-sdk';
-import { Row, Col, Button, Input, Alert } from 'reactstrap';
-import Server from '../S3/Server';
-=======
 import Server from '../S3/Server';
 
 
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
 
 
 
@@ -63,26 +57,8 @@ const Write = () => {
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', 
                 borderColor: 'rgba(153, 153, 153, 1)', height: '120vh' ,overflow:'overlay'}}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
-<<<<<<< HEAD
-
-                        <div className='form-wrapper'>
-                        <form method="post" enctype="multipart/form-data">
-
-                        </form>
-                        <form method="post" enctype="multipart/form-data">
-                        <Server />
-                        </form>
-                        {viewContent.map(element =>
-                            <div>
-                                <h2>{element.title}</h2>
-                                <div>
-                                    {element.content}
-                                </div>
-                            </div>)}
-=======
                         <div className='form-wrapper' id="write" style={{"marginBottom":"30px"}}>
                             <Server/>
->>>>>>> 1dd66331cf0823819fdd2f599b1cd3c37e2a4071
                             <input className="title-input" type='text' placeholder='제목'
                                 onChange={getValue} name='title' />
                             <CKEditor
