@@ -24,7 +24,7 @@ class MyFeed extends React.Component {
 			// *** Form.js 에서 Hook(useState) 사용으로 인해 제거
 			// input : "",
 			todos : [
-
+				
 			]
 		}
 		// this.handleChange = this.handleChange.bind(this);

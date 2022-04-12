@@ -1,0 +1,25 @@
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    min-height: 400px;
+    font-family: 'Pretendard-Medium';
+  }
+  
+  .ck.ck-toolbar.ck-toolbar_grouping{
+      background-color:rgb(184, 182, 182);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eeeeee;
+      border-radius: 5px;
+    }
+     
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(rgb(66, 66, 66));
+      border-radius: 10px 10px 10px 10px;
+    }
+
+::-webkit-scrollbar-track {
+  display: none;
+}

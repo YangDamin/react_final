@@ -11,6 +11,7 @@ import Footer from '../Common/Footer';
 import { Modal } from 'react-bootstrap';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import './MyPage.css';
 
 
 
@@ -114,7 +115,8 @@ const MyPage = () => {
             <Nav></Nav>
             <CssBaseline />
             <Container className="content-container" >
-                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '70vh' }}>
+                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', 
+                            borderColor: 'rgba(153, 153, 153, 1)', height: '70vh', overflow:'overlay' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div
                             style={{
@@ -200,7 +202,35 @@ const MyPage = () => {
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
 
-                            <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(255, 118, 118, 1)"}} />
+                            {/* <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(255, 118, 118, 1)"}} onClick={(e)=> {
+                                e.preventDefault();
+                                const formData = new FormData();
+                                formData.append("id", sessionStorage.getItem("user_id"));
+                                console.log(sessionStorage.getItem("user_id"))
+
+                                axios({
+                                    url: "http://localhost:8080/mypage",
+                                    method: "delete",
+                                    data: formData
+                                }).then((res) => {
+                                    sessionStorage.removeItem("email");
+                                    sessionStorage.removeItem("password");
+                                    sessionStorage.removeItem("name");
+                                    sessionStorage.removeItem("phone");
+                                    sessionStorage.removeItem("user_id");
+
+                                    Swal.fire(
+                                        '',
+                                        '탈퇴 완료되었습니다!',
+                                        'success'
+                                      )
+                                      setTimeout(function () {
+                                        window.location = '/';
+                                      }, 2000)
+                                }).catch((error)=>{
+                                    console.log(error);
+                                })
+                            }}/> */}
 
 
 
