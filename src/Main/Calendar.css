@@ -1,0 +1,17 @@
+.fc *{
+    /* color: rgb(26, 26, 165); */
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    
+}
+/* .fc *:hover{
+    color : white;
+} */
+
+.fc-event-title:hover {
+    cursor: pointer;
+}
+
+.fc-event-title{
+    color: white;
+}
