@@ -14,3 +14,15 @@
 .fc-event-title{
     color: white;
 }
+
+.fc-event {
+    background-color: rgba(255, 118, 118, 1);
+    border-color: rgba(255, 118, 118, 1);
+}
+
+.calendar_css{
+    display: inline-block;
+    width: 100%;
+    padding: 50px auto;
+    flex: auto;
+}

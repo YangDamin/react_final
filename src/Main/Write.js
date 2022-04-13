@@ -112,9 +112,9 @@ const Write = () => {
             <Nav/>
             <CssBaseline />
             <Container className="content-container">
-            <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
+            <Box className="write_css" sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
 			   borderWidth: "5px",borderColor:'black',borderStyle:'solid',
-			   borderColor:'black', height: '100vh',overflow:'overlay' }}>
+			   borderColor:'black', padding: "20px"}}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper' id="write" style={{"marginBottom":"30px"}}>
                             {/* <Server/> */}
@@ -132,7 +132,7 @@ const Write = () => {
                                     console.log('Editor is ready to use!', editor);
                                 }}
                                 onChange={(event, editor) => {
-                                    const data = editor.getData();
+                                    const data = editor.getData().substr(3, editor.getData().length-7 )
                                     console.log({ event, editor, data });
                                     setWriteContent({
                                         ...writeContent, content: data
@@ -179,7 +179,7 @@ const Write = () => {
                                         'success'
                                       )
                                     setTimeout(function(){
-                                        window.location = `/`;
+                                        window.location = '/myfeed';
                                     },2000)
 
                                 }).catch( (error) => {
