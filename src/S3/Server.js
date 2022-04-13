@@ -64,7 +64,7 @@ const Server = () => {
 
     return (
         <div className="App">
-            <div class="row" style={{"paddingTop":"1.5rem", "paddingBottom":"1.5rem", "fontFamily":"Pretendard-Medium"}}>
+            <div class="row" style={{"paddingTop":"1.5rem", "paddingBottom":"1.5rem"}}>
                 <div class="col-10">
                     <Input color="primary" type="file" onChange={handleFileInput} />
                 </div>

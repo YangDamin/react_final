@@ -25,7 +25,7 @@ const AddCalendar = () => {
 
             <Nav />
             <CssBaseline />
-            <Container className="content-container" style={{ "fontFamily": "Pretendard-Medium" }}>
+            <Container className="content-container">
                 <Box className="calendar_css" sx={{ padding: "40px", bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     {/* <Box sx={{ flexGrow: 1, mt: 6, pl: 5, pr: 5 }}> */}
                         <h3 style={{ "fontWeight": "bold", "marginBottom": "2rem", "marginTop": "2rem" }}>일정 추가하기</h3>

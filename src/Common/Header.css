@@ -21,3 +21,8 @@
     font-size: 15px;
     margin-top: 20px;
 }
+
+#search_css{
+    display: flex;
+    flex-wrap: nowrap;   
+}

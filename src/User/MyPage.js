@@ -48,7 +48,7 @@ const MyPage = () => {
 
 
     const modalStyle = {
-        fontFamily: "SuncheonB",
+        fontFamily: "Pretendard-Medium",
         textAlign: "center"
     }
 

@@ -8,6 +8,7 @@ import axios from 'axios';
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import thumbnail from '../assets/img/thumbnail.png'
+import {FaBook} from "@react-icons/all-files/fa/FaBook";
 
 const MyFeed = () => {
 	const [mypostList, setMyPostList] = useState([]);
@@ -39,12 +40,14 @@ const MyFeed = () => {
 					}}>
 
 					<Container className="video_content">
+						<div style={{"padding":"5rem 0 0 5rem", "display":"flex"}}>
+							<h3 style={{"fontWeight":"bold"}}><FaBook/> 나의 기록</h3>
+						</div>
 						<Box className="video_item"
 							sx={{ flexGrow: 6 }}>
 							<Grid container id='grid' >
 								{mypostList.map((p) => {
 									return (
-
 										<Grid item col-xs={4} col-6 col-md-4>
 											<Grid item col-xs={4}>
 												<div className="container" id="home">

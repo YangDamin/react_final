@@ -47,7 +47,7 @@ const Calendar = () => {
     <div>
       <Nav />
       <CssBaseline />
-      <Container className="content-container" style={{ "fontFamily": "Pretendard-Medium" }}>
+      <Container className="content-container">
         <Box className="calendar_css" sx={{
           bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
           borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
