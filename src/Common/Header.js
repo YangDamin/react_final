@@ -11,11 +11,17 @@ const Header = () => {
     const onChange = (e) => {
         setText(e.target.value);
     }
-
+    // 클릭 이벤트
     const handleClick = ()=>{
         if(text.length>0){
           navigate("/search/"+text);
         }
+      }
+      //엔터키 이벤트
+      const onKeyPress = (e)=>{
+          if(e.key === 'Enter'){
+              handleClick();
+          }
       }
 
 
@@ -48,11 +54,14 @@ const Header = () => {
                     <div class="search-bar p-2 pb-3 ps-2 pe-2 pt-3 text-dark" title="Search"  
                   >
                     <div class="input-group mb-3" >
+                        <form>
                         <input 
+                        onKeyPress={(e)=>onKeyPress(e)}
                         id="search_txt"
                         class="col-4"
                         className="searchbar_input"
                         onChange={(e)=>onChange(e)}
+                        onClick={()=>handleClick()}
                         type="text"
                         placeholder="Search"
                         width="14px"
@@ -68,6 +77,7 @@ const Header = () => {
                         }}
                        >
                        </input>
+                       </form>
                        <button 
                        class="btn-search col-2" 
                        id="search_btn"

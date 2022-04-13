@@ -5,28 +5,18 @@
     display: flex;
     flex: auto;
     justify-content: left;
+   
     
 }
 
-/* #SignupLogin_css{
-    font-family: 'LeferiPoint-WhiteObliqueA';
-    text-align: right;
-    margin-right: 3%;
-    padding-right: 40px;
-    margin-top: 20px;
-    font-size: 20px;
-} */
 
 #signup_css{
-    font-family: 'Pretendard-Medium';
     text-align: right;
     font-size: 15px;
     margin-top: 20px;
 }
 
 #login_css{
-    /* width:120px; */
-    font-family: 'Pretendard-Medium';
     text-align: left;
     font-size: 15px;
     margin-top: 20px;

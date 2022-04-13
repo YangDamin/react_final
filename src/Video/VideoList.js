@@ -1,5 +1,4 @@
 import React from "react";
-import VideoCards from "./VideoCard";
 import "./VideoList.css";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -34,21 +33,19 @@ const VideoList = () => {
           <Grid container id='grid' >
             {postList.map((p) => {
               return (
-                
+
                 <Grid item col-xs={4} col-6 col-md-4>
                 <Grid item col-xs={4}>
                   <div className="container" id="home">
-                    <Link to={`/post/detail/`} className="link">
-                      <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
+                    <Link to={`/view/${p.id}`} className="link">
+                      <img className="videoCard_thubmnail" src={p.videoPath} alt="video_thubmnail" />
                       <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
-                      {/* {p.viewCnt} */}
                       </h6>
                     </Link>
-                    {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
                     </div>
+                  </Grid>
                 </Grid>
-                </Grid>
-                
+
               );
             })}
 

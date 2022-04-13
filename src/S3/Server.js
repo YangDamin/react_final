@@ -57,6 +57,8 @@ const Server = () => {
             .send((err) => {
                 if (err) console.log(err)
             })
+
+        console.log("파일 이름 :" + file.name);
     }
 
 
@@ -68,7 +70,8 @@ const Server = () => {
                 </div>
                 <div class="col-2">
                     {selectedFile ? (
-                        <Button style={{"backgroundColor":"rgba(49, 141, 251, 1)", 'border':'none', 'fontSize':'16px'}} onClick={() => uploadFile(selectedFile)}> 파일 첨부하기 </Button>
+                        <Button style={{"backgroundColor":"rgba(49, 141, 251, 1)", 
+                        'border':'none', 'fontSize':'16px', flex:'flex-basis'}} onClick={() => uploadFile(selectedFile)}> 파일 첨부하기 </Button>
                     ) : null}
                 </div>
             </div>
