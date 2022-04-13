@@ -7,7 +7,6 @@ import Header from "../Common/Header";
 const FindEmail = () => {
     return (
         <div style={{ "fontFamily": 'Pretendard-Medium' }}>
-            <Header />
             <h3 style={{ "fontWeight": "bold", "marginBottom": "2rem", "marginTop": "2rem" }}>이메일 찾기</h3>
             <hr style={{ "height": "2px", "width": "50%", "color": "#000000", "margin": "0 auto" }} />
             <h6 style={{ "marginTop": "2rem" }}>회원가입 시 등록하신 정보로</h6>

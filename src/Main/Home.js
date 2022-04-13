@@ -9,6 +9,7 @@ import VideoList from '../Video/VideoList';
 import './Home.css';
 import ReactLoading from "react-loading";
 import Loader from "../Video/Loader";
+import Nav from '../Common/Nav';
 
 const Home = () => {
   const [target, setTarget] = useState(null);
@@ -49,7 +50,7 @@ const Home = () => {
   
   return (
       <>
-
+        <Nav/>
         <CssBaseline />
         <Container className="content-container">
           <Box className="video_items"
