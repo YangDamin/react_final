@@ -35,13 +35,17 @@ const VideoList = () => {
               return (
 
                 <Grid item col-xs={4} col-6 col-md-4>
-                <Grid item col-xs={4}>
-                  <div className="container" id="home">
-                    <Link to={`/view/${p.id}`} className="link">
-                      <img className="videoCard_thubmnail" src={p.videoPath} alt="video_thubmnail" />
-                      <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
-                      </h6>
-                    </Link>
+                  <Grid item col-xs={4}>
+                    <div className="container" id="home">
+                      <Link to={`/view/${p.id}`} className="link">
+                        <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" />
+                        <div className="video_title">
+                          {p.title}
+                        </div>
+                        <div className="video_date">
+                          {p.date}
+                        </div>
+                      </Link>
                     </div>
                   </Grid>
                 </Grid>
