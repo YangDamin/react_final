@@ -63,10 +63,8 @@ const Search = () => {
                     <Link to={`/view/${p.id}`} className="link">
                       <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
                       <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
-                      {/* {p.viewCnt} */}
                       </h6>
                     </Link>
-                    {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
                     </div>
                 </Grid>
                 </Grid>

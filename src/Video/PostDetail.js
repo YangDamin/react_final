@@ -40,7 +40,6 @@ const BoardDetail = () => {
   
       <>
 
-       <Header></Header>
         <Container className="mt--7" fluid>
          
           {/* Table */}
