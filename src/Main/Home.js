@@ -54,7 +54,7 @@ const Home = () => {
         <CssBaseline />
         <Container className="content-container">
           <Box className="video_items"
-            sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
+            sx={{  width:'98%', bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
             borderWidth: "5px",borderColor:'black',borderStyle:'solid',
             borderColor:'black', height: '100vh',overflow:'overlay' }}>
        

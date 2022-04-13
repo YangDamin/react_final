@@ -45,7 +45,7 @@ function App() {
           <Route path="/post/detail/:postid" element={<PostDetail/>}></Route>
           {/* <Route path="/profile"><Profile /></Route> */}
           <Route path="/users/findPassword" element={<FindPassword/>}></Route>
-          <Route path="/view" element={<View/>}></Route>
+          <Route path="/view/:postid" element={<View/>}></Route>
           <Route path="/buy" element={<Buy/>}></Route>
           <Route path="/search/:word" element={<Search/>}></Route>
         </Routes>

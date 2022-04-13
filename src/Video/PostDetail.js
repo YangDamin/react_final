@@ -44,8 +44,7 @@ const BoardDetail = () => {
          
           {/* Table */}
           <Row>
-            <div className="col">
-              <Card className="shadow">
+         
                 <tbody>
                 <Table className="align-items-center table-flush" responsive>
                 <tr>
@@ -63,8 +62,8 @@ const BoardDetail = () => {
                 </tbody>
                     <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
                     </Link>
-              </Card>
-            </div>
+            
+          
           </Row>
         </Container>
   
