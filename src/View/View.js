@@ -12,38 +12,69 @@ import Container from "@mui/material/Container";
 import './View.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Link, useParams } from "react-router-dom";
+import { Card, Row, Table } from "reactstrap";
 
 const View = () => {
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-        ...theme.typography.body2,
-        padding: theme.spacing(14),
-        textAlign: "center",
-        color: theme.palette.text.secondary,
-    }));
 
-    return(
+    const { postid } = useParams();
+
+    const [post, setPost] = useState([]);
+
+    useEffect(() => {
+        const result = axios({
+            url: `http://localhost:8080/post/detail/${postid}`,
+            method: 'get'
+        });
+        result.then((res) => {
+            console.log(res);
+            console.log(res.data);
+            setPost(res.data);
+        });
+        console.log("##################" + postid);
+    }, [postid]);
+
+
+    return (
         <>
-         <Header></Header>
             <Nav></Nav>
             <CssBaseline />
             <Container className="content-container">
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
-                        <div className='form-wrapper'id="view" style={{"marginBottom":"30px"}}>
+                        <div className='form-wrapper' id="view" style={{ "marginBottom": "30px" }}>
                             <div className="container" id="video">
-                            <ReactPlayer 
-                            width='500px'
-                            height='300px'
-                            controls url='https://viary.s3.us-west-1.amazonaws.com/upload/KakaoTalk_20220407_134344348.mp4' />
+                                <ReactPlayer
+                                    width='500px'
+                                    height='300px'
+                                    controls url='https://viary.s3.us-west-1.amazonaws.com/upload/KakaoTalk_20220407_134344348.mp4' />
                             </div>
-                            <div className="container" id ="content">
-                              
-                 
+                            <div className="container" id="content">
+
+                        
+                                                <Table className="align-items-center table-flush" responsive>
+                                                    <tr>
+                                                        <div class="container">
+                                                            <h2 class="my-3 border-bottom pb-2">
+                                                                제목 : {post.title}
+                                                                <br />
+                                                                작성자 : {post.userId}
+                                                                <br />
+                                                                내용 : {post.content}
+                                                            </h2>
+                                                        </div>
+                                                    </tr>
+                                                </Table>
+                                        
+                                            <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
+                                            </Link>
+                                    
+        
+
                             </div>
 
-    
+
                         </div>
                     </Box>
                 </Box>

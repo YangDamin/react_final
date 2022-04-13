@@ -42,10 +42,10 @@ function App() {
           <Route path="/users/logout" element={<Logout/>}></Route>
           <Route path="/oauth/kakao" element={<Auth/>}></Route>
           <Route path="/users/findEmail" element={<FindEmail/>}></Route>
-          <Route path="/post/detail/*" element={<PostDetail/>}></Route>
+          {/* <Route path="/post/detail/:postid" element={<PostDetail/>}></Route> */}
           {/* <Route path="/profile"><Profile /></Route> */}
           <Route path="/users/findPassword" element={<FindPassword/>}></Route>
-          <Route path="/view" element={<View/>}></Route>
+          <Route path="/view/:postid" element={<View/>}></Route>
           <Route path="/buy" element={<Buy/>}></Route>
           <Route path="/search/:word" element={<Search/>}></Route>
         </Routes>
