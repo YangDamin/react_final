@@ -13,18 +13,18 @@ import Nav from '../Common/Nav';
 
 const Home = () => {
   const [target, setTarget] = useState(null);
-  const [videoList,setVideoList]= useState([1]);
+  const [videoList,setVideoList]= useState([0]);
   const [isLoading,setIsLoading]= useState(false);
 
   useEffect(() => {
-    console.log(videoList);
+    console.log("비디오 리스트"+videoList);
   }, [videoList]);
   // videoList 상태가 변경시에 실행된다.
 
   const getMoreItem = async () => {
     setIsLoading(true);
     await new Promise((resolve)=> setTimeout(resolve,600));
-    let tempVideoList = [1];
+    let tempVideoList = [0];
     setVideoList((videoList)=> videoList.concat(tempVideoList));
     setIsLoading(false); 
   }
@@ -46,7 +46,7 @@ const Home = () => {
       observer.observe(target);
     }
     return () => observer && observer.disconnect();
-  },[target]);
+  },[]);
   
   return (
       <>
@@ -56,7 +56,7 @@ const Home = () => {
           <Box className="video_items"
             sx={{  width:'98%', bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
             borderWidth: "5px",borderColor:'black',borderStyle:'solid',
-            borderColor:'black', height: '100vh',overflow:'overlay' }}>
+            borderColor:'black'}}>
        
             {videoList.map((item,index) =>(
               <VideoList></VideoList>
