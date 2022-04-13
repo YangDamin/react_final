@@ -69,3 +69,10 @@
 ::-webkit-scrollbar-track {
   display: none;
 }
+
+.write_css{
+  display: inline-block;
+  width: 100%;
+  padding: 50px auto;
+  flex: auto;
+}

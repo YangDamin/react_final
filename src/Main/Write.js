@@ -35,9 +35,9 @@ const Write = () => {
             <Nav/>
             <CssBaseline />
             <Container className="content-container">
-            <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
+            <Box className="write_css" sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
 			   borderWidth: "5px",borderColor:'black',borderStyle:'solid',
-			   borderColor:'black', height: '100vh',overflow:'overlay' }}>
+			   borderColor:'black', padding: "20px"}}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper' id="write" style={{"marginBottom":"30px"}}>
                             <Server/>

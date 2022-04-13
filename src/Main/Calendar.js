@@ -48,14 +48,14 @@ const Calendar = () => {
       <Nav />
       <CssBaseline />
       <Container className="content-container" style={{ "fontFamily": "Pretendard-Medium" }}>
-        <Box sx={{
+        <Box className="calendar_css" sx={{
           bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
           borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
-          borderColor: 'black', height: '130vh'
+          borderColor: 'black', padding: "40px"
         }}>
-          <Container style={{ "height": "90%", "width": "90%", "marginTop": "3rem" }}>
+          {/* <Container style={{ "height": "90%", "width": "90%", "marginTop": "3rem" }}> */}
             <div>
-              <input type="button" value="일정 추가" class="btn text-white " style={{ "display": "flex", "marginLeft": "auto", "marginBottom": "0.5rem", "backgroundColor": "rgba(49, 141, 251, 1)" }} onClick={(e) => { e.preventDefault(); window.location = '/addCalendar' }} />
+              <input type="button" value="일정 추가" class="btn text-white " style={{ "display": "flex", "marginLeft": "auto", "marginBottom": "0.5rem", "backgroundColor": "rgba(255, 118, 118, 1)" }} onClick={(e) => { e.preventDefault(); window.location = '/addCalendar' }} />
             </div>
             <FullCalendar defaultView="dayGridMonth" plugins={[dayGridPlugin, interactionPlugin]} events={data_list} eventClick={function (e) {
               Swal.fire({
@@ -98,7 +98,7 @@ const Calendar = () => {
                 }
               })
             }} />
-          </Container>
+          {/* </Container> */}
         </Box>
       </Container>
 
