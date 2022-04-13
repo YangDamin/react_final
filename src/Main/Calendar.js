@@ -9,6 +9,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './Calendar.css'
+import Nav from '../Common/Nav';
 
 
 
@@ -44,7 +45,7 @@ const Calendar = () => {
 
   return (
     <div>
-    
+    <Nav/>
       <CssBaseline />
       <Container className="content-container" style={{ "fontFamily": "Pretendard-Medium" }}>
       <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 

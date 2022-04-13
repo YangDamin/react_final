@@ -29,9 +29,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Header/>
-      <Nav/>
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
+          <Route exact path="/" element={<Home/>}></Route>
           <Route path="/write" element={<Write/>}></Route>
           <Route path="/myfeed" element={<MyFeed/>}></Route>
           <Route path="/mypage" element={<MyPage/>}></Route>
