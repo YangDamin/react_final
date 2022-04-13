@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useEffect,useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { styled } from "@mui/material/styles";
@@ -19,10 +19,10 @@ import thumbnail from '../assets/img/thumbnail.png'
 const Search = () => {
   const { word } = useParams();
   // useParams = word 값이 들어감
-  const [videoList,setVideoList] = useState([]);
+  const [videoList, setVideoList] = useState([]);
 
 
-  useEffect(()=>{
+  useEffect(() => {
     const result = axios({
       url: `http://localhost:8080/search/${word}`,
       method: 'get'
@@ -32,52 +32,52 @@ const Search = () => {
       console.log(res.data);
       setVideoList(res.data);
     });
-    console.log("##################"+word);
+    console.log("##################" + word);
   }, [word]);
   //word 값이 변경 되었을 때 useEffect 실행
 
   return (
     <>
-            <Nav></Nav>
-            <CssBaseline />
-            <Container className="content-container">
-            <Box className="video_items"
-            sx={{
-              display: 'inline-block',
-              bgcolor: "rgba(238, 238, 238, 1)",
-              borderRadius: "40px 40px 0 0",
-              borderWidth: "6px",
-              borderStyle: "solid",
-              borderColor: "black",
-              textAlign:'center',
-            }}
-            >
-               <Grid container id='grid' >
+      <Nav></Nav>
+      <CssBaseline />
+      <Container className="content-container">
+        <Box className="video_items"
+          sx={{
+            display: 'inline-block',
+            bgcolor: "rgba(238, 238, 238, 1)",
+            borderRadius: "40px 40px 0 0",
+            borderWidth: "6px",
+            borderStyle: "solid",
+            borderColor: "black",
+            textAlign: 'center',
+          }}
+        >
+          <Grid container id='grid' >
             {videoList.map((p) => {
               return (
                 <tr>
-                <Grid item col-xs={4} col-6 col-md-4>
-                <Grid item col-xs={4}>
-                  <div className="container" id="home">
-                    <Link to={`/view/${p.id}`} className="link">
-                      <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
-                      <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
-                      {/* {p.viewCnt} */}
-                      </h6>
-                    </Link>
-                    {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
-                    </div>
-                </Grid>
-                </Grid>
+                  <Grid item col-xs={4} col-6 col-md-4>
+                    <Grid item col-xs={4}>
+                      <div className="container" id="home">
+                        <Link to={`/view/${p.id}`} className="link">
+                          <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
+                          <h6 className="video_title" >{p.title}<br />{p.date}<br />
+                            {/* {p.viewCnt} */}
+                          </h6>
+                        </Link>
+                        {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
+                      </div>
+                    </Grid>
+                  </Grid>
                 </tr>
               );
             })}
 
           </Grid>
-            </Box>
-            </Container>
+        </Box>
+      </Container>
 
-        </>
+    </>
   );
 };
 
