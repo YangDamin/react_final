@@ -13,7 +13,9 @@ import './View.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Link, useParams } from "react-router-dom";
-import { Card, Row, Table } from "reactstrap";
+import AWS from 'aws-sdk';
+import { Row, Col, Button, Input, Alert } from 'reactstrap';
+
 
 const View = () => {
 
@@ -36,6 +38,7 @@ const View = () => {
     }, [postid]);
 
 
+
     return (
         <>
             <Nav></Nav>
@@ -48,12 +51,12 @@ const View = () => {
                                 <ReactPlayer
                                     width='500px'
                                     height='300px'
-                                    controls url='https://viary.s3.us-west-1.amazonaws.com/upload/KakaoTalk_20220407_134344348.mp4' />
+                                    controls url={post.videoPath} />
                             </div>
                             <div className="container" id="content">
 
                         
-                                                <Table className="align-items-center table-flush" responsive>
+                                               
                                                     <tr>
                                                         <div class="container">
                                                             <h2 class="my-3 border-bottom pb-2">
@@ -62,10 +65,12 @@ const View = () => {
                                                                 작성자 : {post.userId}
                                                                 <br />
                                                                 내용 : {post.content}
+                                                                <br />
+                                                                조회수 : {post.viewCnt}
                                                             </h2>
                                                         </div>
                                                     </tr>
-                                                </Table>
+                                              
                                         
                                             <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
                                             </Link>
