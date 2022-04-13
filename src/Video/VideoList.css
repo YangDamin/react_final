@@ -28,14 +28,18 @@
     margin-top: 10px;
     border: hidden 3px;
     border-radius: 4px 4px 4px 4px;
-    box-shadow: 5px 5px 5px rgb(160, 160, 160);
-    width: 90%;
-    margin-left: 5%;
+    /* box-shadow: 5px 5px 5px rgb(160, 160, 160); */
+    /* width: 90%; */
+    margin-left: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    
   }
   .videoCard_thubmnail{
     margin-bottom: 5px;
     margin-top: 10px;
-    box-shadow: 5px 5px 5px rgb(160, 160, 160);
+    /* box-shadow: 5px 5px 5px rgb(160, 160, 160); */
   }
 
   /* #home{
