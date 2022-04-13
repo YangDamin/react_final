@@ -7,6 +7,7 @@ import TodoListTemplate from '../Todo/TodoListTemplates';
 import Form from '../Todo/Form';
 import TodoItemList from '../Todo/TodoItemList';
 import Swal from 'sweetalert2';
+import Nav from '../Common/Nav';
 
 
 // const MyFeed  = () =>{
@@ -194,7 +195,7 @@ class MyFeed extends React.Component {
 	render() {
 		return (
             <>
-   
+	<Nav/>
         <CssBaseline />
           <Container className="content-container" >
                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 

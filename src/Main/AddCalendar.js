@@ -22,8 +22,7 @@ import Swal from 'sweetalert2';
 const AddCalendar = () => {
     return (
         <div>
-            <Header></Header>
-            <Nav></Nav>
+            
             <CssBaseline />
             <Container className="content-container" style={{ "fontFamily": "Pretendard-Medium" }}>
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
@@ -109,7 +108,7 @@ const AddCalendar = () => {
                     </Box>
                 </Box>
             </Container>
-            <Footer></Footer>
+          
         </div>
     );
 }

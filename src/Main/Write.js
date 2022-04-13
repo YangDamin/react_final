@@ -9,6 +9,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import Server from '../S3/Server';
+import Nav from '../Common/Nav';
 
 
 
@@ -31,7 +32,7 @@ const Write = () => {
     }
     return (
         <>
-            
+            <Nav/>
             <CssBaseline />
             <Container className="content-container">
             <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
