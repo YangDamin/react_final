@@ -29,7 +29,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    font-family: 'Pretendard-Medium';
   
   }
   
@@ -43,13 +42,11 @@
     border-radius: 5px;
     margin-top: 10px;
     vertical-align: middle;
-    font-family: 'Pretendard-Medium';
     margin-bottom: 40px;
   }
   
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 400px;
-    font-family: 'Pretendard-Medium';
   }
   
   .ck.ck-toolbar.ck-toolbar_grouping{

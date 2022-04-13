@@ -50,8 +50,12 @@ const MyFeed = () => {
 												<div className="container" id="home">
 													<Link to={`/view/${p.id}`} className="link">
 														<img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
-														<h6 className="video_title" >{p.title}<br />{p.date}<br />
-														</h6>
+														<div className="video_title">
+															{p.title}
+														</div>
+														<div className="video_date">
+															{p.date}
+														</div>
 													</Link>
 												</div>
 											</Grid>

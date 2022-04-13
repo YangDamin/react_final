@@ -52,7 +52,7 @@ const Write = () => {
                                     console.log('Editor is ready to use!', editor);
                                 }}
                                 onChange={(event, editor) => {
-                                    const data = editor.getData();
+                                    const data = editor.getData().substr(3, editor.getData().length-7 )
                                     console.log({ event, editor, data });
                                     setWriteContent({
                                         ...writeContent, content: data
@@ -97,7 +97,7 @@ const Write = () => {
                                         'success'
                                       )
                                     setTimeout(function(){
-                                        window.location = '/view';
+                                        window.location = '/myfeed';
                                     },2000)
 
                                 }).catch( (error) => {

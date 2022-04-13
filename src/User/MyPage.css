@@ -1,6 +1,5 @@
 .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 400px;
-    font-family: 'Pretendard-Medium';
   }
   
   .ck.ck-toolbar.ck-toolbar_grouping{

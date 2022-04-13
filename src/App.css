@@ -39,26 +39,6 @@
 
 
 /* 폰트 */
-@font-face {
-  font-family: 'LeferiPoint-WhiteObliqueA';
-  src: url("./fonts/LeferiPointWhiteOblique.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'LeferiPoint-WhiteA';
-  src: url("./fonts/LeferiPointWhite.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'LeferiPoint-BlackA';
-  src: url("./fonts/LeferiPointBlack.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'SuncheonB';
@@ -72,4 +52,8 @@
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
+}
+
+.App * {
+  font-family: 'Pretendard-Medium';
 }

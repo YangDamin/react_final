@@ -12,7 +12,6 @@ import Nav from '../Common/Nav';
 import Footer from '../Common/Footer';
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import VideoCards from '../Video/VideoCard';
 import thumbnail from '../assets/img/thumbnail.png'
 
 
@@ -38,38 +37,40 @@ const Search = () => {
 
   return (
     <>
-            <Nav></Nav>
-            <CssBaseline />
-            <Container className="content-container">
-            <Box className="video_items"
-            sx={{
-              width:'98%',
-              display: 'inline-block',
-              bgcolor: "rgba(238, 238, 238, 1)",
-              borderRadius: "40px 40px 0 0",
-              borderWidth: "6px",
-              borderStyle: "solid",
-              borderColor: "black",
-              textAlign:'center',
-            }}
-            >
-               <Grid container id='grid' >
+      <Nav></Nav>
+      <CssBaseline />
+      <Container className="content-container">
+        <Box className="video_items"
+          sx={{
+            width: '98%',
+            display: 'inline-block',
+            bgcolor: "rgba(238, 238, 238, 1)",
+            borderRadius: "40px 40px 0 0",
+            borderWidth: "6px",
+            borderStyle: "solid",
+            borderColor: "black",
+            textAlign: 'center',
+          }}
+        >
+          <Grid container id='grid' >
             {videoList.map((p) => {
               return (
                 <tr>
-                <Grid item col-xs={4} col-6 col-md-4>
-                <Grid item col-xs={4}>
-                  <div className="container" id="home">
-                    <Link to={`/view/${p.id}`} className="link">
-                      <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
-                      <h6 className="video_title" >{p.title}<br/>{p.date}<br/>
-                      {/* {p.viewCnt} */}
-                      </h6>
-                    </Link>
-                    {/* <span className="view-count">{p.date}<br>{p.viewCnt}</br></span> */}
-                    </div>
-                </Grid>
-                </Grid>
+                  <Grid item col-xs={4} col-6 col-md-4>
+                    <Grid item col-xs={4}>
+                      <div className="container" id="home">
+                        <Link to={`/view/${p.id}`} className="link">
+                          <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
+                          <div className="video_title">
+                            {p.title}
+                          </div>
+                          <div className="video_date">
+                            {p.date}
+                          </div>
+                        </Link>
+                      </div>
+                    </Grid>
+                  </Grid>
                 </tr>
               );
             })}

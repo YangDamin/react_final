@@ -104,7 +104,6 @@ const Payment = (effect, deps) => {
                 'border-radius': '5px',
                 'margin-top': '10px',
                 'vertical-align': 'middle',
-                'font-family': 'Pretendard-Medium',
                 'margin-bottom': '40px'
 
             }} onClick={onClickPayment}>결제하기</button>

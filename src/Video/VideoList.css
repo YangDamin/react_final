@@ -22,26 +22,28 @@
   .link{
     text-decoration: none;
     margin-top: 30px;
-
   }
   .video_title{
     margin-top: 10px;
-    border: hidden 3px;
-    border-radius: 4px 4px 4px 4px;
-    /* box-shadow: 5px 5px 5px rgb(160, 160, 160); */
-    /* width: 90%; */
     margin-left: auto;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    
+    color: black;
+    text-decoration-color: black;
+    font-size: 1.1rem;
+  }
+  .video_date{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    color: gray;
+
   }
   .videoCard_thubmnail{
     margin-bottom: 5px;
     margin-top: 10px;
+    height: 270px;
+  width: 270px;
     /* box-shadow: 5px 5px 5px rgb(160, 160, 160); */
   }
-
-  /* #home{
-
-  } */

@@ -1,5 +1,4 @@
 import React from "react";
-import VideoCards from "./VideoCard";
 import "./VideoList.css";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -40,8 +39,12 @@ const VideoList = () => {
                     <div className="container" id="home">
                       <Link to={`/view/${p.id}`} className="link">
                         <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
-                        <h6 className="video_title" >{p.title}{p.date}<br />
-                        </h6>
+                        <div className="video_title">
+                          {p.title}
+                        </div>
+                        <div className="video_date">
+                          {p.date}
+                        </div>
                       </Link>
                     </div>
                   </Grid>

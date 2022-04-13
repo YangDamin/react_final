@@ -44,6 +44,11 @@ const View = () => {
                 <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper' id="view" style={{ "marginBottom": "30px" }}>
+                            <div class="container" id="content-title">
+                                <h2>{post.title}</h2></div>
+                            <div class="container" id="content-id">
+                                <h6>{post.id}</h6></div>
+
                             <div className="container" id="video">
                                 <ReactPlayer
                                     width='500px'
@@ -52,35 +57,16 @@ const View = () => {
                             </div>
                             <div className="container" id="content">
 
-                        
-                                                <Table className="align-items-center table-flush" responsive>
-                                                    <tr>
-                                                        <div class="container">
-                                                            <h2 class="my-3 border-bottom pb-2">
-                                                                제목 : {post.title}
-                                                                <br />
-                                                                작성자 : {post.userId}
-                                                                <br />
-                                                                내용 : {post.content}
-                                                            </h2>
-                                                        </div>
-                                                    </tr>
-                                                </Table>
-                                        
-                                            <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
-                                            </Link>
-                                    
-        
-
+                                <h2>{post.content}</h2>
                             </div>
 
+                            <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
+                            </Link>
 
                         </div>
                     </Box>
                 </Box>
             </Container >
-            <Footer></Footer>
-
         </>
     )
 }
