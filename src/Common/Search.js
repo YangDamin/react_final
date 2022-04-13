@@ -38,7 +38,6 @@ const Search = () => {
 
   return (
     <>
-         <Header></Header>
             <Nav></Nav>
             <CssBaseline />
             <Container className="content-container">
@@ -77,7 +76,6 @@ const Search = () => {
           </Grid>
             </Box>
             </Container>
-            <Footer></Footer>
 
         </>
   );
