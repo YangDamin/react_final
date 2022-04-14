@@ -24,7 +24,6 @@ const VideoList = () => {
     });
   }, []); // deps
 
-
   return (
     <>
       <Container className="video_content">
@@ -36,7 +35,7 @@ const VideoList = () => {
 
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
-                    <div className="container" id="home">
+                    <div id="videoListBox">
                       <Link to={`/view/${p.id}`} className="link">
                         {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
 

@@ -42,7 +42,7 @@ const MyFeed = () => {
 						borderColor: 'black'
 					}}>
 
-					<Container className="video_content">
+					<Container>
 						<div style={{"padding":"5rem 0 0 5rem", "display":"flex", "justifyContent":"be"}}>
 							<h3 style={{"fontWeight":"bold"}}><FaBook/> 나의 기록</h3>
 						</div>
@@ -53,7 +53,7 @@ const MyFeed = () => {
 									return (
 										<Grid item col-xs={4} col-6 col-md-4>
 											<Grid item col-xs={4}>
-												<div className="container" id="home">
+												<div id="videoListBox">
 													<Link to={`/view/${p.id}`} className="link">
 													<VideoImageThumbnail
                           								videoUrl={p.videoPath} className="videoCard_thubmnail"/>

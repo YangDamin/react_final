@@ -44,6 +44,15 @@
   .videoCard_thubmnail{
     margin-bottom: 5px;
     margin-top: 10px;
-    height: 270px;
-    width: 270px;
+    height: 290px;
+    width: 290px;
+  }
+  #videoListBox:hover{
+    transform: scale(1.08);
+    background-color: rgba(238, 238, 238, 1);
+  }
+  #videoListBox{
+    transition: all 0.4s ease;
+    margin: "0.3rem";
+    padding: "0.2rem";
   }
