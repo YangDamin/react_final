@@ -48,7 +48,7 @@ const VideoList = () => {
                           {p.title}
                         </div>
                         <div className="video_date">
-                          {p.date}
+                          {p.userId}  ·  {p.date}
                         </div>
                       </Link>
                     </div>

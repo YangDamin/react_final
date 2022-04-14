@@ -38,6 +38,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     color: gray;
+    font-size: 13px;
 
   }
   .videoCard_thubmnail{

@@ -23,6 +23,7 @@ const View = () => {
   const { id } = useParams();
 
   const [post, setPost] = useState([]);
+  const [name, setName] = useState('');
 
   useEffect(() => {
     const result = axios({
@@ -32,7 +33,8 @@ const View = () => {
     result.then((res) => {
       console.log(res);
       console.log(res.data);
-      setPost(res.data);
+      setPost(res.data.post);
+      setName(res.data.name);
     });
     console.log("##################" + id);
   }, [id]);
@@ -50,7 +52,7 @@ const View = () => {
               <div class="container" id="content-title">
                 <h2>{post.title}</h2></div>
               <div class="container" id="content-id">
-                <h6>{post.id} , view : {post.viewCnt}</h6></div>
+                <h6>{name} , view : {post.viewCnt}</h6></div>
 
 
               <div className="container" id="video">

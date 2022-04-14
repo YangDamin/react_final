@@ -120,8 +120,6 @@ const Write = () => {
                             <p style={{"display":"flex", "fontSize":"20px","fontWeight":"bold"}}>브이로그 영상 올리기</p>
                             <Input color="primary" type="file" onChange={handleFileInput} />
                            
-                           <hr/>
-                           <p style={{"display":"flex", "fontSize":"20px","fontWeight":"bold"}}>나의 브이어리 포토북 이미지 올리기</p>
                             <input className="title-input" type='text' placeholder='제목'
                                 onChange={getValue} name='title' />
                             <CKEditor
