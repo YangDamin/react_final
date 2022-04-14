@@ -7,6 +7,8 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import thumbnail from '../assets/img/thumbnail.png'
+import VideoImageThumbnail from 'react-video-thumbnail-image';
+import styled from "styled-components";
 
 
 const VideoList = () => {
@@ -23,6 +25,11 @@ const VideoList = () => {
     });
   }, []); // deps
 
+  // const VideoImageThumbnail = styled.div`
+  //   width: 300px;
+  //   height: 300px;
+  // `;
+
 
 
   return (
@@ -38,7 +45,15 @@ const VideoList = () => {
                   <Grid item col-xs={4}>
                     <div className="container" id="home">
                       <Link to={`/view/${p.id}`} className="link">
-                        <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" />
+                        {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
+                        <VideoImageThumbnail
+                        videoUrl="https://viary.s3.us-west-1.amazonaws.com/upload/KakaoTalk_20220412_175535181.mp4"
+                        thumbnailHandler={(thumbnail) => console.log(thumbnail)}
+                        height={"270"}
+                        width={"270"}
+                        alt="video-thumbnail"
+                       >
+                       </VideoImageThumbnail>
                         <div className="video_title">
                           {p.title}
                         </div>
