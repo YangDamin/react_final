@@ -50,7 +50,8 @@ const View = () => {
                             <div class="container" id="content-title">
                                 <h2>{post.title}</h2></div>
                             <div class="container" id="content-id">
-                                <h6>{post.id}</h6></div>
+                                <h6>{post.id} , view : {post.viewCnt}</h6></div>
+
 
                             <div className="container" id="video">
                                 <ReactPlayer
@@ -58,37 +59,20 @@ const View = () => {
                                     height='300px'
                                     controls url={post.videoPath}
                                     playing={true}
-                                     />
+                                />
                             </div>
                             <div className="container" id="content">
-
-                        
-                                               
-                                                    <tr>
-                                                        <div class="container">
-                                                            <h2 class="my-3 border-bottom pb-2">
-                                                                제목 : {post.title}
-                                                                <br />
-                                                                작성자 : {post.userId}
-                                                                <br />
-                                                                내용 : {post.content}
-                                                                <br />
-                                                                조회수 : {post.viewCnt}
-                                                            </h2>
-                                                        </div>
-                                                    </tr>
-                                              
-                                        
-                                            <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
-                                            </Link>
-                                    
-        
-
+                                <tr>
+                                    <div class="container" >
+                                        <h4 class="my-3 border-bottom pb-2">
+                                            {post.content}
+                                            <br />
+                                        </h4>
+                                    </div>
+                                </tr>
+                                <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
+                                </Link>
                             </div>
-
-                            <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
-                            </Link>
-
                         </div>
                     </Box>
                 </Box>

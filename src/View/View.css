@@ -1,68 +1,70 @@
 #content-title{
-    font-family: 'Pretendard-Medium';
-    display: flex;
-    justify-content: center;
-     
+  font-family: 'Pretendard-Medium';
+  display: flex;
+  justify-content: center;
+   
 }
 
 #content-id{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+
   
-    
 }
 
 
 #video{
-    margin-top: 20px;
-    display: flex;
-    flex: auto;
-    justify-content: center;
-    width: 70%;
-  
+  margin-top: 20px;
+  display: flex;
+  flex: auto;
+  justify-content: center;
+  width: 70%;
+
 }
 
 #content{
-    font-family: 'Pretendard-Medium';
-    font-size: 15px;
-    margin-top: 40px;
-    background-color: white;
-    border-radius: 5px 5px 5px 5px ;
-    width: 65%;
+  font-family: 'Pretendard-Medium';
+  font-size: 15px;
+  margin-top: 40px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px ;
+  width: 65%;
+  text-align: center;
 
 }
 
 .btn.btn-primary{
-    font-size: small;
-    height: 30px;
-    width: 60px;
-    margin-top: 50px;
-    display: center;
-    
+  font-size: small;
+  height: 30px;
+  width: 60px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  display: center;
+  
 }
 
 .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-    min-height: 400px;
-    font-family: 'Pretendard-Medium';
-  }
-  
-  .ck.ck-toolbar.ck-toolbar_grouping{
-      background-color:rgb(184, 182, 182);
-    }
+  min-height: 400px;
+  font-family: 'Pretendard-Medium';
+}
 
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #eeeeee;
-      border-radius: 5px;
-    }
-     
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(rgb(66, 66, 66));
-      border-radius: 10px 10px 10px 10px;
-    }
+.ck.ck-toolbar.ck-toolbar_grouping{
+    background-color:rgb(184, 182, 182);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 5px;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(66, 66, 66));
+    border-radius: 10px 10px 10px 10px;
+  }
 
 ::-webkit-scrollbar-track {
-  display: none;
+display: none;
 }
