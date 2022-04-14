@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import thumbnail from '../assets/img/thumbnail.png'
 import {FaBook} from "@react-icons/all-files/fa/FaBook";
+import VideoImageThumbnail from 'react-video-thumbnail-image';
 
 const MyFeed = () => {
 	const [mypostList, setMyPostList] = useState([]);
@@ -52,7 +53,8 @@ const MyFeed = () => {
 											<Grid item col-xs={4}>
 												<div className="container" id="home">
 													<Link to={`/view/${p.id}`} className="link">
-														<img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
+													<VideoImageThumbnail
+                          								videoUrl={p.videoPath} className="videoCard_thubmnail"/>
 														<div className="video_title">
 															{p.title}
 														</div>

@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import thumbnail from '../assets/img/thumbnail.png'
+import VideoImageThumbnail from 'react-video-thumbnail-image';
 
 
 const VideoList = () => {
@@ -24,7 +25,6 @@ const VideoList = () => {
   }, []); // deps
 
 
-
   return (
     <>
       <Container className="video_content">
@@ -38,8 +38,12 @@ const VideoList = () => {
                   <Grid item col-xs={4}>
                     <div className="container" id="home">
                       <Link to={`/view/${p.id}`} className="link">
+                        {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
 
-                        <img className="videoCard_thubmnail" src={p.videoPath} alt="video_thubmnail" />
+                        <VideoImageThumbnail
+                          videoUrl={p.videoPath}
+                          className="videoCard_thubmnail"/>
+                       
                         <div className="video_title">
                           {p.title}
                         </div>
