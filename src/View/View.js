@@ -20,65 +20,77 @@ import { Row, Col, Button, Input, Alert } from 'reactstrap';
 const View = () => {
 
 
-    const { postid } = useParams();
+  const { id } = useParams();
 
-    const [post, setPost] = useState([]);
+  const [post, setPost] = useState([]);
 
-    useEffect(() => {
-        const result = axios({
-            url: `http://localhost:8080/post/detail/${postid}`,
-            method: 'get'
-        });
-        result.then((res) => {
-            console.log(res);
-            console.log(res.data);
-            setPost(res.data);
-        });
-        console.log("##################" + postid);
-    }, [postid]);
-
-
-
-    return (
-        <>
-            <Nav></Nav>
-            <CssBaseline />
-            <Container className="content-container">
-                <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
-                    <Box sx={{ flexGrow: 1, mt: 6 }}>
-                        <div className='form-wrapper' id="view" style={{ "marginBottom": "30px" }}>
-                            <div class="container" id="content-title">
-                                <h2>{post.title}</h2></div>
-                            <div class="container" id="content-id">
-                                <h6>{post.id} , view : {post.viewCnt}</h6></div>
+  useEffect(() => {
+    const result = axios({
+      url: `http://localhost:8080/post/detail/${id}`,
+      method: 'get'
+    });
+    result.then((res) => {
+      console.log(res);
+      console.log(res.data);
+      setPost(res.data);
+    });
+    console.log("##################" + id);
+  }, [id]);
 
 
-                            <div className="container" id="video">
-                                <ReactPlayer
-                                    width='500px'
-                                    height='300px'
-                                    controls url={post.videoPath}
-                                    playing={true}
-                                />
-                            </div>
-                            <div className="container" id="content">
-                                <tr>
-                                    <div class="container" >
-                                        <h4 class="my-3 border-bottom pb-2">
-                                            {post.content}
-                                            <br />
-                                        </h4>
-                                    </div>
-                                </tr>
-                                <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </Box>
-                </Box>
-            </Container >
-        </>
-    )
+
+  return (
+    <>
+      <Nav></Nav>
+      <CssBaseline />
+      <Container className="content-container">
+        <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
+          <Box sx={{ flexGrow: 1, mt: 6 }}>
+            <div className='form-wrapper' id="view" style={{ "marginBottom": "30px" }}>
+              <div class="container" id="content-title">
+                <h2>{post.title}</h2></div>
+              <div class="container" id="content-id">
+                <h6>{post.id} , view : {post.viewCnt}</h6></div>
+
+
+              <div className="container" id="video">
+                <ReactPlayer
+                  width='500px'
+                  height='300px'
+                  controls url={post.videoPath}
+                  playing={true}
+                />
+              </div>
+              <div className="container" id="content">
+                <tr>
+                  <div class="container" >
+                    <h4 class="my-3 border-bottom pb-2">
+                      {post.content}
+                      <br />
+                    </h4>
+                  </div>
+                </tr>
+                
+
+              </div>
+            </div>
+            
+          </Box>
+        </Box>
+        <button type="button" class="btn btn-primary" onClick={() => {
+                  window.location = `/post/update/${post.id}`
+                }} >수정</button>
+                <button type="button" class="btn btn-primary" onClick={() => {
+                  window.location = `/post/delete/${post.id}`
+                }} >삭제</button>
+
+                <br/>
+
+                <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
+                </Link>
+      </Container >
+    </>
+  )
 }
 
 export default View;

@@ -15,15 +15,15 @@ import { pointInsideRect } from '@fullcalendar/react';
 const BoardDetail = () => {
 
 
-  const { postid } = useParams();
+  const { id } = useParams();
 
   const [post, setPost] = useState([]);
 
-  console.log(postid);
+  console.log(id);
   
   useEffect(()=>{
     const result = axios({
-      url: `http://localhost:8080/post/detail/${postid}`,
+      url: `http://localhost:8080/post/detail/${id}`,
       method: 'get'
     });
     result.then((res) => {
@@ -31,8 +31,8 @@ const BoardDetail = () => {
       console.log(res.data);
       setPost(res.data);
     });
-    console.log("##################"+postid);
-  }, [postid]);
+    console.log("##################"+id);
+  }, [id]);
 
   
 
