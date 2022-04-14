@@ -1,4 +1,4 @@
-import { useState, useEffect, React } from 'react';
+import React, { useState, useEffect } from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -9,6 +9,9 @@ import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import thumbnail from '../assets/img/thumbnail.png'
 import {FaBook} from "@react-icons/all-files/fa/FaBook";
+import VideoImageThumbnail from 'react-video-thumbnail-image';
+
+
 
 const MyFeed = () => {
 	const [mypostList, setMyPostList] = useState([]);
@@ -40,7 +43,7 @@ const MyFeed = () => {
 					}}>
 
 					<Container className="video_content">
-						<div style={{"padding":"5rem 0 0 5rem", "display":"flex"}}>
+						<div style={{"padding":"5rem 0 0 5rem", "display":"flex", "justifyContent":"be"}}>
 							<h3 style={{"fontWeight":"bold"}}><FaBook/> 나의 기록</h3>
 						</div>
 						<Box className="video_item"
@@ -52,7 +55,8 @@ const MyFeed = () => {
 											<Grid item col-xs={4}>
 												<div className="container" id="home">
 													<Link to={`/view/${p.id}`} className="link">
-														<img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
+													<VideoImageThumbnail
+                          								videoUrl={p.videoPath} className="videoCard_thubmnail"/>
 														<div className="video_title">
 															{p.title}
 														</div>

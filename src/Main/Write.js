@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
@@ -16,7 +16,7 @@ import { Link, useParams } from 'react-router-dom';
 
 const Write = () => {
 
- 
+
 
     const [post, setPost] = useState([]);
 
@@ -35,7 +35,6 @@ const Write = () => {
         })
     }
 
-    //Server
 
     const [selectedFile, setSelectedFile] = useState([]);
 
@@ -73,16 +72,16 @@ const Write = () => {
         //   alert('jpg 파일만 업로드 가능합니다.');
         //   return;
         // }
-        const s3Url="https://viary.s3.us-west-1.amazonaws.com/upload/";
+        const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/";
         const videoPath = s3Url + file.name;
-        
+
         console.log("주소" + videoPath);
         setFileName(videoPath);
         setSelectedFile(e.target.files[0]);
-    } 
-        
+    }
 
-    
+
+
 
     const uploadFile = file => { //챕터4!의 사진을 업로드 하는 코드
         const params = {
@@ -107,18 +106,22 @@ const Write = () => {
 
     return (
         <>
-            <Nav/>
+            <Nav />
             <CssBaseline />
             <Container className="content-container">
-            <Box className="write_css" sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
-			   borderWidth: "5px",borderColor:'black',borderStyle:'solid',
-			   borderColor:'black', padding: "20px"}}>
+                <Box className="write_css" sx={{
+                    bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
+                    borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
+                    borderColor: 'black', padding: "20px"
+                }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
-                        <div className='form-wrapper' id="write" style={{"marginBottom":"30px"}}>
+                        <div className='form-wrapper' id="write" style={{ "marginBottom": "30px" }}>
                             {/* <Server/> */}
-                            <div class="col-10">
-                    <Input color="primary" type="file" onChange={handleFileInput} />
-                </div>
+                            <p style={{"display":"flex", "fontSize":"20px","fontWeight":"bold"}}>브이로그 영상 올리기</p>
+                            <Input color="primary" type="file" onChange={handleFileInput} />
+                           
+                           <hr/>
+                           <p style={{"display":"flex", "fontSize":"20px","fontWeight":"bold"}}>나의 브이어리 포토북 이미지 올리기</p>
                             <input className="title-input" type='text' placeholder='제목'
                                 onChange={getValue} name='title' />
                             <CKEditor
@@ -130,7 +133,7 @@ const Write = () => {
                                     console.log('Editor is ready to use!', editor);
                                 }}
                                 onChange={(event, editor) => {
-                                    const data = editor.getData().substr(3, editor.getData().length-7 )
+                                    const data = editor.getData().substr(3, editor.getData().length - 7)
                                     console.log({ event, editor, data });
                                     setWriteContent({
                                         ...writeContent, content: data
@@ -147,53 +150,60 @@ const Write = () => {
                         </div>
 
 
-                {selectedFile ? (
-                        <button className="submit-button"
-                            onClick={(e) => {uploadFile(selectedFile);
-                                e.preventDefault();
+                        {selectedFile ? (
+                            <button className="submit-button"
+                                onClick={(e) => {
+                                    uploadFile(selectedFile);
+                                    e.preventDefault();
 
-                                let today = new Date();
-                                let date = today.toLocaleDateString();      // 현재 날짜
+                                    let today = new Date();
+                                    let date = today.toLocaleDateString();      // 현재 날짜
 
-                                setViewContent(viewContent.concat({ ...writeContent }));
+                                    setViewContent(viewContent.concat({ ...writeContent }));
 
-                                const formData = new FormData();
-                                formData.append("title", writeContent.title);
-                                formData.append("content", writeContent.content);
-                                formData.append("date", date);
-                                formData.append("userEmail", sessionStorage.getItem("email"));
-                                formData.append("videoPath", fileName);
+                                    const formData = new FormData();
+                                    formData.append("title", writeContent.title);
+                                    formData.append("content", writeContent.content);
+                                    formData.append("date", date);
+                                    formData.append("userEmail", sessionStorage.getItem("email"));
+                                    formData.append("videoPath", fileName);
 
-                                axios({
-                                    url: "http://localhost:8080/write",
-                                    method: "post",
-                                    data: formData
-                                }).then( (res) => {
-                                    console.log(res.data);
+                                    axios({
+                                        url: "http://localhost:8080/write",
+                                        method: "post",
+                                        data: formData
+                                    }).then((res) => {
+                                        console.log(res.data);
 
-                                    Swal.fire(
-                                        '',
-                                        '업로드 완료!',
-                                        'success'
-                                      )
-                                    setTimeout(function(){
-                                        window.location = '/myfeed';
-                                    },2000)
+                                        Swal.fire(
+                                            '',
+                                            '업로드 완료!',
+                                            'success'
+                                        )
+                                        setTimeout(function () {
+                                            window.location = '/myfeed';
+                                        }, 2000)
 
-                                }).catch( (error) => {
-                                    console.log(error);
-                                })
+                                    }).catch((error) => {
+                                        console.log(error);
+                                    })
 
+<<<<<<< HEAD
                             }}>업로드</button>
                             ) : null}
+=======
+
+                                }}>업로드</button>
+                        ) : null}
+>>>>>>> abd9d8a8d46472277b4a1f1bd710410b26354a29
                     </Box>
                 </Box>
             </Container >
-          
 
 
 
-            
+
+
         </>
     );
 }
