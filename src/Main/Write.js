@@ -35,7 +35,8 @@ const Write = () => {
         })
     }
 
-    
+    //Server
+
     const [selectedFile, setSelectedFile] = useState([]);
 
     const [fileName, setFileName] = useState('');
@@ -63,8 +64,6 @@ const Write = () => {
 
     const handleFileInput = e => {
         const file = e.target.files[0];
-
-
 
         const randomName = Math.random().toString(36).substr(2, 11);
         const imgName = randomName + "_" + file.name

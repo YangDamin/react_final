@@ -56,7 +56,9 @@ const View = () => {
                                 <ReactPlayer
                                     width='500px'
                                     height='300px'
-                                    controls url={post.videoPath} />
+                                    controls url={post.videoPath}
+                                    playing={true}
+                                     />
                             </div>
                             <div className="container" id="content">
 
