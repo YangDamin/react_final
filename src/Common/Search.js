@@ -12,7 +12,7 @@ import Nav from '../Common/Nav';
 import Footer from '../Common/Footer';
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import thumbnail from '../assets/img/thumbnail.png'
+import VideoImageThumbnail from 'react-video-thumbnail-image';
 
 
 const Search = () => {
@@ -60,7 +60,9 @@ const Search = () => {
                     <Grid item col-xs={4}>
                       <div className="container" id="home">
                         <Link to={`/view/${p.id}`} className="link">
-                          <img className="videoCard_thubmnail" src={thumbnail} alt="video_thubmnail" />
+                          <VideoImageThumbnail
+                            videoUrl={p.videoPath}
+                            className="videoCard_thubmnail"/>
                           <div className="video_title">
                             {p.title}
                           </div>
