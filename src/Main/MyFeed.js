@@ -49,7 +49,7 @@ const MyFeed = () => {
 						<Box className="video_item"
 							sx={{ flexGrow: 6 }}>
 							<Grid container id='grid' >
-								{mypostList.map((p) => {
+								{mypostList.slice(0).reverse().map((p) => {
 									return (
 										<Grid item col-xs={4} col-6 col-md-4>
 											<Grid item col-xs={4}>

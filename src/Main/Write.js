@@ -90,8 +90,11 @@ const Write = () => {
             Body: file
         };
         myBucket.putObject(params)
-            .on('httpUploadProgress')
-            .send((err) => {
+            .on('httpUploadProgress',(evt) => {
+                setTimeout(() => {
+                    setSelectedFile(null);
+                }, 50000)
+            }).send((err) => {
                 if (err) console.log(err)
             })
 
