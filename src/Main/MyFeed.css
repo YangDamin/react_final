@@ -3,3 +3,37 @@
     height: 500px;;
 }
 
+#popularListBox{
+    transition: all 0.4s ease;
+    margin: 10px 40px 10px 0;
+    padding: 10px;
+    background: whitesmoke;
+    box-shadow: 0 5px 25px #e9ecef;
+    border-radius: 1.5rem;
+}
+
+#popularListBox:hover{
+    transform: scale(1.08);
+}
+
+.popular_title{
+    margin-top: 5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    text-decoration-color: black;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.popular_date{
+    display: flex;
+    margin-left: 5px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    color: gray;
+    font-size: 13px;
+}

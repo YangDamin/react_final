@@ -49,6 +49,9 @@ const VideoList = () => {
                         <div className="video_date">
                           {p.userId}  ·  {p.date}
                         </div>
+                        <div className="video_date">
+                          조회수  {p.viewCnt}회
+                        </div>
                       </Link>
                     </div>
                   </Grid>

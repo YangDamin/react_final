@@ -117,12 +117,13 @@ const Write = () => {
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper' id="write" style={{ "marginBottom": "30px" }}>
                             {/* <Server/> */}
-                            <p style={{"display":"flex", "fontSize":"20px","fontWeight":"bold"}}>브이로그 영상 올리기</p>
+                            <div style={{"marginBottom":"3px","display":"flex", "fontSize":"18px"}}><i class="bi bi-camera-reels-fill"></i>&nbsp;나의 브이로그</div>
                             <Input color="primary" type="file" onChange={handleFileInput} />
                            
                             <input className="title-input" type='text' placeholder='제목'
-                                onChange={getValue} name='title' />
-                            <CKEditor
+                                onChange={getValue} id='title' />
+                            <textarea rows="18" style={{ "width":"100%", "textAlign":"left"}} id="content"></textarea>
+                            {/* <CKEditor
                                 editor={ClassicEditor}
                                 styled={{ 'width': '80%' }}
                                 data=""
@@ -144,7 +145,7 @@ const Write = () => {
                                 onFocus={(event, editor) => {
                                     console.log('Focus.', editor);
                                 }}
-                            />
+                            /> */}
                         </div>
 
 
@@ -157,11 +158,13 @@ const Write = () => {
                                     let today = new Date();
                                     let date = today.toLocaleDateString();      // 현재 날짜
 
-                                    setViewContent(viewContent.concat({ ...writeContent }));
+                                    // setViewContent(viewContent.concat({ ...writeContent }));
 
                                     const formData = new FormData();
-                                    formData.append("title", writeContent.title);
-                                    formData.append("content", writeContent.content);
+                                    formData.append("title", document.getElementById("title").value);
+                                    var contents = document.getElementById("content").value;
+                                    contents = contents.replace(/(\n|\r\n)/g , '<br>');
+                                    formData.append("content", contents);
                                     formData.append("date", date);
                                     formData.append("userEmail", sessionStorage.getItem("email"));
                                     formData.append("videoPath", fileName);
@@ -171,7 +174,6 @@ const Write = () => {
                                         method: "post",
                                         data: formData
                                     }).then((res) => {
-                                        console.log(res.data);
 
                                         Swal.fire(
                                             '',

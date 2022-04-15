@@ -121,7 +121,7 @@ const MyPage = () => {
                                 'width': '100%', 'height': '30%', 'margin': '0 auto',
                                  'marginTop': '30px', 'fontFamily': 'Pretendard-Medium'
                             }}>
-                            <h3 style={{ 'fontFamily': 'Pretendard-Medium' , "fontWeight":"bold", "paddingTop":"1rem"}}>마이페이지</h3>
+                            <h3 style={{"fontWeight":"bold", "paddingTop":"1rem"}}>마이페이지</h3>
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
                             <div style={divStyle}>
@@ -164,7 +164,7 @@ const MyPage = () => {
 
                                 <div>
                                     <div id="pw">
-                                        <span>********</span>
+                                        <span>***************</span>
                                         <input type="button" value="비밀번호 변경" class="btn bg-black text-white flex-shrink-0 " style={{ "marginLeft": "3rem" }} onClick={handleShow} />
 
                                         {/* 모달창 */}
