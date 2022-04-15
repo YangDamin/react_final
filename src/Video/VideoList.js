@@ -47,7 +47,7 @@ const VideoList = () => {
                           {p.title}
                         </div>
                         <div className="video_date">
-                          {p.userId}  ·  {p.date}
+                          {p.user.name}  ·  {p.date}
                         </div>
                         <div className="video_date">
                           조회수  {p.viewCnt}회

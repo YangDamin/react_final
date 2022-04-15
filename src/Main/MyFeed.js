@@ -20,30 +20,32 @@ const MyFeed = () => {
 	useEffect(() => {
 		const formData = new FormData();
 		formData.append("id", sessionStorage.getItem("user_id"));
+		formData.append("email",sessionStorage.getItem("email"));
 		axios({
 			url: "http://localhost:8080/myfeed",
 			method: "post",
 			data: formData
 		}).then((res) => {
-			console.log(res.data);
-			setMyPostList(res.data);
+			console.log(res.data.mypopular);
+			setMyPostList(res.data.myfeed);
+			setMyPopular(res.data.mypopular);
 		})
 
 	}, []);
 
 	// 내 인기 브이어리
-	useEffect(() => {
-		axios({
-			url: "http://localhost:8080/myfeed",
-			method: "get"
-		}).then((res) => {
-			console.log(res.data);
-			setMyPopular(res.data);
-		})
+	// useEffect(() => {
+	// 	axios({
+	// 		url: "http://localhost:8080/myfeed",
+	// 		method: "get"
+	// 	}).then((res) => {
+	// 		console.log(res.data);
+	// 		setMyPopular(res.data);
+	// 	})
 
-	}, []);
+	// }, []);
 
-	console.log("상위=>"+ mypostList.slice(0,3));
+	console.log("인기게시물 부분=>" + myPopular);
 	return (
 		<>
 			<Nav />
@@ -94,32 +96,37 @@ const MyFeed = () => {
 								</Box>
 							</div>
 							<div className='col-3'>
-								<div style={{ "textAlign":"left","padding": "10rem 5rem 0 0", "display": "flex", "justifyContent": "space-between" }}>
-									<h6 style={{ "fontWeight": "bold" ,"color":"rgba(49, 141, 251, 1)"}}><i class="bi bi-heart-fill"></i> 나의 인기 브이어리</h6>
+								<div style={{ "textAlign": "left", "padding": "10rem 5rem 0 0", "display": "flex", "justifyContent": "space-between" }}>
+									<h6 style={{ "fontWeight": "bold", "color": "rgba(49, 141, 251, 1)" }}><i class="bi bi-heart-fill"></i> 나의 인기 브이어리</h6>
 								</div>
-								
+
 
 								<div >
-										{myPopular.slice(0,3).map((p) => {
-											return (
-														<div id="popularListBox">
-															<Link to={`/view/${p.id}`} className="link">
-																<div className="popular_title">
-																	{p.title}
-																</div>
-																<div className="popular_date">
-																	{p.date}
-																</div>
-																<div className="popular_date">
-																	조회수  {p.viewCnt}회
-																</div>
-															</Link>
-														</div>
+									{myPopular.slice(0, 3).map((p) => {
+										return (
+											<div>
+												{/* {p.user.id == sessionStorage.getItem("user_id") ? */}
+													<div id="popularListBox">
+														<Link to={`/view/${p.id}`} className="link">
+															<div className="popular_title">
+																{p.title}
+															</div>
+															<div className="popular_date">
+																{p.date}
+															</div>
+															<div className="popular_date">
+																조회수  {p.viewCnt}회
+															</div>
+														</Link>
+													</div>
+													{/* :
+												null
+												} */}
+											</div>
+										);
+									})}
 
-											);
-										})}
-
-									</div>
+								</div>
 							</div>
 						</div>
 					</Container>
