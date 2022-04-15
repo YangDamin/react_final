@@ -19,7 +19,6 @@ const VideoList = () => {
       url: 'http://localhost:8080/posts',
       method: 'get'
     }).then((res) => {
-      console.log(res.data);
       setPostList(res.data);
     });
   }, []); // deps
@@ -37,8 +36,6 @@ const VideoList = () => {
                   <Grid item col-xs={4}>
                     <div id="videoListBox">
                       <Link to={`/view/${p.id}`} className="link">
-                        {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
-
                         <VideoImageThumbnail
                           videoUrl={p.videoPath}
                           className="videoCard_thubmnail"/>

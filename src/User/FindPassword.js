@@ -1,8 +1,6 @@
 import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
-import Footer from "../Common/Footer";
-import Header from "../Common/Header";
 
 const FindPassword = () => {
     return (

@@ -1,20 +1,13 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
-import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Header from '../Common/Header';
 import Nav from '../Common/Nav';
-import Footer from '../Common/Footer';
 import Container from "@mui/material/Container";
 import './View.css';
 import axios from 'axios';
-import Swal from 'sweetalert2';
 import { Link, useParams } from "react-router-dom";
-import AWS from 'aws-sdk';
-import { Row, Col, Button, Input, Alert } from 'reactstrap';
 
 
 const View = () => {
@@ -31,12 +24,9 @@ const View = () => {
       method: 'get'
     });
     result.then((res) => {
-      console.log(res);
-      console.log(res.data);
       setPost(res.data.post);
       setName(res.data.name);
     });
-    console.log("##################" + id);
   }, [id]);
 
   //줄띄기 적용
@@ -45,7 +35,6 @@ const View = () => {
   //     <span>{line}<br/></span>
   //   )
   // })
-  console.log("텍스트 내용:"+post.content);
   
 
 

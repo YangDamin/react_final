@@ -8,11 +8,9 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import Server from '../S3/Server';
 import Nav from '../Common/Nav';
 import AWS from 'aws-sdk';
-import { Row, Col, Button, Input, Alert } from 'reactstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Input } from 'reactstrap';
 
 const Write = () => {
 

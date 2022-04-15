@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { getValue } from '@testing-library/user-event/dist/utils';
 import './Nav.css';
-// import React from 'react';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
 
 
 const Nav = () => {
     let temp = window.location.pathname;
-    console.log(temp);
     
     const [currentClick, setCurrentClick] = useState(null);
   

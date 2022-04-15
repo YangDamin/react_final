@@ -105,7 +105,6 @@ const MyFeed = () => {
 									{myPopular.slice(0, 3).map((p) => {
 										return (
 											<div>
-												{/* {p.user.id == sessionStorage.getItem("user_id") ? */}
 													<div id="popularListBox">
 														<Link to={`/view/${p.id}`} className="link">
 															<div className="popular_title">
@@ -119,9 +118,6 @@ const MyFeed = () => {
 															</div>
 														</Link>
 													</div>
-													{/* :
-												null
-												} */}
 											</div>
 										);
 									})}

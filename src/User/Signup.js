@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Footer from '../Common/Footer';
 import './Signup.css';
 import Swal from 'sweetalert2'
