@@ -26,26 +26,12 @@ const MyFeed = () => {
 			method: "post",
 			data: formData
 		}).then((res) => {
-			console.log(res.data.mypopular);
 			setMyPostList(res.data.myfeed);
 			setMyPopular(res.data.mypopular);
 		})
 
 	}, []);
 
-	// 내 인기 브이어리
-	// useEffect(() => {
-	// 	axios({
-	// 		url: "http://localhost:8080/myfeed",
-	// 		method: "get"
-	// 	}).then((res) => {
-	// 		console.log(res.data);
-	// 		setMyPopular(res.data);
-	// 	})
-
-	// }, []);
-
-	console.log("인기게시물 부분=>" + myPopular);
 	return (
 		<>
 			<Nav />
