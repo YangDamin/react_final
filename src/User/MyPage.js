@@ -198,11 +198,10 @@ const MyPage = () => {
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
 
-                            {/* <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(255, 118, 118, 1)"}} onClick={(e)=> {
+                            <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(49, 141, 251, 1)"}} onClick={(e)=> {
                                 e.preventDefault();
                                 const formData = new FormData();
                                 formData.append("id", sessionStorage.getItem("user_id"));
-                                console.log(sessionStorage.getItem("user_id"))
 
                                 axios({
                                     url: "http://localhost:8080/mypage",
@@ -226,7 +225,7 @@ const MyPage = () => {
                                 }).catch((error)=>{
                                     console.log(error);
                                 })
-                            }}/> */}
+                            }}/>
 
 
 
