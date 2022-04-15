@@ -26,7 +26,6 @@ const View = () => {
       method: 'get'
     });
     result.then((res) => {
-      console.log("view보기" + res.data.post);
       setPost(res.data.post);
       setName(res.data.name);
     });
