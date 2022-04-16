@@ -68,10 +68,14 @@ const Write = () => {
         const imgName = randomName + "_" + file.name
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
-        // if(file.type !== 'image/jpeg' || fileExt !=='jpg'){ //파일타입과 익스텐션이 jpg인것만
-        //   alert('jpg 파일만 업로드 가능합니다.');
-        //   return;
-        // }
+        if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 jpg인것만
+            Swal.fire(
+                '',
+                'video만 업로드 가능합니다.',
+                'warning'
+            )
+          return;
+        }
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/";
         const videoPath = s3Url + file.name;
 
@@ -181,21 +185,15 @@ const Write = () => {
                                             'success'
                                         )
                                         setTimeout(function () {
-                                            window.location = '/myfeed';
-                                        }, 2000)
+                                            // window.location = '/myfeed';
+                                        }, 200000)
 
                                     }).catch((error) => {
                                         console.log(error);
                                     })
 
-<<<<<<< HEAD
                             }}>업로드</button>
                             ) : null}
-=======
-
-                                }}>업로드</button>
-                        ) : null}
->>>>>>> abd9d8a8d46472277b4a1f1bd710410b26354a29
                     </Box>
                 </Box>
             </Container >

@@ -17,9 +17,9 @@ import AWS from 'aws-sdk';
 import { Row, Col, Button, Input, Alert } from 'reactstrap';
 
 
-const View = () => {
+const View = ({history}) => {
 
-
+  // const { no } = match.params;
   const { id } = useParams();
 
   const [post, setPost] = useState([]);
@@ -36,6 +36,27 @@ const View = () => {
     });
     console.log("##################" + id);
   }, [id]);
+
+
+
+  const deletePost = ()=> {
+    axios({
+      url: `http://localhost:8080/post/delete/${id}`,
+      method: 'delete',
+    }).then(function (res) {
+      confirm();
+      history.goBack();
+    })
+  };
+
+
+
+
+  const confirm = function(msg, title, resvNum) {
+    Swal("Are you sure you want to do this?", {
+      buttons: ["Oh noez!", "Aww yiss!"],
+    })
+	}
 
 
 
@@ -78,11 +99,10 @@ const View = () => {
           </Box>
         </Box>
         <button type="button" class="btn btn-primary" onClick={() => {
+          sessionStorage.setItem("id",post.id);
                   window.location = `/post/update/${post.id}`
                 }} >수정</button>
-                <button type="button" class="btn btn-primary" onClick={() => {
-                  window.location = `/post/delete/${post.id}`
-                }} >삭제</button>
+                <button type="button" class="btn btn-primary" onClick={deletePost} >삭제</button>
 
                 <br/>
 
