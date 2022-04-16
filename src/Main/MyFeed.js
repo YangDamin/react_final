@@ -20,7 +20,7 @@ const MyFeed = () => {
 	useEffect(() => {
 		const formData = new FormData();
 		formData.append("id", sessionStorage.getItem("user_id"));
-		formData.append("email",sessionStorage.getItem("email"));
+		formData.append("email", sessionStorage.getItem("email"));
 		axios({
 			url: "http://localhost:8080/myfeed",
 			method: "post",
@@ -59,8 +59,8 @@ const MyFeed = () => {
 													<Grid item col-xs={4}>
 														<div id="videoListBox">
 															<Link to={`/view/${p.id}`} className="link">
-																<VideoImageThumbnail
-																	videoUrl={p.videoPath} className="videoCard_thubmnail" />
+																<img className="videoCard_thubmnail" src={p.videothumbnail} alt="video_thubmnail" />
+
 																<div className="video_title">
 																	{p.title}
 																</div>
@@ -91,19 +91,19 @@ const MyFeed = () => {
 									{myPopular.slice(0, 3).map((p) => {
 										return (
 											<div>
-													<div id="popularListBox">
-														<Link to={`/view/${p.id}`} className="link">
-															<div className="popular_title">
-																{p.title}
-															</div>
-															<div className="popular_date">
-																{p.date}
-															</div>
-															<div className="popular_date">
-																조회수  {p.viewCnt}회
-															</div>
-														</Link>
-													</div>
+												<div id="popularListBox">
+													<Link to={`/view/${p.id}`} className="link">
+														<div className="popular_title">
+															{p.title}
+														</div>
+														<div className="popular_date">
+															{p.date}
+														</div>
+														<div className="popular_date">
+															조회수  {p.viewCnt}회
+														</div>
+													</Link>
+												</div>
 											</div>
 										);
 									})}

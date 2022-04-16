@@ -48,8 +48,8 @@
   .videoCard_thubmnail{
     margin-bottom: 5px;
     margin-top: 10px;
-    height: 290px;
-    width: 290px;
+    height: 300px;
+    width: 320px;
   }
   #videoListBox:hover{
     transform: scale(1.08);
