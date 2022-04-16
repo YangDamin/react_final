@@ -9,6 +9,7 @@ import './View.css';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const View = ({history}) => {
 
@@ -44,8 +45,35 @@ const View = ({history}) => {
     })
   };
 
+  const confirm = function(msg, title, resvNum) {
+		Swal({
+			title : title,
+			text : msg,
+			type : "warning",
+			showCancelButton : true,
+			confirmButtonClass : "btn-danger",
+			confirmButtonText : "예",
+			cancelButtonText : "아니오",
+			closeOnConfirm : false,
+			closeOnCancel : true
+		}, function(isConfirm) {
+			if (isConfirm) {
+				Swal('', '정말로 지우시겠습니까?', "success");
+        deletePost();
+      
+      }else{
+				Swal('', '', "failed");
+			}
 
+		});
+	}
 
+	function Alert() {
+		alert('gg', 'success');
+	}
+	function Confirm() {
+		confirm('', '승인할까요?');
+	}
 
   // const confirm = function(msg, title, resvNum) {
   //   Swal("Are you sure you want to do this?", {
@@ -99,26 +127,20 @@ const View = ({history}) => {
                   })}
             </div>
             <button type="button" class="btn btn-primary" onClick={() => {
-              window.location = `/post/update/${post.id}`
-            }} >수정</button>
-            &nbsp;&nbsp;
-            <button type="button" class="btn btn-primary" onClick={() => {
-              window.location = `/post/delete/${post.id}`
-            }} >삭제</button>
-
-          </div>
-
-        </Box>
-        <button type="button" class="btn btn-primary" onClick={() => {
           sessionStorage.setItem("id",post.id);
                   window.location = `/post/update/${post.id}`
                 }} >수정</button>
-                <button type="button" class="btn btn-primary" onClick={deletePost} >삭제</button>
+                <button type="button" class="btn btn-primary" onClick={confirm} >삭제</button>
 
                 <br/>
 
                 <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
                 </Link>
+
+          </div>
+
+        </Box>
+
       </Container >
     </>
   )

@@ -66,14 +66,14 @@ const Write = () => {
         const imgName = randomName + "_" + file.name
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
-        if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 jpg인것만
-            Swal.fire(
-                '',
-                'video만 업로드 가능합니다.',
-                'warning'
-            )
-          return;
-        }
+        // if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 mp4인것만
+        //     Swal.fire(
+        //         '',
+        //         'video만 업로드 가능합니다.',
+        //         'warning'
+        //     )
+        //   return;
+        // }
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/";
         const videoPath = s3Url + file.name;
 
