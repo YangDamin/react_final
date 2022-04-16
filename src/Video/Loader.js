@@ -21,7 +21,7 @@ const Loader = () => {
   return (
     <div>       
     <LoaderWrap className="loding">
-      <ReactLoading type="spin" color="rgba(201, 201, 201, 1)" />
+      <ReactLoading type="spin" color="rgba(201, 201, 201, 1)" style={{width:'30px',height:'30px'}} />
     </LoaderWrap> 
     </div>
   );
