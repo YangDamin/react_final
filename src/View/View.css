@@ -80,3 +80,7 @@ display: none;
   padding: 50px auto;
   flex: auto;
 }
+
+#write-input-container{
+  white-space: pre-wrap;
+}

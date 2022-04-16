@@ -179,7 +179,7 @@ const Write = () => {
                                             'success'
                                         )
                                         setTimeout(function () {
-                                            window.location = '/myfeed';
+                                            // window.location = '/myfeed';
                                         }, 2000)
 
                                     }).catch((error) => {
