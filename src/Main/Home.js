@@ -64,7 +64,7 @@ const _infiniteScroll = useCallback(
 
   const fetchMoreData = async() => {
     setIsLoading(true);
-    await new Promise((resolve)=> setTimeout(resolve,1000));
+    await new Promise((resolve)=> setTimeout(resolve,600));
     setResult(result.concat(videoList.slice(0,6)));
     setVideoList(videoList.slice(6));
     setIsLoading(false);
