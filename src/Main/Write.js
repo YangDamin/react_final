@@ -180,6 +180,16 @@ const Write = () => {
                                             icon: 'error',
                                             text: '사용하실 썸네일을 첨부해주세요!'
                                         })
+                                    } else if(document.getElementById("title").value == ''){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '제목을 입력해주세요!'
+                                        })
+                                    } else if(document.getElementById("content").value == ''){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '내용을 입력해주세요!'
+                                        })
                                     } else {
                                         uploadFile(selectedFile);
                                         uploadThumbnailFile(selectedThumbnailFile);
