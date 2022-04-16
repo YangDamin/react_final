@@ -1,18 +1,10 @@
-// import React, { useState } from 'react';
-import React, { useEffect, useState } from 'react';
-import { styled } from "@mui/material/styles";
+
+import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Header from '../Common/Header';
 import Nav from '../Common/Nav';
-import Footer from '../Common/Footer';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'
-import { Modal } from 'react-bootstrap';
 import axios from 'axios';
-import Swall from 'sweetalert2';
 import Swal from 'sweetalert2';
 
 

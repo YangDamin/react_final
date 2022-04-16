@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Footer from '../Common/Footer';
 import './Signup.css';
 import Swal from 'sweetalert2'
@@ -11,6 +10,7 @@ const Signup = () => {
     const [userEmail, setUserEmail] = useState("");
     const [userPw, setUserPw] = useState("");
     const [userPhone, setUserPhone] = useState("");
+    const [userPwCheck, setUserPwCheck] = useState("");
 
 
     const onChangeEmail = (e) => {
@@ -23,6 +23,10 @@ const Signup = () => {
 
     const onChnagePhone = (e) => {
         setUserPhone(e.target.value);
+    }
+
+    const onChangePwCheck = (e) => {
+        setUserPwCheck(e.target.value);
     }
 
     // 비밀번호 조합
@@ -73,6 +77,23 @@ const Signup = () => {
                                         onChange={onChangePw} maxLength="16" />
                                     {/* 비밀번호 제한 */}
                                     {CheckPass(userPw) ? (<span style={{ color: 'red', fontSize: 'small' }}><i class="bi bi-info-circle"></i> 사용 가능합니다.</span>) : (<span style={{ color: 'red', fontSize: 'small' }}><i class="bi bi-info-circle"></i> 영문+숫자 조합 8자~16자로 입력해주세요.</span>)}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 비밀번호 재확인 */}
+                        <div class="form-group mb-3">
+                            <div class="row">
+                                <div class="col-3 text-left">
+                                    <label>비밀번호 재확인</label><span style={{ color: 'red' }}> *</span>
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="password" name="password" id="pwdCheck" value={userPwCheck} placeholder="비밀번호를 입력해주세요." required
+                                        onChange={onChangePwCheck} maxLength="16" />
+                                    {userPw.length == 0 && userPwCheck.length == 0 ? null : 
+                                        (userPw == userPwCheck ? 
+                                            <span style={{"color":"red", fontSize: 'small' }}><i class="bi bi-info-circle"></i>  비밀번호가 같습니다.</span> : 
+                                            <span style={{"color":"red" ,fontSize: 'small'}}><i class="bi bi-info-circle"></i>  비밀번호가 같지 않습니다.</span>)}                        
                                 </div>
                             </div>
                         </div>
@@ -153,6 +174,12 @@ const Signup = () => {
                                       })
                                     document.getElementById("phoneNum").focus();
 
+                                }else if(userPw != userPwCheck){
+                                    Swal.fire({
+                                        icon: 'error',
+                                        text: '비밀번호 재확인 해주세요.'
+                                      })
+                                    document.getElementById("pwdCheck").focus();
                                 }
                                 // 다 입력되어있을 시!
                                 else if (document.getElementById("email").value != '' && document.getElementById("pwd").value != '' &&

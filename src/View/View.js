@@ -1,21 +1,14 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
-import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Header from '../Common/Header';
 import Nav from '../Common/Nav';
-import Footer from '../Common/Footer';
 import Container from "@mui/material/Container";
 import './View.css';
 import axios from 'axios';
-import Swal from 'sweetalert2';
-import { Link, useParams } from "react-router-dom";
-import AWS from 'aws-sdk';
-import { Row, Col, Button, Input, Alert } from 'reactstrap';
-
+import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const View = ({history}) => {
 
@@ -23,6 +16,9 @@ const View = ({history}) => {
   const { id } = useParams();
 
   const [post, setPost] = useState([]);
+  const [name, setName] = useState('');
+
+
 
   useEffect(() => {
     const result = axios({
@@ -30,21 +26,20 @@ const View = ({history}) => {
       method: 'get'
     });
     result.then((res) => {
-      console.log(res);
-      console.log(res.data);
-      setPost(res.data);
+      setPost(res.data.post);
+      setName(res.data.name);
     });
     console.log("##################" + id);
   }, [id]);
 
-
+  let content = post.content;
 
   const deletePost = ()=> {
     axios({
       url: `http://localhost:8080/post/delete/${id}`,
       method: 'delete',
     }).then(function (res) {
-      confirm();
+      // confirm();
       history.goBack();
     })
   };
@@ -52,11 +47,11 @@ const View = ({history}) => {
 
 
 
-  const confirm = function(msg, title, resvNum) {
-    Swal("Are you sure you want to do this?", {
-      buttons: ["Oh noez!", "Aww yiss!"],
-    })
-	}
+  // const confirm = function(msg, title, resvNum) {
+  //   Swal("Are you sure you want to do this?", {
+  //     buttons: ["Oh noez!", "Aww yiss!"],
+  //   })
+	// }
 
 
 
@@ -65,38 +60,54 @@ const View = ({history}) => {
       <Nav></Nav>
       <CssBaseline />
       <Container className="content-container">
-        <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
-          <Box sx={{ flexGrow: 1, mt: 6 }}>
-            <div className='form-wrapper' id="view" style={{ "marginBottom": "30px" }}>
-              <div class="container" id="content-title">
-                <h2>{post.title}</h2></div>
-              <div class="container" id="content-id">
-                <h6>{post.id} , view : {post.viewCnt}</h6></div>
+        <Box className="viewBox" sx={{
+          width: '98%', bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
+          borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
+          borderColor: 'black', padding: "40px"
+        }}>
 
-
-              <div className="container" id="video">
-                <ReactPlayer
-                  width='500px'
-                  height='300px'
-                  controls url={post.videoPath}
-                  playing={true}
-                />
-              </div>
-              <div className="container" id="content">
-                <tr>
-                  <div class="container" >
-                    <h4 class="my-3 border-bottom pb-2">
-                      {post.content}
-                      <br />
-                    </h4>
-                  </div>
-                </tr>
-                
-
-              </div>
+          <div className='form-wrapper' id="view" style={{ "margin": "2rem 10rem" }}>
+            <a href="/" id="back"><i class="bi bi-arrow-left"></i></a>
+            <div id="content-title">
+              <span>{post.title}</span>
             </div>
-            
-          </Box>
+            <div id="content-id">
+              <span style={{"fontWeight":"bold"}}><i class="bi bi-person-hearts"></i> {name}</span>
+              <span style={{"color":"gray"}}>{post.date}</span>
+            </div>
+
+
+            <div id="video">
+              <ReactPlayer
+                width='804px'
+                height='452px'
+                controls url={post.videoPath}
+                playing={true}
+              />
+            </div>
+            <span style={{"display":"flex", "color":"gray","marginTop":"1rem"}}><i class="bi bi-eye-fill"></i>&nbsp;{post.viewCnt}</span>
+            <hr/>
+
+            <div className="container" id="content">
+                  {(content || '').split("<br>").map((line) => {
+                    return (
+                        <span class="my-3 pb-2" style={{"fontSize":"18px"}}>
+                          {line}
+                          <br />
+                        </span>
+                    )
+                  })}
+            </div>
+            <button type="button" class="btn btn-primary" onClick={() => {
+              window.location = `/post/update/${post.id}`
+            }} >수정</button>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" onClick={() => {
+              window.location = `/post/delete/${post.id}`
+            }} >삭제</button>
+
+          </div>
+
         </Box>
         <button type="button" class="btn btn-primary" onClick={() => {
           sessionStorage.setItem("id",post.id);

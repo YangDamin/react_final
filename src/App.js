@@ -18,7 +18,6 @@ import View from './View/View';
 import Buy from './Pay/Buy';
 import Search from './Common/Search';
 import Header from './Common/Header';
-import Nav from './Common/Nav';
 import Footer from './Common/Footer';
 import Home from './Main/Home';
 

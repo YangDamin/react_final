@@ -1,4 +1,4 @@
-import Header from "../Common/Header";
+
 import React from 'react';
 import Signup from "./Signup";
 

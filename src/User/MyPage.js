@@ -1,9 +1,7 @@
 // import React, { useState } from 'react';
 import React, { useEffect, useState } from 'react';
-import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Nav from '../Common/Nav';
 import { Modal } from 'react-bootstrap';
@@ -121,7 +119,7 @@ const MyPage = () => {
                                 'width': '100%', 'height': '30%', 'margin': '0 auto',
                                  'marginTop': '30px', 'fontFamily': 'Pretendard-Medium'
                             }}>
-                            <h3 style={{ 'fontFamily': 'Pretendard-Medium' , "fontWeight":"bold", "paddingTop":"1rem"}}>마이페이지</h3>
+                            <h3 style={{"fontWeight":"bold", "paddingTop":"1rem"}}>마이페이지</h3>
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
                             <div style={divStyle}>
@@ -164,7 +162,7 @@ const MyPage = () => {
 
                                 <div>
                                     <div id="pw">
-                                        <span>********</span>
+                                        <span>***************</span>
                                         <input type="button" value="비밀번호 변경" class="btn bg-black text-white flex-shrink-0 " style={{ "marginLeft": "3rem" }} onClick={handleShow} />
 
                                         {/* 모달창 */}
@@ -200,11 +198,10 @@ const MyPage = () => {
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
 
-                            {/* <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(255, 118, 118, 1)"}} onClick={(e)=> {
+                            <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(49, 141, 251, 1)"}} onClick={(e)=> {
                                 e.preventDefault();
                                 const formData = new FormData();
                                 formData.append("id", sessionStorage.getItem("user_id"));
-                                console.log(sessionStorage.getItem("user_id"))
 
                                 axios({
                                     url: "http://localhost:8080/mypage",
@@ -228,7 +225,7 @@ const MyPage = () => {
                                 }).catch((error)=>{
                                     console.log(error);
                                 })
-                            }}/> */}
+                            }}/>
 
 
 

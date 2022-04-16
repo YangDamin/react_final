@@ -19,11 +19,9 @@ const VideoList = () => {
       url: 'http://localhost:8080/posts',
       method: 'get'
     }).then((res) => {
-      console.log(res.data);
       setPostList(res.data);
     });
   }, []); // deps
-
 
   return (
     <>
@@ -36,10 +34,8 @@ const VideoList = () => {
 
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
-                    <div className="container" id="home">
+                    <div id="videoListBox">
                       <Link to={`/view/${p.id}`} className="link">
-                        {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
-
                         <VideoImageThumbnail
                           videoUrl={p.videoPath}
                           className="videoCard_thubmnail"/>
@@ -48,7 +44,10 @@ const VideoList = () => {
                           {p.title}
                         </div>
                         <div className="video_date">
-                          {p.date}
+                          {p.user.name}  ·  {p.date}
+                        </div>
+                        <div className="video_date">
+                          조회수  {p.viewCnt}회
                         </div>
                       </Link>
                     </div>

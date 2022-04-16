@@ -1,9 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Signin.css';
-import { CardHeader, Button, } from 'reactstrap';
+import {  Button } from 'reactstrap';
 import Swal from 'sweetalert2';
-import { Modal } from 'react-bootstrap';
 
 
 
