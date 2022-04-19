@@ -16,15 +16,11 @@ const Write = () => {
 
 
 
-    const [post, setPost] = useState([]);
-
-
     const [writeContent, setWriteContent] = useState({
         title: '',
         content: ''
     })
 
-    const [viewContent, setViewContent] = useState([]);
 
     const getValue = e => {
         const { name, value } = e.target;
@@ -35,8 +31,10 @@ const Write = () => {
 
 
     const [selectedFile, setSelectedFile] = useState([]);
+    const [selectedThumbnailFile, setSelectedThumbnailFile] = useState([]);
 
-    const [fileName, setFileName] = useState('');
+    const [video_Path, setVideoPath] = useState('');
+    const [thumbnail_Path, setThumbnailPath] = useState('');
 
 
     const ACCESS_KEY = process.env.REACT_APP_AWS_ACCESS_KEY;
@@ -58,7 +56,7 @@ const Write = () => {
     })
 
 
-
+    // 비디오 경로 설정
     const handleFileInput = e => {
         const file = e.target.files[0];
 
@@ -66,25 +64,61 @@ const Write = () => {
         const imgName = randomName + "_" + file.name
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
-        // if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 mp4인것만
-        //     Swal.fire(
-        //         '',
-        //         'video만 업로드 가능합니다.',
-        //         'warning'
-        //     )
-        //   return;
-        // }
+        if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 mp4인것만
+            Swal.fire(
+                '',
+                'video만 업로드 가능합니다.',
+                'warning'
+            )
+          return;
+        }
+
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/";
         const videoPath = s3Url + file.name;
 
         console.log("주소" + videoPath);
-        setFileName(videoPath);
+        setVideoPath(videoPath);
         setSelectedFile(e.target.files[0]);
+    }
+
+    // 썸네일 경로 설정
+    const handleThumbnailInput = e => {
+        const file = e.target.files[0];
+
+        const randomName = Math.random().toString(36).substr(2, 11);
+        const imgName = randomName + "_" + file.name
+        console.log(imgName);
+        const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
+        
+        if(file.type !== 'image/jpeg' || fileExt !=='jpg' ){
+            Swal.fire(
+                '',
+                'jpg,png만 업로드 가능합니다.',
+                'warning'
+            )
+        }
+        else if(file.type !== 'image/png' || fileExt !=='png'){ //파일타입과 익스텐션이 jpg,png인것만
+            Swal.fire(
+                '',
+                'jpg,png만 업로드 가능합니다.',
+                'warning'
+            )
+          return;
+        }
+        
+    
+        
+        const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/thumbnail/";
+        const thumbnailPath = s3Url + file.name;
+
+        console.log("주소" + thumbnailPath);
+        setThumbnailPath(thumbnailPath);
+        setSelectedThumbnailFile(e.target.files[0]);
     }
 
 
 
-
+    // 비디오 S3에 업로드
     const uploadFile = file => { //챕터4!의 사진을 업로드 하는 코드
         const params = {
             Bucket: S3_BUCKET,
@@ -92,9 +126,28 @@ const Write = () => {
             Body: file
         };
         myBucket.putObject(params)
-            .on('httpUploadProgress',(evt) => {
+            .on('httpUploadProgress', (evt) => {
                 setTimeout(() => {
                     setSelectedFile(null);
+                }, 50000)
+            }).send((err) => {
+                if (err) console.log(err)
+            })
+
+        console.log("파일 이름 :" + file.name);
+    }
+
+    // 썸네일 S3에 업로드
+    const uploadThumbnailFile = file => { //챕터4!의 사진을 업로드 하는 코드
+        const params = {
+            Bucket: S3_BUCKET,
+            Key: "upload/thumbnail/" + file.name,
+            Body: file
+        };
+        myBucket.putObject(params)
+            .on('httpUploadProgress', (evt) => {
+                setTimeout(() => {
+                    setSelectedThumbnailFile(null);
                 }, 50000)
             }).send((err) => {
                 if (err) console.log(err)
@@ -119,79 +172,83 @@ const Write = () => {
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper' id="write" style={{ "marginBottom": "30px" }}>
                             {/* <Server/> */}
-                            <div style={{"marginBottom":"3px","display":"flex", "fontSize":"18px"}}><i class="bi bi-camera-reels-fill"></i>&nbsp;나의 브이로그</div>
+                            <div style={{ "marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-camera-reels-fill"></i>&nbsp;나의 브이로그</div>
                             <Input color="primary" type="file" onChange={handleFileInput} />
-                           
+
+                            <div style={{ "marginTop": "25px", "marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-image" />&nbsp;나의 브이로그 썸네일 설정</div>
+                            <Input color="primary" type="file" onChange={handleThumbnailInput}/>
+
                             <input className="title-input" type='text' placeholder='제목'
                                 onChange={getValue} id='title' />
-                            <textarea rows="18" style={{ "width":"100%", "textAlign":"left"}} id="content"></textarea>
-                            {/* <CKEditor
-                                editor={ClassicEditor}
-                                styled={{ 'width': '80%' }}
-                                data=""
-                                onReady={editor => {
-                                    // You can store the "editor" and use when it is needed.
-                                    console.log('Editor is ready to use!', editor);
-                                }}
-                                onChange={(event, editor) => {
-                                    const data = editor.getData().substr(3, editor.getData().length - 7)
-                                    console.log({ event, editor, data });
-                                    setWriteContent({
-                                        ...writeContent, content: data
-                                    })
-                                    console.log(writeContent);
-                                }}
-                                onBlur={(event, editor) => {
-                                    console.log('Blur.', editor);
-                                }}
-                                onFocus={(event, editor) => {
-                                    console.log('Focus.', editor);
-                                }}
-                            /> */}
+                            <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content"></textarea>
+
                         </div>
 
 
-                        {selectedFile ? (
                             <button className="submit-button"
                                 onClick={(e) => {
-                                    uploadFile(selectedFile);
-                                    e.preventDefault();
 
-                                    let today = new Date();
-                                    let date = today.toLocaleDateString();      // 현재 날짜
+                                    if (selectedFile == '') {     // 브이로그 영상 파일 없을 시, 업로드 막기
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '동영상 첨부해주세요!'
+                                        })
+                                    } else if(selectedThumbnailFile == ''){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '사용하실 썸네일을 첨부해주세요!'
+                                        })
+                                    } else if(document.getElementById("title").value == ''){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '제목을 입력해주세요!'
+                                        })
+                                    } else if(document.getElementById("content").value == ''){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '내용을 입력해주세요!'
+                                        })
+                                    } else {
+                                        uploadFile(selectedFile);
+                                        uploadThumbnailFile(selectedThumbnailFile);
+                                        e.preventDefault();
 
-                                    // setViewContent(viewContent.concat({ ...writeContent }));
+                                        let today = new Date();
+                                        let date = today.toLocaleDateString();      // 현재 날짜
 
-                                    const formData = new FormData();
-                                    formData.append("title", document.getElementById("title").value);
-                                    var contents = document.getElementById("content").value;
-                                    contents = contents.replace(/(\n|\r\n)/g , '<br>');
-                                    formData.append("content", contents);
-                                    formData.append("date", date);
-                                    formData.append("userEmail", sessionStorage.getItem("email"));
-                                    formData.append("videoPath", fileName);
+                                        // setViewContent(viewContent.concat({ ...writeContent }));
 
-                                    axios({
-                                        url: "http://localhost:8080/write",
-                                        method: "post",
-                                        data: formData
-                                    }).then((res) => {
+                                        const formData = new FormData();
+                                        formData.append("title", document.getElementById("title").value);
+                                        var contents = document.getElementById("content").value;
+                                        contents = contents.replace(/(\n|\r\n)/g, '<br>');
+                                        formData.append("content", contents);
+                                        formData.append("date", date);
+                                        formData.append("userEmail", sessionStorage.getItem("email"));
+                                        formData.append("videoPath", video_Path);
+                                        formData.append("videothumbnail", thumbnail_Path);
 
-                                        Swal.fire(
-                                            '',
-                                            '업로드 완료!',
-                                            'success'
-                                        )
-                                        setTimeout(function () {
-                                            // window.location = '/myfeed';
-                                        }, 200000)
+                                        axios({
+                                            url: "http://localhost:8080/write",
+                                            method: "post",
+                                            data: formData
+                                        }).then((res) => {
 
-                                    }).catch((error) => {
-                                        console.log(error);
-                                    })
+                                            Swal.fire(
+                                                '',
+                                                '업로드 완료!',
+                                                'success'
+                                            )
+                                            setTimeout(function () {
+                                                window.location = '/myfeed';
+                                            }, 2000)
 
-                            }}>업로드</button>
-                            ) : null}
+                                        }).catch((error) => {
+                                            console.log(error);
+                                        })
+                                    }
+
+                                }}>업로드</button>
                     </Box>
                 </Box>
             </Container >

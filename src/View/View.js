@@ -45,35 +45,35 @@ const View = ({history}) => {
     })
   };
 
-  const confirm = function(msg, title, resvNum) {
-		Swal({
-			title : title,
-			text : msg,
-			type : "warning",
-			showCancelButton : true,
-			confirmButtonClass : "btn-danger",
-			confirmButtonText : "예",
-			cancelButtonText : "아니오",
-			closeOnConfirm : false,
-			closeOnCancel : true
-		}, function(isConfirm) {
-			if (isConfirm) {
-				Swal('', '정말로 지우시겠습니까?', "success");
-        deletePost();
+  // const confirm = function(msg, title, resvNum) {
+	// 	Swal({
+	// 		title : title,
+	// 		text : msg,
+	// 		type : "warning",
+	// 		showCancelButton : true,
+	// 		confirmButtonClass : "btn-danger",
+	// 		confirmButtonText : "예",
+	// 		cancelButtonText : "아니오",
+	// 		closeOnConfirm : false,
+	// 		closeOnCancel : true
+	// 	}, function(isConfirm) {
+	// 		if (isConfirm) {
+	// 			Swal('', '정말로 지우시겠습니까?', "success");
+  //       deletePost();
       
-      }else{
-				Swal('', '', "failed");
-			}
+  //     }else{
+	// 			Swal('', '', "failed");
+	// 		}
 
-		});
-	}
+	// 	});
+	// }
 
-	function Alert() {
-		alert('gg', 'success');
-	}
-	function Confirm() {
-		confirm('', '승인할까요?');
-	}
+	// function Alert() {
+	// 	alert('gg', 'success');
+	// }
+	// function Confirm() {
+	// 	confirm('', '승인할까요?');
+	// }
 
   // const confirm = function(msg, title, resvNum) {
   //   Swal("Are you sure you want to do this?", {
@@ -130,7 +130,7 @@ const View = ({history}) => {
           sessionStorage.setItem("id",post.id);
                   window.location = `/post/update/${post.id}`
                 }} >수정</button>
-                <button type="button" class="btn btn-primary" onClick={confirm} >삭제</button>
+                <button type="button" class="btn btn-primary" onClick={deletePost} >삭제</button>
 
                 <br/>
 
