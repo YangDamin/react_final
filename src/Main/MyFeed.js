@@ -10,12 +10,19 @@ import { Link } from "react-router-dom";
 import { FaBook } from "@react-icons/all-files/fa/FaBook";
 import VideoImageThumbnail from 'react-video-thumbnail-image';
 import "./MyFeed.css";
+import Pdf from "react-to-pdf";
+import myimage from "./logo_4.png";
+import MyPdf from '../View/MyPdf';
 
+const ref = React.createRef();
 
 
 const MyFeed = () => {
 	const [mypostList, setMyPostList] = useState([]);
 	const [myPopular, setMyPopular] = useState([]);
+
+	//pdf 다운로드
+	const [pdfMode, setPdfMode] = useState(false);
 
 	useEffect(() => {
 		const formData = new FormData();
@@ -32,8 +39,23 @@ const MyFeed = () => {
 
 	}, []);
 
+
 	return (
 		<>
+		{pdfMode == false 
+			?
+			(
+				<>
+			<div>
+				{/* <Pdf targetRef={ref} filename="div-blue.pdf">
+					{({ toPdf }) => (
+						<button onClick={toPdf}>Generate pdf</button>
+					)}
+				</Pdf> */}
+				{/* <div ref={ref}>
+						<img src={myimage}/>
+				</div> */}
+			</div>
 			<Nav />
 			<CssBaseline />
 			<Container className="content-container">
@@ -82,12 +104,17 @@ const MyFeed = () => {
 								</Box>
 							</div>
 							<div className='col-3'>
-								<div style={{ "textAlign": "left", "padding": "10rem 5rem 0 0", "display": "flex", "justifyContent": "space-between" }}>
+								{/* pdf연결 */}
+								<div style={{"marginTop":"5.2rem"}}>
+									<input type="button" value="나만의 브이어리 받기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(49, 120, 221, 1)"}}
+										onClick={() => {setPdfMode(true)}}/>
+								</div>
+								<div style={{ "textAlign": "left", "padding": "4rem 5rem 0 0", "display": "flex", "justifyContent": "space-between" }}>
 									<h6 style={{ "fontWeight": "bold", "color": "rgba(49, 141, 251, 1)" }}><i class="bi bi-heart-fill"></i> 나의 인기 브이어리</h6>
 								</div>
 
 
-								<div >
+								<div>
 									{myPopular.slice(0, 3).map((p) => {
 										return (
 											<div>
@@ -114,6 +141,8 @@ const MyFeed = () => {
 					</Container>
 				</Box>
 			</Container>
+			</>
+			) : (<MyPdf mypostList={mypostList} setPdfMode={setPdfMode}/>)}
 		</>
 	);
 }

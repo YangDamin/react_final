@@ -1,0 +1,42 @@
+
+.back_btn {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    size: 3rem;
+    border : none;
+    padding: 7px;
+    display: flex;
+    margin : 0 8.5rem 2rem 8.5rem;
+}
+
+.pdf_btn {
+    background-color: rgba(49, 120, 221, 1);
+    border-radius: 10px;
+    color: white;
+    border : none;
+    padding: 7px;
+    display: flex;
+    margin : 0 8.5rem 2rem auto;
+}
+
+.box{
+    border:0.5px black solid;
+    border-radius: 10px;
+    margin-bottom: 4rem;
+}
+
+.contentTitle{
+    font-weight: bolder;
+    font-size: 2rem;
+    display: flex;
+    margin: 1rem 4rem;
+}
+
+.content{
+    font-size: 1.5rem;
+    display: flex;
+    margin-left: 4rem;
+    font-family: 'ACCchildrenfall';
+    font-weight: bold;
+}
