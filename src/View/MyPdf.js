@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Pdf from 'react-to-pdf';
 import style from './MyPdf.module.css';
+import pdflogo from "./pdfViary.png";
 
 
 // pdf
@@ -29,8 +30,10 @@ const MyPdf = ({ mypostList, setPdfMode }) => {
                     return (
                         <div>
                             <div className={style.box}>
+                                
+                                <img src={pdflogo} style={{"width":"400px", "display":"flex"}}/>
                                 <span className={style.contentTitle}>
-                                    {v.date}
+                                    Date.&nbsp;&nbsp;{v.date}
                                 </span>
 
                                 <hr />

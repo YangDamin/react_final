@@ -161,7 +161,7 @@ const Write = () => {
                 if (err) console.log(err)
             })
 
-        console.log("파일 이름 :" + file.name);
+        console.log("썸넬 파일 이름 :" + file.name);
     }
 
 
@@ -247,7 +247,7 @@ const Write = () => {
                                         formData.append("videothumbnail", thumbnail_Path);
 
                                         axios({
-                                            url: "http://localhost:8080/write",
+                                            url: "http://54.193.18.159:8080/write",
                                             method: "post",
                                             data: formData
                                         }).then((res) => {

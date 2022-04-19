@@ -69,7 +69,7 @@ const MyPage = () => {
         
         
                 axios({
-                    url: "http://localhost:8080/mypage",
+                    url: "http://54.193.18.159:8080/mypage",
                     method: 'post',
                     data: formData
                 }).then((res) => {
@@ -204,7 +204,7 @@ const MyPage = () => {
                                 formData.append("id", sessionStorage.getItem("user_id"));
 
                                 axios({
-                                    url: "http://localhost:8080/mypage",
+                                    url: "http://54.193.18.159:8080/mypage",
                                     method: "delete",
                                     data: formData
                                 }).then((res) => {

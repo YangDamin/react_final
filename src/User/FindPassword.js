@@ -28,7 +28,7 @@ const FindPassword = () => {
                                 formData.append('phone', document.getElementById("find_phone").value);
 
                                 axios({
-                                    url: "http://localhost:8080/users/findPassword",
+                                    url: "http://54.193.18.159:8080/users/findPassword",
                                     method: "post",
                                     data: formData
                                 }).then((res) => {

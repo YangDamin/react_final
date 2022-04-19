@@ -199,8 +199,11 @@ const Signup = () => {
                                         formData.append('name', document.getElementById("name").value);
                                         formData.append('phone', document.getElementById("phoneNum").value);
 
+                                        // const {REACT_APP_SRPING} = process.env;
+                                        // console.log("spring"+REACT_APP_SRPING)
+
                                         axios({
-                                            url: "http://localhost:8080/users/signup",
+                                            url: `http://54.193.18.159:8080/users/signup`,
                                             method: 'post',
                                             data: formData
                                         }).then((res) => {

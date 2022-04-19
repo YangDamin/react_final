@@ -21,9 +21,10 @@
 }
 
 .box{
-    border:0.5px black solid;
-    border-radius: 10px;
     margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    width: 80%;
+    margin: 0 auto 4rem auto;
 }
 
 .contentTitle{
@@ -31,12 +32,13 @@
     font-size: 2rem;
     display: flex;
     margin: 1rem 4rem;
+    font-family: 'LeeSeoyun';
 }
 
 .content{
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     display: flex;
     margin-left: 4rem;
-    font-family: 'ACCchildrenfall';
+    font-family: 'LeeSeoyun';
     font-weight: bold;
 }

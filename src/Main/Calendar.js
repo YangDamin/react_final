@@ -23,7 +23,7 @@ const Calendar = () => {
     const formData = new FormData();
     formData.append("email", sessionStorage.getItem("email"));
     axios({
-      url: "http://localhost:8080/calendar",
+      url: "http://54.193.18.159:8080/calendar",
       method: "post",
       data: formData
     }).then((res) => {
@@ -73,7 +73,7 @@ const Calendar = () => {
                   formData.append("id", e.event.id);
 
                   axios({
-                    url: "http://localhost:8080/calendar",
+                    url: "http://54.193.18.159:8080/calendar",
                     method: "delete",
                     data: formData
                   }).then((res) => {
