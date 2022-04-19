@@ -23,7 +23,7 @@
 .box{
     margin-bottom: 4rem;
     padding-bottom: 2rem;
-    width: 80%;
+    width: 70%;
     margin: 0 auto 4rem auto;
 }
 
@@ -33,6 +33,7 @@
     display: flex;
     margin: 1rem 4rem;
     font-family: 'LeeSeoyun';
+    color: white;
 }
 
 .content{

@@ -30,8 +30,9 @@ const MyPdf = ({ mypostList, setPdfMode }) => {
                     return (
                         <div>
                             <div className={style.box}>
+                                <img src={pdflogo} style={{"width":"400px", "display":"flex", "marginBottom":"1.5rem"}}/>
+                                <div style={{"backgroundColor":"#C9BC9C", "borderRadius":"30px", "padding":"10px 0 10px 0"}}>
                                 
-                                <img src={pdflogo} style={{"width":"400px", "display":"flex"}}/>
                                 <span className={style.contentTitle}>
                                     Date.&nbsp;&nbsp;{v.date}
                                 </span>
@@ -46,6 +47,7 @@ const MyPdf = ({ mypostList, setPdfMode }) => {
                                         </span>
                                     )
                                 })}
+                                </div>
                             </div>
                         </div>
                     )
