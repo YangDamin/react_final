@@ -36,11 +36,14 @@ const Write = () => {
     const [video_Path, setVideoPath] = useState('');
     const [thumbnail_Path, setThumbnailPath] = useState('');
 
+    //동영상 타입 및 이미지 타입에 안맞는 걸 첨부했을 경우, true/false
+    const [vtcorrect, setVTCorrect] = useState(false);
+    const [itcorrect, setITCorrect] = useState(false);
+
+
 
     const ACCESS_KEY = process.env.REACT_APP_AWS_ACCESS_KEY;
     const SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
-    // const RESION = 'us-east-2';
-    // const S3_BUCKET = 's3-bucket-react-file-upload-test-5jo';
     const RESION = 'us-west-1';
     const S3_BUCKET = 'viary';
 
@@ -64,13 +67,18 @@ const Write = () => {
         const imgName = randomName + "_" + file.name
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
+
         if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 mp4인것만
             Swal.fire(
                 '',
-                'video만 업로드 가능합니다.',
+                'mp4 타입만 업로드 가능합니다.',
                 'warning'
             )
-          return;
+            //mp4 타입이 아닐 경우 false
+            setVTCorrect(false);
+        }else{
+            //mp4 타입이 아닐 경우 true
+            setVTCorrect(true);
         }
 
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/";
@@ -90,24 +98,20 @@ const Write = () => {
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
         
-        if(file.type !== 'image/jpeg' || fileExt !=='jpg' ){
+
+        if((file.type !== 'image/jpeg' || fileExt !=='jpg') && (file.type !== 'image/png' || fileExt !=='png')){ //파일타입과 익스텐션이 jpg인것만
             Swal.fire(
                 '',
-                'jpg,png만 업로드 가능합니다.',
+                'jpg,png 타입만 업로드 가능합니다.',
                 'warning'
             )
+            //이미지 타입이 아닐 경우 false
+            setITCorrect(false);
+        }else{
+            //이미지 타입이 아닐 경우 true
+            setITCorrect(true);
         }
-        else if(file.type !== 'image/png' || fileExt !=='png'){ //파일타입과 익스텐션이 jpg,png인것만
-            Swal.fire(
-                '',
-                'jpg,png만 업로드 가능합니다.',
-                'warning'
-            )
-          return;
-        }
-        
-    
-        
+
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/thumbnail/";
         const thumbnailPath = s3Url + file.name;
 
@@ -193,7 +197,7 @@ const Write = () => {
                                             icon: 'error',
                                             text: '동영상 첨부해주세요!'
                                         })
-                                    } else if(selectedThumbnailFile == ''){
+                                    } else if(selectedThumbnailFile == ""){
                                         Swal.fire({
                                             icon: 'error',
                                             text: '사용하실 썸네일을 첨부해주세요!'
@@ -207,6 +211,16 @@ const Write = () => {
                                         Swal.fire({
                                             icon: 'error',
                                             text: '내용을 입력해주세요!'
+                                        })
+                                    } else if(vtcorrect == false){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '브이로그 첨부 파일 타입을 확인해주세요!'
+                                        })
+                                    } else if(itcorrect == false){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '썸네일 첨부 파일 타입을 확인해주세요!'
                                         })
                                     } else {
                                         uploadFile(selectedFile);
