@@ -18,17 +18,19 @@ const View = () => {
 
   const [post, setPost] = useState([]);
   const [name, setName] = useState('');
+  const [userId, setUserId] = useState();
 
 
 
   useEffect(() => {
     const result = axios({
-      url: `http://54.193.18.159:8080/post/detail/${id}`,
+      url: `http://localhost:8080/post/detail/${id}`,
       method: 'get'
     });
     result.then((res) => {
       setPost(res.data.post);
       setName(res.data.name);
+      setUserId(res.data.post.user.id);
     });
     console.log("##################" + id);
   }, [id]);
@@ -52,8 +54,8 @@ const View = () => {
               <span>{post.title}</span>
             </div>
             <div id="content-id">
-              <span style={{"fontWeight":"bold"}}><i class="bi bi-person-hearts"></i> {name}</span>
-              <span style={{"color":"gray"}}>{post.date}</span>
+              <span style={{ "fontWeight": "bold" }}><i class="bi bi-person-hearts"></i> {name}</span>
+              <span style={{ "color": "gray" }}>{post.date}</span>
             </div>
 
 
@@ -65,26 +67,33 @@ const View = () => {
                 playing={true}
               />
             </div>
-            <span style={{"display":"flex", "color":"gray","marginTop":"1rem"}}><i class="bi bi-eye-fill"></i>&nbsp;{post.viewCnt}</span>
-            <hr/>
+            <span style={{ "display": "flex", "color": "gray", "marginTop": "1rem" }}><i class="bi bi-eye-fill"></i>&nbsp;{post.viewCnt}</span>
+            <hr />
 
             <div className="container" id="content">
-                  {(content || '').split("<br>").map((line) => {
-                    return (
-                        <span class="my-3 pb-2" style={{"fontSize":"18px"}}>
-                          {line}
-                          <br />
-                        </span>
-                    )
-                  })}
+              {(content || '').split("<br>").map((line) => {
+                return (
+                  <span class="my-3 pb-2" style={{ "fontSize": "18px" }}>
+                    {line}
+                    <br />
+                  </span>
+                )
+              })}
             </div>
-            <button type="button" class="btn btn-primary" onClick={() => {
-              window.location = `/post/update/${post.id}`
-            }} >수정</button>
-            &nbsp;&nbsp;
-            <button type="button" class="btn btn-primary" onClick={() => {
-              window.location = `/post/delete/${post.id}`
-            }} >삭제</button>
+
+            {sessionStorage.getItem("user_id") == userId ?
+              <>
+                <button type="button" class="btn btn-primary" onClick={() => {
+                  window.location = `/post/update/${post.id}`
+                }} >수정</button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" onClick={() => {
+                  window.location = `/post/delete/${post.id}`
+                }} >삭제</button>
+              </>
+              : null
+            }
+
 
           </div>
 

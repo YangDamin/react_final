@@ -200,7 +200,7 @@ const MyPage = () => {
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
 
-                            <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{ "display": "flex", "margin": "0 3.5rem 0 auto", "backgroundColor": "rgba(49, 141, 251, 1)" }} onClick={(e) => {
+                            {/* <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{ "display": "flex", "margin": "0 3.5rem 0 auto", "backgroundColor": "rgba(49, 141, 251, 1)" }} onClick={(e) => {
 
                                 Swal.fire({
                                     title: '',
@@ -238,7 +238,7 @@ const MyPage = () => {
                                     }
                                 })
 
-                            }} />
+                            }} /> */}
 
 
 
