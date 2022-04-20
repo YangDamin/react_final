@@ -68,15 +68,10 @@ const Calendar = () => {
                 confirmButtonText: 'Yes, delete it!'
               }).then((result) => {
                 if (result.isConfirmed) {
-
-                  const formData = new FormData();
-                  formData.append("id", e.event.id);
-
-                  axios({
-                    url: "http://54.193.18.159:8080/calendar",
-                    method: "delete",
-                    data: formData
-                  }).then((res) => {
+                  
+                  const id = e.event.id;
+                  axios.delete(`http://54.193.18.159:8080/calendar/${id}`)
+                    .then((res) => {
                     const Toast = Swal.mixin({
                       toast: true,
                       position: 'middle-',
@@ -94,7 +89,7 @@ const Calendar = () => {
                     setTimeout(function () {
                       window.location = '/calendar';
                     }, 1000)
-                  })
+                  }).catch((error) => console.log(error))
                 }
               })
             }} />

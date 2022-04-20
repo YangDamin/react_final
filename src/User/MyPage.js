@@ -203,28 +203,27 @@ const MyPage = () => {
                                 const formData = new FormData();
                                 formData.append("id", sessionStorage.getItem("user_id"));
 
-                                axios({
-                                    url: "http://54.193.18.159:8080/mypage",
-                                    method: "delete",
-                                    data: formData
-                                }).then((res) => {
-                                    sessionStorage.removeItem("email");
-                                    sessionStorage.removeItem("password");
-                                    sessionStorage.removeItem("name");
-                                    sessionStorage.removeItem("phone");
-                                    sessionStorage.removeItem("user_id");
+                                const userId = sessionStorage.getItem("user_id");
 
-                                    Swal.fire(
-                                        '',
-                                        '탈퇴 완료되었습니다!',
-                                        'success'
-                                      )
-                                      setTimeout(function () {
-                                        window.location = '/';
-                                      }, 2000)
-                                }).catch((error)=>{
-                                    console.log(error);
-                                })
+                                axios.delete(`http://localhost:8080/mypage/${userId}`)
+                                    .then((res) => {
+                                        sessionStorage.removeItem("email");
+                                        sessionStorage.removeItem("password");
+                                        sessionStorage.removeItem("name");
+                                        sessionStorage.removeItem("phone");
+                                        sessionStorage.removeItem("user_id");
+
+                                        Swal.fire(
+                                            '',
+                                            '탈퇴 완료되었습니다!',
+                                            'success'
+                                        )
+                                        setTimeout(function () {
+                                            window.location = '/';
+                                        }, 2000)
+                                    }).catch((error)=>{
+                                        console.log(error);
+                                    })
                             }}/>
 
 
