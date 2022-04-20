@@ -16,6 +16,24 @@
     flex: auto;
   
 }
+
+.btn-top{
+  margin-top: 50px;
+  font-size: 25px;
+  color: white;
+  border:none;
+  cursor: pointer;
+  background-color:rgba(49, 141, 251, 1);
+  border-radius: 50%;
+
+  
+}
+.btn-top:hover{
+  
+  transform: scale(1.08);
+  transition: all 0.4s ease;
+}
+
 /* 
 .item{
   min-height: 200px;

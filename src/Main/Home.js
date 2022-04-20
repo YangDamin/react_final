@@ -69,7 +69,7 @@ const Home = () => {
     setIsLoading(false);
   }
 
-
+  const moveToTop = () => (document.documentElement.scrollTop=0);
 
 
 
@@ -121,11 +121,19 @@ const Home = () => {
             })}
 
           </Grid>
-
+        
         </Box>
         <span>
           {(isLoading && notFirstTime) ? (<Loader />) : ("")}
         </span>
+        <div>
+        <button 
+        className="btn-top"
+        onClick={moveToTop}
+        > 
+        <i class="bi bi-caret-up-fill"></i>
+        </button>
+        </div>
       </Container>
 
     </>
