@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import './View.css';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 
@@ -82,15 +83,43 @@ const View = () => {
             </div>
 
             {sessionStorage.getItem("user_id") == userId ?
-              <>
-                <button type="button" class="btn btn-primary" onClick={() => {
+              <div style={{"marginTop":"2rem"}}>
+                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{"margin":"0 1rem 0 0" ,"backgroundColor":"rgba(49, 120, 221, 1)"}} onClick={() => {
                   window.location = `/post/update/${post.id}`
+
+                  // axios.put(`http://localhost:8080/post/update/${id}`)
+                  //   .then((res) => {
+
+                  //   })
+
                 }} >수정</button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-primary" onClick={() => {
-                  window.location = `/post/delete/${post.id}`
+                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{"margin":"0 3.5rem 0 0" ,"backgroundColor":"rgba(49, 120, 221, 1)"}} onClick={() => {
+                  Swal.fire({
+                    title: '',
+                    text: "게시물 삭제하시겠습니까?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                  if(result.isConfirmed){
+                    axios.delete(`http://localhost:8080/post/delete/${id}`)
+                      .then((res) => {
+                          Swal.fire(
+                            '',
+                            '삭제 완료되었습니다.',
+                            'success'
+                          )
+                        setTimeout(function(){
+                            window.location = '/';
+                        },2000)
+                      })
+                  }
+                })
+
                 }} >삭제</button>
-              </>
+              </div>
               : null
             }
 
