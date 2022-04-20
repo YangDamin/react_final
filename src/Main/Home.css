@@ -30,7 +30,7 @@
 }
 .btn-top:hover{
   
-  transform: scale(1.08);
+  opacity: 0.7;
   transition: all 0.4s ease;
 }
 
@@ -40,3 +40,4 @@
   flex-basis: 150px;
   flex-grow: 1;
 } */
+

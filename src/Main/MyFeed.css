@@ -37,3 +37,18 @@
     color: gray;
     font-size: 13px;
 }
+.btn-moreItem{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 15px;
+    border-color: transparent;
+    width: 100px;
+    height: 35px;
+    color:dimgrey;
+}
+
+.btn-moreItem:hover{
+    opacity: 0.7;
+    transition: all 0.4s ease;
+}

@@ -88,8 +88,8 @@ const Home = () => {
             borderStyle: 'solid',
             borderColor: 'black'
           }}>
-          <Grid container id='grid' >
-
+          <Grid container id='grid' className="grid-container">
+            
             {result.map((p, index) => {
               return (
                 <Grid item col-xs={4} col-6 col-md-4>
