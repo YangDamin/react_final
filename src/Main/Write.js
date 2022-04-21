@@ -191,6 +191,7 @@ const Write = () => {
                                 onChange={getValue} id='title' />
                             <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content"></textarea>
 
+
                         </div>
 
 
