@@ -44,10 +44,10 @@ const MyFeed = () => {
 		<>
 			{pdfMode == false
 				?
-				(						// '나만의 브이어리 받기' 버튼을 클릭하지 않을 시
+				(							// '나만의 브이어리 받기' 버튼을 클릭하지 않을 시
 					<>
 						<Nav />
-						<CssBaseline />
+						<CssBaseline />	
 						<Container className="content-container">
 
 							<Box className="video_items"
@@ -68,7 +68,7 @@ const MyFeed = () => {
 												<Box className="video_item"
 													sx={{ flexGrow: 6 }}>
 													<Grid container id='grid' >
-														{mypostList.slice(0).reverse().map((p) => {			// 자신의 게시물을 내림차순으로 정렬 (최신 게시물이 상위로 뜨게)
+														{mypostList.slice(0).reverse().map((p) => {		// 자신의 게시물을 내림차순으로 정렬 (최신 게시물이 상위로 뜨게)
 															return (
 																<Grid item col-xs={4} col-6 col-md-4>
 																	<Grid item col-xs={4}>
@@ -102,7 +102,7 @@ const MyFeed = () => {
 										</div>
 										<div className='col-3'>
 											{/* pdf연결 */}
-											<div style={{ "marginTop": "5.2rem" }}>
+											<div style={{ "marginTop": "4rem" }}>
 												<input type="button" value="나만의 브이어리 받기" class="btn text-white flex-shrink-0 mt-3 " style={{ "display": "flex", "margin": "0 3.5rem 0 auto", "backgroundColor": "rgba(49, 120, 221, 1)" }}
 													onClick={() => { setPdfMode(true) }} />
 											</div>
