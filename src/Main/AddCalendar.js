@@ -53,7 +53,7 @@ const AddCalendar = () => {
                                                 formData.append("end", document.getElementById("end").value);
 
                                                 axios({
-                                                    url: "http://localhost:8080/addCalendar",
+                                                    url: "http://54.193.18.159:8080/addCalendar",
                                                     method: "post",
                                                     data: formData
                                                 }).then((res) => {

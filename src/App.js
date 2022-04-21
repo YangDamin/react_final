@@ -20,6 +20,7 @@ import Search from './Common/Search';
 import Header from './Common/Header';
 import Footer from './Common/Footer';
 import Home from './Main/Home';
+import ModifyPost from './Main/ModifyPost';
 
 
 
@@ -45,7 +46,7 @@ function App() {
           <Route path="/users/findPassword" element={<FindPassword/>}></Route>
           <Route path="/view/:id" element={<View/>}></Route>
           <Route path="/post/delete/:id" element={<Home/>}></Route>
-          <Route path="/post/update/:id" element={<Write/>}></Route>
+          <Route path="/post/update/:id" element={<ModifyPost/>}></Route>
           <Route path="/buy" element={<Buy/>}></Route>
           <Route path="/search/:word" element={<Search/>}></Route>
         </Routes>

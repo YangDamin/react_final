@@ -56,33 +56,33 @@ const MyPage = () => {
         e.preventDefault();
 
         if (CheckPass(document.getElementById("newpw").value)) {
-            if(newpw != newpwCheck){
+            if (newpw != newpwCheck) {
                 Swal.fire({
                     icon: 'error',
                     text: '비밀번호가 일치하지 않습니다. 다시 입력해주세요.'
                 })
-            }else{
+            } else {
                 const formData = new FormData();
-        
+
                 formData.append('email', sessionStorage.getItem('email'));
                 formData.append('pwd', document.getElementById("newpw").value);
-        
-        
+
+
                 axios({
-                    url: "http://localhost:8080/mypage",
+                    url: "http://54.193.18.159:8080/mypage",
                     method: 'post',
                     data: formData
                 }).then((res) => {
                     console.log(res.data);
                     const result = res.data;
-                    if(result.compare == true){
+                    if (result.compare == true) {
                         Swal.fire({
                             icon: 'error',
                             text: '기존과 동일한 비밀번호 입니다. 새로운 비밀번호를 입력해주세요.'
                         })
-                    }else{
+                    } else {
                         sessionStorage.setItem("password", result.pwd);
-                        console.log("세션 비번:"+sessionStorage.getItem("password"))
+                        console.log("세션 비번:" + sessionStorage.getItem("password"))
 
                         Swal.fire(
                             '',
@@ -93,10 +93,10 @@ const MyPage = () => {
                             window.location = '/mypage';
                         }, 2000)
                     }
-        
+
                 })
             }
-        }else {
+        } else {
             Swal.fire({
                 icon: 'error',
                 text: '영문+숫자 조합 8자~16자로 입력해주세요.'
@@ -107,19 +107,21 @@ const MyPage = () => {
     return (
 
         <>
-            <Nav/>
+            <Nav />
             <CssBaseline />
             <Container className="content-container" >
-            <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
-			   borderWidth: "5px",borderColor:'black',borderStyle:'solid',
-			   borderColor:'black', height: '100vh',overflow:'overlay' }}>
+                <Box sx={{
+                    bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
+                    borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
+                    borderColor: 'black', height: '100vh', overflow: 'overlay'
+                }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div
                             style={{
                                 'width': '100%', 'height': '30%', 'margin': '0 auto',
-                                 'marginTop': '30px', 'fontFamily': 'Pretendard-Medium'
+                                'marginTop': '30px', 'fontFamily': 'Pretendard-Medium'
                             }}>
-                            <h3 style={{"fontWeight":"bold", "paddingTop":"1rem"}}>마이페이지</h3>
+                            <h3 style={{ "fontWeight": "bold", "paddingTop": "1rem" }}>마이페이지</h3>
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
                             <div style={divStyle}>
@@ -175,11 +177,11 @@ const MyPage = () => {
                                                     <div style={{ "width": "350px", "margin": "50px auto" }}>
                                                         <div>
                                                             <span style={{ "display": "flex" }}>새 비밀번호</span>
-                                                            <input class="form-control mb-3" type="password" id="newpw" value={newpw} placeholder="영문+숫자 조합 8자~16자로 입력해주세요." maxLength='16' onChange={onChangeNewpw}/>
+                                                            <input class="form-control mb-3" type="password" id="newpw" value={newpw} placeholder="영문+숫자 조합 8자~16자로 입력해주세요." maxLength='16' onChange={onChangeNewpw} />
                                                             <span style={{ "display": "flex" }}>비밀번호 재확인</span>
                                                             <input class="form-control mb-2" type="password" id="newpw" value={newpwCheck} placeholder="영문+숫자 조합 8자~16자로 입력해주세요." maxLength='16' onChange={onChangeNewpwCheck} />
-                                                            {newpw.length == 0 && newpwCheck.length == 0 ? null : (newpw == newpwCheck ? <span style={{ "display": "flex", "color":"red" }}>* 비밀번호가 같습니다.</span> : <span style={{ "display": "flex", "color":"red" }}>* 비밀번호가 같지 않습니다.</span>)}
-                                                            
+                                                            {newpw.length == 0 && newpwCheck.length == 0 ? null : (newpw == newpwCheck ? <span style={{ "display": "flex", "color": "red" }}>* 비밀번호가 같습니다.</span> : <span style={{ "display": "flex", "color": "red" }}>* 비밀번호가 같지 않습니다.</span>)}
+
                                                             <div style={{ "display": "flex" }}>
                                                                 <input type="button" value="변경" class="btn text-white bg-black flex-shrink-0 me-2 mb-5 mt-3" style={{ "width": "50%" }} onClick={newPwonClick}></input>
                                                                 <input type="button" value="취소" class="btn text-black bg-light flex-shrink-0 me-2 mb-5 mt-3" style={{ "width": "50%", "border": "0.5px solid" }} onClick={(e) => {
@@ -198,34 +200,45 @@ const MyPage = () => {
 
                             <hr class="border-dark mt-2" width="90%" style={{ "margin": "0 auto", "height": "2px" }} />
 
-                            <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{"display":"flex", "margin":"0 3.5rem 0 auto" ,"backgroundColor":"rgba(49, 141, 251, 1)"}} onClick={(e)=> {
-                                e.preventDefault();
-                                const formData = new FormData();
-                                formData.append("id", sessionStorage.getItem("user_id"));
+                            {/* <input type="button" value="탈퇴하기" class="btn text-white flex-shrink-0 mt-3 " style={{ "display": "flex", "margin": "0 3.5rem 0 auto", "backgroundColor": "rgba(49, 141, 251, 1)" }} onClick={(e) => {
 
-                                axios({
-                                    url: "http://localhost:8080/mypage",
-                                    method: "delete",
-                                    data: formData
-                                }).then((res) => {
-                                    sessionStorage.removeItem("email");
-                                    sessionStorage.removeItem("password");
-                                    sessionStorage.removeItem("name");
-                                    sessionStorage.removeItem("phone");
-                                    sessionStorage.removeItem("user_id");
+                                Swal.fire({
+                                    title: '',
+                                    text: "정말 탈퇴하시겠습니까?",
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Yes!'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
 
-                                    Swal.fire(
-                                        '',
-                                        '탈퇴 완료되었습니다!',
-                                        'success'
-                                      )
-                                      setTimeout(function () {
-                                        window.location = '/';
-                                      }, 2000)
-                                }).catch((error)=>{
-                                    console.log(error);
+                                        const userId = sessionStorage.getItem("user_id");
+
+                                        axios.delete(`http://54.193.18.159:8080/mypage/${userId}`)
+                                            .then((res) => {
+                                                sessionStorage.removeItem("email");
+                                                sessionStorage.removeItem("password");
+                                                sessionStorage.removeItem("name");
+                                                sessionStorage.removeItem("phone");
+                                                sessionStorage.removeItem("user_id");
+
+                                                Swal.fire(
+                                                    '',
+                                                    '탈퇴 완료되었습니다!',
+                                                    'success'
+                                                )
+                                                setTimeout(function () {
+                                                    window.location = '/';
+                                                }, 2000)
+                                            }).catch((error) => {
+                                                console.log(error);
+                                            })
+
+                                    }
                                 })
-                            }}/>
+
+                            }} /> */}
 
 
 
@@ -233,7 +246,7 @@ const MyPage = () => {
                     </Box>
                 </Box>
             </Container>
-            
+
         </>
     );
 }

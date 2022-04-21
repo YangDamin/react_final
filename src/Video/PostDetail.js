@@ -23,7 +23,7 @@ const BoardDetail = () => {
   
   useEffect(()=>{
     const result = axios({
-      url: `http://localhost:8080/post/detail/${id}`,
+      url: `http://54.193.18.159:8080/post/detail/${id}`,
       method: 'get'
     });
     result.then((res) => {

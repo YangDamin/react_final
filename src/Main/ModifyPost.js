@@ -11,26 +11,12 @@ import Swal from 'sweetalert2';
 import Nav from '../Common/Nav';
 import AWS from 'aws-sdk';
 import { Input } from 'reactstrap';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
-const Write = () => {
+const ModifyPost = () => {
+
 
     const { id } = useParams();
-    const [post, setPost] = useState([]);
-    const [name, setName] = useState('');
-  
-
-    useEffect(() => {
-        const result = axios({
-          url: `http://localhost:8080/post/update/${id}`,
-          method: 'post'
-        });
-        result.then((res) => {
-          setPost(res.data.post);
-          setName(res.data.name);
-        });
-        console.log("##################" + id);
-      }, [id]);
 
     const [writeContent, setWriteContent] = useState({
         title: '',
@@ -60,6 +46,8 @@ const Write = () => {
 
     const ACCESS_KEY = process.env.REACT_APP_AWS_ACCESS_KEY;
     const SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
+    // const RESION = 'us-east-2';
+    // const S3_BUCKET = 's3-bucket-react-file-upload-test-5jo';
     const RESION = 'us-west-1';
     const S3_BUCKET = 'viary';
 
@@ -83,7 +71,10 @@ const Write = () => {
         const imgName = randomName + "_" + file.name
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
-
+        // if(file.type !== 'image/jpeg' || fileExt !=='jpg'){ //파일타입과 익스텐션이 jpg인것만
+        //   alert('jpg 파일만 업로드 가능합니다.');
+        //   return;
+        // }
         if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 mp4인것만
             Swal.fire(
                 '',
@@ -113,7 +104,6 @@ const Write = () => {
         const imgName = randomName + "_" + file.name
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
-        
 
         if((file.type !== 'image/jpeg' || fileExt !=='jpg') && (file.type !== 'image/png' || fileExt !=='png')){ //파일타입과 익스텐션이 jpg인것만
             Swal.fire(
@@ -199,8 +189,8 @@ const Write = () => {
                             <Input color="primary" type="file" onChange={handleThumbnailInput}/>
 
                             <input className="title-input" type='text' placeholder='제목'
-                                onChange={getValue} id='title' >{post.title}</input>
-                            <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content">{post.content}</textarea>
+                                onChange={getValue} id='title' />
+                            <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content"></textarea>
 
                         </div>
 
@@ -254,19 +244,20 @@ const Write = () => {
                                         contents = contents.replace(/(\n|\r\n)/g, '<br>');
                                         formData.append("content", contents);
                                         formData.append("date", date);
-                                        formData.append("userEmail", sessionStorage.getItem("email"));
+                                        // formData.append("userEmail", sessionStorage.getItem("email"));
                                         formData.append("videoPath", video_Path);
                                         formData.append("videothumbnail", thumbnail_Path);
 
+
                                         axios({
-                                            url: "http://54.193.18.159:8080/write",
-                                            method: "post",
+                                            url: `http://localhost:8080/post/update/${id}`,
+                                            method: "put",
                                             data: formData
                                         }).then((res) => {
 
                                             Swal.fire(
                                                 '',
-                                                '업로드 완료!',
+                                                '수정 완료!',
                                                 'success'
                                             )
                                             setTimeout(function () {
@@ -278,7 +269,7 @@ const Write = () => {
                                         })
                                     }
 
-                                }}>업로드</button>
+                                }}>수정</button>
                     </Box>
                 </Box>
             </Container >
@@ -292,4 +283,4 @@ const Write = () => {
 }
 
 
-export default Write;
+export default ModifyPost;

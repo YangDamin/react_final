@@ -16,7 +16,7 @@ const VideoList = () => {
 
   useEffect(() => {
     axios({
-      url: 'http://localhost:8080/posts',
+      url: 'http://54.193.18.159:8080/posts',
       method: 'get'
     }).then((res) => {
       setPostList(res.data);

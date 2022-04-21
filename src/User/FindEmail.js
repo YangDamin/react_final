@@ -26,7 +26,7 @@ const FindEmail = () => {
                                 formData.append('phone', document.getElementById("find_phone").value);
 
                                 axios({
-                                    url: "http://localhost:8080/users/findEmail",
+                                    url: "http://54.193.18.159:8080/users/findEmail",
                                     method: "post",
                                     data: formData
                                 }).then((res) => {

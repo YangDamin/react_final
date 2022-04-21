@@ -11,6 +11,9 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+
+
+
 const View = () => {
 
   // const { no } = match.params;
@@ -19,6 +22,7 @@ const View = () => {
   const [post, setPost] = useState([]);
   const [name, setName] = useState('');
   const [userId, setUserId] = useState();
+
 
 
   useEffect(() => {
@@ -48,30 +52,6 @@ const View = () => {
         window.location = '/';
       }, 1000)
 
-
-      // const Toast = 
-      //   Swal.mixin({
-      //     toast: true,
-      //     text: "정말 삭제하시겠습니까?",
-      //     position: 'middle-',
-      //     showCancelButton: true,
-      //     showConfirmButton: false,
-      //     confirmButtonColor: '#3085d6',
-      //     cancelButtonColor: '#d33',
-      //     confirmButtonText: 'Yes, delete it!',
-      //     timer:2000,
-      //     didOpen: (toast) => {
-      //       toast.addEventListener('mouseenter', Swal.stopTimer)
-      //       toast.addEventListener('mouseleave', Swal.resumeTimer)
-      //       },
-      //     })
-      //   Toast.fire({
-      //     icon: 'success',
-      //     title: '삭제가 완료되었습니다.'
-      //     })
-      //   setTimeout(function () {
-      //     window.location = '/';
-      //   }, 1000)
     })
   }
 
@@ -121,63 +101,40 @@ const View = () => {
             </div>
 
             {sessionStorage.getItem("user_id") == userId ?
-              <>
-                <button type="button" class="btn btn-primary" onClick={() => {
+              <div style={{"marginTop":"2rem"}}>
+                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{"margin":"0 1rem 0 0" ,"backgroundColor":"rgba(49, 120, 221, 1)"}} onClick={() => {
                   window.location = `/post/update/${post.id}`
                 }} >수정</button>
-                &nbsp;&nbsp;
-
-                <button type="button" class="btn btn-primary" eventClick={function (e) {
+                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{"margin":"0 3.5rem 0 0" ,"backgroundColor":"rgba(49, 120, 221, 1)"}} onClick={() => {
                   Swal.fire({
                     title: '',
-                    text: "정말 삭제하시겠습니까?",
+                    text: "게시물 삭제하시겠습니까?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: '삭제 되었습니다.'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-    
-                      const formData = new FormData();
-                      formData.append("id", e.event.id);
-    
-                      axios({
-                        url: "http://localhost:8080/calendar",
-                        method: "delete",
-                        data: formData
-                      }).then((res) => {
-                        const Toast = Swal.mixin({
-                          toast: true,
-                          position: 'middle-',
-                          showConfirmButton: false,
-                          timer: 1000,
-                          didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                          }
-                        })
-                        Toast.fire({
-                          icon: 'success',
-                          title: '삭제가 완료되었습니다.'
-                        })
-                        setTimeout(function () {
-                          window.location = '/';
-                        }, 1000)
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                  if(result.isConfirmed){
+                    axios.delete(`http://localhost:8080/post/delete/${id}`)
+                      .then((res) => {
+                          Swal.fire(
+                            '',
+                            '삭제 완료되었습니다.',
+                            'success'
+                          )
+                        setTimeout(function(){
+                            window.location = '/';
+                        },2000)
                       })
-                    }
-                  })
-                }}
-                  deletePost>
-                  삭제</button>
-                
-            <br/>
-              </>
+                  }
+                })
+
+                }} >삭제</button>
+              </div>
               : null
             }
 
-            <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
-            </Link>
 
           </div>
 
