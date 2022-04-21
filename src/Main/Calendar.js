@@ -24,7 +24,7 @@ const Calendar = () => {
 
     // 사용자의 id를 서버에 post 방식으로 보내서, 사용자가 작성한 일정들을 캘린더에 보여주기
     axios({
-      url: "http://localhost:8080/calendar",
+      url: "http://54.193.18.159:8080/calendar",
       method: "post",
       data: formData
     }).then((res) => {
@@ -71,7 +71,7 @@ const Calendar = () => {
               if (result.isConfirmed) {
                 // 일정을 삭제한다면, 캘린더의 id를 서버에 delete 방식으로 보내기
                 const id = e.event.id;
-                axios.delete(`http://localhost:8080/calendar/${id}`)
+                axios.delete(`http://54.193.18.159:8080/calendar/${id}`)
                   .then((res) => {
                     const Toast = Swal.mixin({
                       toast: true,

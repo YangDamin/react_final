@@ -239,7 +239,7 @@ const ModifyPost = () => {
 
                                     // 게시물 id와 함께 서버에 put 방식으로 데이터를 전달하여 게시물 수정해주기
                                     axios({
-                                        url: `http://localhost:8080/post/update/${id}`,
+                                        url: `http://54.193.18.159:8080/post/update/${id}`,
                                         method: "put",
                                         data: formData
                                     }).then((res) => {

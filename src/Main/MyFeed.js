@@ -28,7 +28,7 @@ const MyFeed = () => {
 		const formData = new FormData();
 		formData.append("id", sessionStorage.getItem("user_id"));
 		axios({
-			url: "http://localhost:8080/myfeed",
+			url: "http://54.193.18.159:8080/myfeed",
 			method: "post",
 			data: formData
 		}).then((res) => {
