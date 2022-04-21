@@ -36,7 +36,7 @@ const VideoList = () => {
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
                     <div id="videoListBox">
-                      <Link to={`/view/${p.id}`} className="link">
+                      <Link to={`/post/detail/${p.id}`} className="link">
                         {/* <VideoImageThumbnail
                           videoUrl={p.videoPath}
                           className="videoCard_thubmnail"/> */}

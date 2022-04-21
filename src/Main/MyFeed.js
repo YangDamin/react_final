@@ -73,7 +73,7 @@ const MyFeed = () => {
 																<Grid item col-xs={4} col-6 col-md-4>
 																	<Grid item col-xs={4}>
 																		<div id="MyFeedListBox">
-																			<Link to={`/view/${p.id}`} className="link">
+																			<Link to={`/post/detail/${p.id}`} className="link">
 																				<img className="videoCard_thubmnail" src={p.videothumbnail} alt="video_thubmnail" />
 
 																				<div className="video_title">
@@ -116,7 +116,7 @@ const MyFeed = () => {
 													return (
 														<div>
 															<div id="popularListBox">
-																<Link to={`/view/${p.id}`} className="link">
+																<Link to={`/post/detail/${p.id}`} className="link">
 																	<div className="popular_title">
 																		{p.title}
 																	</div>

@@ -89,7 +89,7 @@ const Home = () => {
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
                     <div id="videoListBox">
-                      <Link to={`/view/${p.id}`} className="link">
+                      <Link to={`/post/detail/${p.id}`} className="link">
                         {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
 
                         {/* 영상에서 썸네일 추출 */}

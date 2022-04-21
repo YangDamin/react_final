@@ -42,7 +42,7 @@ function App() {
           <Route path="/users/findEmail" element={<FindEmail />}></Route>
           {/* <Route path="/profile"><Profile /></Route> */}
           <Route path="/users/findPassword" element={<FindPassword />}></Route>
-          <Route path="/view/:id" element={<View />}></Route>
+          <Route path="/post/detail/:id" element={<View />}></Route>
           <Route path="/post/delete/:id" element={<Home />}></Route>
           <Route path="/post/update/:id" element={<ModifyPost />}></Route>
           <Route path="/buy" element={<Buy />}></Route>
