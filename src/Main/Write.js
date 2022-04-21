@@ -177,10 +177,11 @@ const Write = () => {
                     borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
                     borderColor: 'black', padding: "20px"
                 }}>
+                    <div className="write-box" style={{marginBottom:'25px'}}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div className='form-wrapper' id="write" style={{ "marginBottom": "30px" }}>
                             {/* <Server/> */}
-                            <div style={{ "marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-camera-reels-fill"></i>&nbsp;나의 브이로그</div>
+                            <div style={{ "paddingTop": "25px","marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-camera-reels-fill"></i>&nbsp;나의 브이로그</div>
                             <Input color="primary" type="file" onChange={handleFileInput} />
 
                             <div style={{ "marginTop": "25px", "marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-image" />&nbsp;나의 브이로그 썸네일 설정</div>
@@ -268,6 +269,7 @@ const Write = () => {
 
                                 }}>업로드</button>
                     </Box>
+                    </div>
                 </Box>
             </Container >
 
