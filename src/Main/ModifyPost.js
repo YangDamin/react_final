@@ -65,7 +65,7 @@ const ModifyPost = () => {
 
         const randomName = Math.random().toString(36).substr(2, 11);
         const imgName = randomName + "_" + file.name
-        
+        console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
 
         if (file.type !== 'video/mp4' || fileExt !== 'mp4') { //파일타입과 익스텐션이 mp4인것만
@@ -84,6 +84,7 @@ const ModifyPost = () => {
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/";
         const videoPath = s3Url + file.name;
 
+        console.log("주소" + videoPath);
         setVideoPath(videoPath);
         setSelectedFile(e.target.files[0]);
     }
@@ -94,7 +95,7 @@ const ModifyPost = () => {
 
         const randomName = Math.random().toString(36).substr(2, 11);
         const imgName = randomName + "_" + file.name
-        
+        console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
 
         if ((file.type !== 'image/jpeg' || fileExt !== 'jpg') && (file.type !== 'image/png' || fileExt !== 'png')) { //파일타입과 익스텐션이 jpg인것만
@@ -113,6 +114,7 @@ const ModifyPost = () => {
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/thumbnail/";
         const thumbnailPath = s3Url + file.name;
 
+        console.log("주소" + thumbnailPath);
         setThumbnailPath(thumbnailPath);
         setSelectedThumbnailFile(e.target.files[0]);
     }
@@ -135,7 +137,7 @@ const ModifyPost = () => {
                 if (err) console.log(err)
             })
 
-        // console.log("파일 이름 :" + file.name);
+        console.log("파일 이름 :" + file.name);
     }
 
     // 썸네일 S3에 업로드
@@ -237,7 +239,7 @@ const ModifyPost = () => {
 
                                     // 게시물 id와 함께 서버에 put 방식으로 데이터를 전달하여 게시물 수정해주기
                                     axios({
-                                        url: `${process.env.REACT_APP_SRPING}/post/update/${id}`,
+                                        url: `http://54.193.18.159:8080/post/update/${id}`,
                                         method: "put",
                                         data: formData
                                     }).then((res) => {

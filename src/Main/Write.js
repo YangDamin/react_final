@@ -241,7 +241,7 @@ const Write = () => {
 
                                         // 게시물의 입력 사항을 post 방식으로 서버에 데이터 전송
                                         axios({
-                                            url: `${process.env.REACT_APP_SRPING}/write`,
+                                            url: `http://54.193.18.159:8080/write`,
                                             method: "post",
                                             data: formData
                                         }).then((res) => {

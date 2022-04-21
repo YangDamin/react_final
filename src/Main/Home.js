@@ -17,7 +17,7 @@ const Home = () => {
 
   const getFetchData = async () => {
     await axios({
-      url: `${process.env.REACT_APP_SRPING}/posts`,
+      url: 'http://54.193.18.159:8080/posts',
       method: 'get'
     }).then((res) => {
       let response = res.data;

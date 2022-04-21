@@ -27,7 +27,7 @@ const View = () => {
 
   useEffect(() => {
     const result = axios({
-      url: `${process.env.REACT_APP_SRPING}/post/detail/${id}`,     // id를 이용하여 get 방식으로 게시물들 받아오기
+      url: `http://54.193.18.159:8080/post/detail/${id}`,     // id를 이용하여 get 방식으로 게시물들 받아오기
       method: 'get'
     });
     result.then((res) => {
@@ -74,7 +74,7 @@ const View = () => {
                         confirmButtonText: 'Yes, delete it!'
                       }).then((result) => {
                         if (result.isConfirmed) {
-                          axios.delete(`${process.env.REACT_APP_SRPING}/post/delete/${id}`)
+                          axios.delete(`http://54.193.18.159:8080/post/delete/${id}`)
                             .then((res) => {
                               Swal.fire(
                                 '',
@@ -143,7 +143,7 @@ const View = () => {
                     confirmButtonText: 'Yes, delete it!'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                      axios.delete(`${process.env.REACT_APP_SRPING}/post/delete/${id}`)
+                      axios.delete(`http://54.193.18.159:8080/post/delete/${id}`)
                         .then((res) => {
                           Swal.fire(
                             '',

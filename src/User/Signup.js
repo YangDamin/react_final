@@ -200,7 +200,7 @@ const Signup = () => {
                                         // console.log("spring"+REACT_APP_SRPING)
 
                                         axios({
-                                            url: `${process.env.REACT_APP_SRPING}/users/signup`,
+                                            url: `http://54.193.18.159:8080/users/signup`,
                                             method: 'post',
                                             data: formData
                                         }).then((res) => {

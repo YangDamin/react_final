@@ -1,3 +1,4 @@
+import { Dropdown } from 'bootstrap';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
@@ -51,7 +52,7 @@ const Header = () => {
                             </div>
                         </div>
 
-                        {/* 반응형 */}
+                        {/* 반응형,, 화면이 1000px 보다 작아지게 되면 드롭다운으로 바뀌게 된다. */}
                         <div class="row">
                             <div class="dropdown" style={{ "textAlign": "right" }} id="dropdown">
                                 <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

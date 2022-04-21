@@ -31,7 +31,7 @@ const FindPassword = () => {
 
                                 // 입력한 사항을 post 방식으로 보내, 임시 비밀번호를 발급 받아와 주었다.
                                 axios({
-                                    url: `${process.env.REACT_APP_SRPING}/users/findPassword`,
+                                    url: `http://54.193.18.159:8080/users/findPassword`,
                                     method: "post",
                                     data: formData
                                 }).then((res) => {

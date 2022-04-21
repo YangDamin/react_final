@@ -18,7 +18,7 @@ const Search = () => {
 
   useEffect(() => {
     const result = axios({
-      url: `${process.env.REACT_APP_SRPING}/search/${word}`,
+      url: `http://54.193.18.159:8080/search/${word}`,
       method: 'get'
     });
     result.then((res) => {
