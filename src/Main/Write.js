@@ -11,10 +11,26 @@ import Swal from 'sweetalert2';
 import Nav from '../Common/Nav';
 import AWS from 'aws-sdk';
 import { Input } from 'reactstrap';
+import { useParams } from "react-router-dom";
 
 const Write = () => {
 
+    const { id } = useParams();
+    const [post, setPost] = useState([]);
+    const [name, setName] = useState('');
+  
 
+    useEffect(() => {
+        const result = axios({
+          url: `http://localhost:8080/post/update/${id}`,
+          method: 'post'
+        });
+        result.then((res) => {
+          setPost(res.data.post);
+          setName(res.data.name);
+        });
+        console.log("##################" + id);
+      }, [id]);
 
     const [writeContent, setWriteContent] = useState({
         title: '',
@@ -183,8 +199,8 @@ const Write = () => {
                             <Input color="primary" type="file" onChange={handleThumbnailInput}/>
 
                             <input className="title-input" type='text' placeholder='제목'
-                                onChange={getValue} id='title' />
-                            <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content"></textarea>
+                                onChange={getValue} id='title' >{post.title}</input>
+                            <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content">{post.content}</textarea>
 
                         </div>
 
