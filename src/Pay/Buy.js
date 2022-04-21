@@ -20,7 +20,7 @@ const Buy = () => {
         }}>
           <Box sx={{ flexGrow: 1, mt: 6 }}>
             <div className="buy-title">
-              <h3 style={{ "fontWeight": "bold", "marginTop": "30px" }}>
+              <h3 style={{ "fontWeight": "bold", "marginTop": "30px"}}>
                 <FaBook />&nbsp; 나의 브이로그 책으로 발간하기&nbsp;<FaBook /></h3></div>
             <div className="image">
               <img src={buy} style={{
@@ -28,7 +28,8 @@ const Buy = () => {
                 "margin-bottom": "20px", "box-shadow": "6px 6px 6px #969696"
               }} /></div>
             <div className="buy-content" style={{
-              "marginTop": "10px",
+              "margin": "10px 0 10px 0",
+              "paddingTop" : "10px",
               "backgroundColor": "white",
               "borderRadius": "5px 5px 5px 5px",
               "height": "50px",
@@ -37,7 +38,7 @@ const Buy = () => {
               "width": "400px",
               "display": "inline-block"
             }}>
-              나만의 브이로그 다이어리를 책으로 발간하여 간직하세염!!
+              나만의 브이로그 다이어리를 책으로 발간하여 간직하세요!!
             </div>
             <div>
               <Payment />

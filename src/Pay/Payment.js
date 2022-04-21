@@ -104,7 +104,8 @@ const Payment = (effect, deps) => {
         'border-radius': '5px',
         'margin-top': '10px',
         'vertical-align': 'middle',
-        'margin-bottom': '40px'
+        'margin-bottom': '40px',
+        "color":"white"
 
       }} onClick={onClickPayment}>결제하기</button>
     </>
