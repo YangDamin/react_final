@@ -100,13 +100,14 @@ const Payment = (effect, deps) => {
         'font-size': '20px',
         'padding': 'auto',
         'border': 'none',
-        'background': 'rgba(49, 141, 251, 1)',
+        'background': 'black',
         'border-radius': '5px',
-        'margin-top': '10px',
+        'margin-top': '30px',
         'vertical-align': 'middle',
         'margin-bottom': '40px',
-        "color":"white"
-
+        "color":"white",
+        'fontWeight':"bold"
+        
       }} onClick={onClickPayment}>결제하기</button>
     </>
   );

@@ -20,7 +20,8 @@ const Calendar = () => {
 
   useEffect(() => {
     const formData = new FormData();
-    formData.append("id", sessionStorage.getItem("user_id"));
+    // formData.append("id", sessionStorage.getItem("user_id"));
+    formData.append("email", sessionStorage.getItem("email"));
 
     // 사용자의 id를 서버에 post 방식으로 보내서, 사용자가 작성한 일정들을 캘린더에 보여주기
     axios({

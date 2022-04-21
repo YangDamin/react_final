@@ -50,13 +50,14 @@ const AddCalendar = () => {
                                             // 입력된 값들을 서버에 전송
                                             const formData = new FormData();
                                             formData.append("id", sessionStorage.getItem("user_id"));
+                                            formData.append("email", sessionStorage.getItem("email"));
                                             formData.append("title", document.getElementById("title").value);
                                             formData.append("start", document.getElementById("start").value);
                                             formData.append("end", document.getElementById("end").value);
 
                                             // post방식으로 데이터 보내기
                                             axios({
-                                                url: "http://54.193.18.159:8080/addCalendar",
+                                                url: "http://localhost:8080/addCalendar",
                                                 method: "post",
                                                 data: formData
                                             }).then((res) => {
