@@ -10,7 +10,7 @@ const FindEmail = () => {
             <h6 style={{ "marginTop": "2rem" }}>회원가입 시 등록하신 정보로</h6>
             <h6>이메일을 확인할 수 있습니다.</h6>
 
-            <form style={{"paddingBottom":"2rem"}}>
+            <form style={{ "paddingBottom": "2rem" }}>
                 <div style={{ "width": "500px", "margin": "50px auto", "border": "0.2px solid", "borderColor": "lightgray" }}>
                     <div style={{ "margin": "20px auto" }}>
 
@@ -22,26 +22,27 @@ const FindEmail = () => {
                                 e.preventDefault();
                                 const formData = new FormData();
 
+                                // 사용자의 이름과 핸드폰 번호로 이메일 찾기 기능
                                 formData.append('name', document.getElementById("find_name").value);
                                 formData.append('phone', document.getElementById("find_phone").value);
 
+                                // 입력 사항을 post 방식으로 데이터 전송해서, 이메일을 찾아와주었다.
                                 axios({
                                     url: "http://54.193.18.159:8080/users/findEmail",
                                     method: "post",
                                     data: formData
                                 }).then((res) => {
-                                    console.log(res.data);
-                                    if(res.data.code == 200){
+                                    if (res.data.code == 200) {
                                         Swal.fire(
                                             '<h5>이메일 찾았습니다!</h5>',
                                             res.data.findemail,
                                             'success'
-                                          )
-                                    }else{
+                                        )
+                                    } else {
                                         Swal.fire({
                                             icon: 'error',
                                             text: '이메일을 찾지 못했습니다.'
-                                          })
+                                        })
                                     }
                                 })
                             }}></input>
@@ -52,7 +53,6 @@ const FindEmail = () => {
                 </div>
             </form>
             <hr style={{ "height": "2px", "width": "50%", "color": "#000000", "margin": "0 auto" }} />
-            {/* <Footer /> */}
 
         </div>
     )

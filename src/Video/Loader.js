@@ -1,4 +1,4 @@
-import {React} from 'react';
+import { React } from 'react';
 import { memo } from "react";
 import ReactLoading from "react-loading";
 import styled from "styled-components";
@@ -17,12 +17,12 @@ const LoaderWrap = styled.div`
 
 
 const Loader = () => {
-  
+
   return (
-    <div>       
-    <LoaderWrap className="loding">
-      <ReactLoading type="spin" color="rgba(201, 201, 201, 1)" style={{width:'30px',height:'30px'}} />
-    </LoaderWrap> 
+    <div>
+      <LoaderWrap className="loding">
+        <ReactLoading type="spin" color="rgba(201, 201, 201, 1)" style={{ width: '30px', height: '30px' }} />
+      </LoaderWrap>
     </div>
   );
 };

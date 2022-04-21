@@ -8,7 +8,6 @@ import Box from "@mui/material/Box";
 import Nav from '../Common/Nav';
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import VideoImageThumbnail from 'react-video-thumbnail-image';
 
 
 const Search = () => {

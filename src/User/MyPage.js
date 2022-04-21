@@ -1,5 +1,4 @@
-// import React, { useState } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -113,7 +112,7 @@ const MyPage = () => {
                 <Box sx={{
                     bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
                     borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
-                    borderColor: 'black', height: '100vh', overflow: 'overlay'
+                    borderColor: 'black', height: '50vh', overflow: 'overlay'
                 }}>
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div
