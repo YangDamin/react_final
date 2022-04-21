@@ -9,6 +9,8 @@ const Logout = () => {
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("password");
     sessionStorage.removeItem("name");
+    sessionStorage.removeItem("phone");
+    sessionStorage.removeItem("user_id");
 
     Swal.fire(
       '',

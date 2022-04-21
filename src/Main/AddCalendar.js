@@ -57,7 +57,7 @@ const AddCalendar = () => {
 
                                             // post방식으로 데이터 보내기
                                             axios({
-                                                url: "http://54.193.18.159:8080/addCalendar",
+                                                url: `${process.env.REACT_APP_SRPING}/addCalendar`,
                                                 method: "post",
                                                 data: formData
                                             }).then((res) => {

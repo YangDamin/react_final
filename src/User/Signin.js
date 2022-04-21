@@ -66,7 +66,7 @@ const Signin = () => {
 
 
                       axios({
-                        url: 'http://54.193.18.159:8080/users/signin',
+                        url: `${process.env.REACT_APP_SRPING}/users/signin`,
                         method: 'post',
                         data: formData
                       }).then((res) => {

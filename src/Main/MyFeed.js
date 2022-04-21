@@ -29,7 +29,7 @@ const MyFeed = () => {
 		formData.append("id", sessionStorage.getItem("user_id"));
 		formData.append("email", sessionStorage.getItem("email"));
 		axios({
-			url: "http://54.193.18.159:8080/myfeed",
+			url: `${process.env.REACT_APP_SRPING}/myfeed`,
 			method: "post",
 			data: formData
 		}).then((res) => {

@@ -17,7 +17,7 @@ const VideoList = () => {
 
   useEffect(() => {
     axios({
-      url: 'http://54.193.18.159:8080/posts',
+      url: `${process.env.REACT_APP_SRPING}/posts`,
       method: 'get'               // get 방식으로 서버에서 게시물들을 받아옴
     }).then((res) => {
       setPostList(res.data);

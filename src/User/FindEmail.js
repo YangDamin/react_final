@@ -28,7 +28,7 @@ const FindEmail = () => {
 
                                 // 입력 사항을 post 방식으로 데이터 전송해서, 이메일을 찾아와주었다.
                                 axios({
-                                    url: "http://54.193.18.159:8080/users/findEmail",
+                                    url: `${process.env.REACT_APP_SRPING}/users/findEmail`,
                                     method: "post",
                                     data: formData
                                 }).then((res) => {
