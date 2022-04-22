@@ -14,6 +14,7 @@ import VideoImageThumbnail from 'react-video-thumbnail-image';
 import { Link } from 'react-router-dom';
 import "../Video/VideoList.css";
 import Grid from "@mui/material/Grid";
+import Swal from 'sweetalert2';
 
 const Home = () => {
   const [videoList, setVideoList] = useState([]);
@@ -71,6 +72,21 @@ const Home = () => {
 
 
 
+  const loginStart = (link) => {
+    if(sessionStorage.getItem("email")){
+        window.location = `/${link}`;
+    }else{
+        Swal.fire(
+            '',
+            '로그인 먼저 해주세요!',
+            'success'
+          )
+        setTimeout(function(){
+            window.location = '/users/signin';
+        },2000)
+    }
+  }
+
 
 
   return (
@@ -94,8 +110,11 @@ const Home = () => {
               return (
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
-                    <div id="videoListBox">
-                      <Link to={`/view/${p.id}`} className="link">
+                    <div id="videoListBox" onClick={ (e) => {
+                e.preventDefault();
+                loginStart("/post/detail")
+            }}>
+                      <Link to={`/view/${p.id}`} className="link" > 
                         {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
 
                         {/* 영상에서 썸네일 추출 */}
