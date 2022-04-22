@@ -82,7 +82,7 @@ const View = () => {
                                 'success'
                               )
                               setTimeout(function () {
-                                window.location = '/';
+                                window.location = '/myfeed';
                               }, 2000)
                             })
                         }
