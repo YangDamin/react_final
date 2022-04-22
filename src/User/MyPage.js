@@ -112,7 +112,7 @@ const MyPage = () => {
             <Container className="content-container" >
             <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)',borderRadius:'40px 40px 0 0', 
                borderWidth: "5px",borderColor:'black',borderStyle:'solid',
-               borderColor:'black', height: '60vh',overflow:'overlay' }}>
+               borderColor:'black', overflow:'overlay' , paddingBottom : '40px'}}>
                    <div className="mypage-box">
                     <Box sx={{ flexGrow: 1, mt: 6 }}>
                         <div

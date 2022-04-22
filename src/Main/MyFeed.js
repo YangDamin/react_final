@@ -54,14 +54,14 @@ const MyFeed = () => {
 								sx={{
 									width: '98%', bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
 									borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
-									borderColor: 'black'
+									borderColor: 'black', display: 'inline-block', padding:'25px 0'
 								}}>
 
 								<Container>
 									<div className='row'>
 										<div className='col-9' >
 											<div className="myfeed-box">
-												<div style={{ "padding": "2rem 0 0 5rem", "display": "flex", "justifyContent": "space-between" }}>
+												<div style={{ "padding": "2rem 0 0 3rem", "display": "flex", "justifyContent": "space-between" }}>
 													<h3 style={{ "fontWeight": "bold" }}><FaBook /> 나의 기록</h3>
 												</div>
 
@@ -95,14 +95,14 @@ const MyFeed = () => {
 
 													</Grid>
 												</Box>
-												<button
+												{/* <button
 													className="btn-moreItem">+ 더 보기
-												</button>
+												</button> */}
 											</div>
 										</div>
 										<div className='col-3'>
 											{/* pdf연결 */}
-											<div style={{ "marginTop": "4rem" }}>
+											<div style={{ "marginTop": "2rem" ,"display": 'inline-block'}}>
 												<input type="button" value="나만의 브이어리 받기" class="btn text-white flex-shrink-0 mt-3 " style={{ "display": "flex", "margin": "0 3.5rem 0 auto", "backgroundColor": "rgba(49, 120, 221, 1)" }}
 													onClick={() => { setPdfMode(true) }} />
 											</div>

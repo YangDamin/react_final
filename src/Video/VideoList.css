@@ -50,6 +50,7 @@
     margin-top: 10px;
     height: 300px;
     width: 320px;
+    display: 'inline-block';
   }
   #videoListBox:hover{
     transform: scale(1.08);

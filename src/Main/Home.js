@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import "../Video/VideoList.css";
 import Grid from "@mui/material/Grid";
+import Swal from 'sweetalert2';
 
 const Home = () => {
   const [videoList, setVideoList] = useState([]);
@@ -65,7 +66,21 @@ const Home = () => {
 
   const moveToTop = () => (document.documentElement.scrollTop = 0);
 
-
+  // 로그인이 되어있으면 해당 페이지로 이동, 로그인 안되어있으면 로그인 먼저 해달라는 alert문 생성
+  const loginStart = (link) => {
+    if (sessionStorage.getItem("email")) {
+      window.location = `${link}`;
+    } else {
+      Swal.fire(
+        '',
+        '로그인 먼저 해주세요!',
+        'success'
+      )
+      setTimeout(function () {
+        window.location = '/users/signin';
+      }, 2000)
+    }
+  }
 
   return (
     <>
@@ -89,7 +104,10 @@ const Home = () => {
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
                     <div id="videoListBox">
-                      <Link to={`/post/detail/${p.id}`} className="link">
+                      <Link to={`/post/detail/${p.id}`} className="link" onClick={(e) => {
+                        e.preventDefault();
+                        loginStart(`/post/detail/${p.id}`)
+                      }}>
                         {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
 
                         {/* 영상에서 썸네일 추출 */}
