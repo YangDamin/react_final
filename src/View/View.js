@@ -1,3 +1,5 @@
+// View는 게시물의 상세 페이지 부분입니다. 제목, 작성자, 내용을 볼 수 있습니다.
+
 import React from "react";
 import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
@@ -16,26 +18,25 @@ import Swal from 'sweetalert2';
 
 const View = () => {
 
-  // const { no } = match.params;
-  const { id } = useParams();
 
-  const [post, setPost] = useState([]);
-  const [name, setName] = useState('');
-  const [userId, setUserId] = useState();
+  const { id } = useParams();   // 게시물의 id를 url 파라미터 값을 받아오기
+
+  const [post, setPost] = useState([]);   // 게시물
+  const [name, setName] = useState('');   // 작성자 이름
+  const [userId, setUserId] = useState();   // 게시물 작성자 id
 
 
 
   useEffect(() => {
     const result = axios({
-      url: `http://localhost:8080/post/detail/${id}`,
+      url: `http://54.193.18.159:8080/post/detail/${id}`,     // id를 이용하여 get 방식으로 게시물들 받아오기
       method: 'get'
     });
     result.then((res) => {
-      setPost(res.data.post);
-      setName(res.data.name);
-      setUserId(res.data.post.user.id);
+      setPost(res.data.post);     // id에 해당하는 게시물 set
+      setName(res.data.name);     // 작성자 이름 set
+      setUserId(res.data.post.user.id);     // 게시물을 작성한 사용자 id set
     });
-    console.log("##################" + id);
   }, [id]);
 
   let content = post.content;
@@ -68,7 +69,49 @@ const View = () => {
         }}>
 
           <div className='form-wrapper' id="view" style={{ "margin": "2rem 10rem" }}>
-            <a href="/" id="back"><i class="bi bi-arrow-left"></i></a>
+            <div className="row">
+              <div className="col-1">
+                <a href="/" id="back"><i class="bi bi-arrow-left"></i></a>
+              </div>
+              <div className="col-11">
+                {/* 로그인 한 유저 id와 게시물의 작성자id와 같으면 수정,삭제 버튼 보이게 */}
+                {sessionStorage.getItem("user_id") == userId ?
+                  <div style={{"textAlign":"right"}}>
+                    <button type="button" class="btn btn-outline-secondary  flex-shrink-0 mt-3" style={{ "margin": "0 5px 0 0" }} onClick={() => {
+                      window.location = `/post/update/${post.id}`
+                    }} >수정</button>
+
+                    <button type="button" class="btn btn-outline-danger  flex-shrink-0 mt-3" onClick={() => {
+                      Swal.fire({
+                        title: '',
+                        text: "게시물 삭제하시겠습니까?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          axios.delete(`http://54.193.18.159:8080/post/delete/${id}`)
+                            .then((res) => {
+                              Swal.fire(
+                                '',
+                                '삭제 완료되었습니다.',
+                                'success'
+                              )
+                              setTimeout(function () {
+                                window.location = '/';
+                              }, 2000)
+                            })
+                        }
+                      })
+
+                    }} >삭제</button>
+                  </div>
+                  : null
+                }
+              </div>
+            </div>
             <div id="content-title">
               <span>{post.title}</span>
             </div>
@@ -100,12 +143,14 @@ const View = () => {
               })}
             </div>
 
-            {sessionStorage.getItem("user_id") == userId ?
-              <div style={{"marginTop":"2rem"}}>
-                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{"margin":"0 1rem 0 0" ,"backgroundColor":"rgba(49, 120, 221, 1)"}} onClick={() => {
+            {/* 로그인 한 유저 id와 게시물의 작성자id와 같으면 수정,삭제 버튼 보이게 */}
+            {/* {sessionStorage.getItem("user_id") == userId ?
+              <div style={{ "marginTop": "2rem" }}>
+                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{ "margin": "0 1rem 0 0", "backgroundColor": "rgba(49, 120, 221, 1)" }} onClick={() => {
                   window.location = `/post/update/${post.id}`
                 }} >수정</button>
-                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{"margin":"0 3.5rem 0 0" ,"backgroundColor":"rgba(49, 120, 221, 1)"}} onClick={() => {
+
+                <button type="button" class="btn text-white flex-shrink-0 mt-3" style={{ "margin": "0 3.5rem 0 0", "backgroundColor": "rgba(49, 120, 221, 1)" }} onClick={() => {
                   Swal.fire({
                     title: '',
                     text: "게시물 삭제하시겠습니까?",
@@ -114,26 +159,26 @@ const View = () => {
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                  if(result.isConfirmed){
-                    axios.delete(`http://localhost:8080/post/delete/${id}`)
-                      .then((res) => {
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      axios.delete(`http://54.193.18.159:8080/post/delete/${id}`)
+                        .then((res) => {
                           Swal.fire(
                             '',
                             '삭제 완료되었습니다.',
                             'success'
                           )
-                        setTimeout(function(){
+                          setTimeout(function () {
                             window.location = '/';
-                        },2000)
-                      })
-                  }
-                })
+                          }, 2000)
+                        })
+                    }
+                  })
 
                 }} >삭제</button>
               </div>
               : null
-            }
+            } */}
 
 
           </div>

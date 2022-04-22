@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from 'react';
 import './Signin.css';
-import {  Button } from 'reactstrap';
 import Swal from 'sweetalert2';
 
 
@@ -18,9 +17,9 @@ const Signin = () => {
   const REST_API_KEY = "04c9a760d057d6ccbc3cdb399201c2a3";
   const REDIRECT_URI = "http://localhost:3000/oauth/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-  
+
   return (
-    
+
     <div>
       <div class="container" id="signup_container">
         <h3 class="h3 mt-5 mb-4">로그인</h3>
@@ -58,8 +57,6 @@ const Signin = () => {
                       e.preventDefault();
 
                       const formData = new FormData();
-                      //OOO님 안녕하세요!,로그인 성공이면 main페이지
-                      //잘못된 정보를 입력하셨습니다. 로그인 실패하면 signin페이지
                       const email = document.getElementById("email").value;
                       const password = document.getElementById("password").value;
 
@@ -69,7 +66,7 @@ const Signin = () => {
 
 
                       axios({
-                        url: 'http://54.193.18.159:8080/users/signin',
+                        url: `http://54.193.18.159:8080/users/signin`,
                         method: 'post',
                         data: formData
                       }).then((res) => {
@@ -110,12 +107,12 @@ const Signin = () => {
 
                   <div style={{ "display": "flex", "justifyContent": "space-between" }}>
                     <div className='mt-3'>
-                      <a id="findcss" style={{ "cursor": "pointer" }} onClick={(e)=> {e.preventDefault();  window.location="/users/findEmail" }}>이메일 찾기</a>
+                      <a id="findcss" style={{ "cursor": "pointer" }} onClick={(e) => { e.preventDefault(); window.location = "/users/findEmail" }}>이메일 찾기</a>
                     </div>
 
                     <span class="mt-3">|</span>
                     <div className='mt-3'>
-                      <a id="findcss" style={{ "cursor": "pointer" }} onClick={(e)=> {e.preventDefault();  window.location="/users/findPassword" }}>비밀번호 찾기</a>
+                      <a id="findcss" style={{ "cursor": "pointer" }} onClick={(e) => { e.preventDefault(); window.location = "/users/findPassword" }}>비밀번호 찾기</a>
                     </div>
                   </div>
 
@@ -128,15 +125,13 @@ const Signin = () => {
 
 
             <div className="bg-transparent">
-              <div className="text-muted text-center mt-2 mb-3">
+              {/* <div className="text-muted text-center mt-2 mb-3">
                 <small>Sign in with</small>
-              </div>
-              <div className="btn-wrapper text-center">
+              </div> 
+              <div className="btn-wrapper text-center"> 
 
-
-                {/* Kakao Login */}
-                <h1><a href={KAKAO_AUTH_URL}>Kakao Login</a></h1>
-                <Button
+                 <h1><a href={KAKAO_AUTH_URL}>Kakao Login</a></h1> 
+                 <Button
                   className="btn-neutral btn-icon"
                   color="default"
                   href="#pablo"
@@ -150,8 +145,8 @@ const Signin = () => {
                   <span className="btn-inner--text">
                     Kakao
                   </span>
-                </Button>
-              </div>
+                </Button> 
+               </div> */}
             </div>
           </form>
 

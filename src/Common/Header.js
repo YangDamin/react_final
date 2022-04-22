@@ -41,22 +41,24 @@ const Header = () => {
                     <div>
                         <div class="row" id="notmedia">
                             <div class="col-6" id="signup_css" style={{ "margin-top": "40px" }}>
-                                <Link class="nav-link text-dark" to={sessionStorage.getItem("email") ? "/mypage" : "/users/signup"} >     {/* 마이페이지로 가게끔 수정하기! */}
+                                {/* 세션에 로그인 한 유저 이메일이 있으면 클릭시 마이페이지로 이동, 없으면 회원가입 페이지로 이동 */}
+                                <Link class="nav-link text-dark" to={sessionStorage.getItem("email") ? "/mypage" : "/users/signup"} >
                                     <i class="bi bi-person-circle"></i> {sessionStorage.getItem("email") ? sessionStorage.getItem("name") + "님" : "회원가입"}</Link>
                             </div>
                             <div class="col-6" id="login_css" style={{ "margin-top": "40px" }}>
+                                {/* 세션에 로그인 한 유저 이메일이 있으면 클릭시 로그아웃, 없으면 로그인 페이지로 이동 */}
                                 <Link class="nav-link text-dark" to={sessionStorage.getItem("email") ? "/users/logout" : "/users/signin"} >
                                     <i class="bi bi-door-open-fill"></i>{sessionStorage.getItem("email") ? "로그아웃" : "로그인"} </Link>
                             </div>
                         </div>
 
-                        {/* 반응형 */}
+                        {/* 반응형,, 화면이 1000px 보다 작아지게 되면 드롭다운으로 바뀌게 된다. */}
                         <div class="row">
-                            <div class="dropdown" style={{"textAlign":"right"}} id="dropdown">
+                            <div class="dropdown" style={{ "textAlign": "right" }} id="dropdown">
                                 <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-justify" style={{"fontSize":"30px"}}></i>
+                                    <i class="bi bi-justify" style={{ "fontSize": "30px" }}></i>
                                 </button>
-                                {sessionStorage.getItem("email") ? 
+                                {sessionStorage.getItem("email") ?
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li><a class="dropdown-item" href="/mypage">마이페이지</a></li>
                                         <li><a class="dropdown-item" href="/users/logout">로그아웃</a></li>
@@ -122,8 +124,6 @@ const Header = () => {
                         </div>
                     </li>
                 </ul>
-
-                {/* <Search /> */}
             </div>
 
         </div>

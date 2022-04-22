@@ -8,7 +8,6 @@ import Box from "@mui/material/Box";
 import Nav from '../Common/Nav';
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import VideoImageThumbnail from 'react-video-thumbnail-image';
 
 
 const Search = () => {
@@ -52,7 +51,7 @@ const Search = () => {
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
                     <div id="videoListBox">
-                      <Link to={`/view/${p.id}`} className="link">
+                      <Link to={`/post/detail/${p.id}`} className="link">
                         {/* <VideoImageThumbnail
                           videoUrl={p.videoPath}
                           className="videoCard_thubmnail" /> */}

@@ -1,12 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import Footer from '../Common/Footer';
 import './Signup.css';
 import Swal from 'sweetalert2'
 
 
 const Signup = () => {
-    
+
     const [userEmail, setUserEmail] = useState("");
     const [userPw, setUserPw] = useState("");
     const [userPhone, setUserPhone] = useState("");
@@ -37,7 +36,7 @@ const Signup = () => {
         return (reg1.test(str) && reg2.test(str) && reg3.test(str));
     };
 
-    
+
     return (
         <div>
             <div class="container" id="signup_container">
@@ -90,10 +89,10 @@ const Signup = () => {
                                 <div class="col-6">
                                     <input class="form-control" type="password" name="password" id="pwdCheck" value={userPwCheck} placeholder="비밀번호를 입력해주세요." required
                                         onChange={onChangePwCheck} maxLength="16" />
-                                    {userPw.length == 0 && userPwCheck.length == 0 ? null : 
-                                        (userPw == userPwCheck ? 
-                                            <span style={{"color":"red", fontSize: 'small' }}><i class="bi bi-info-circle"></i>  비밀번호가 같습니다.</span> : 
-                                            <span style={{"color":"red" ,fontSize: 'small'}}><i class="bi bi-info-circle"></i>  비밀번호가 같지 않습니다.</span>)}                        
+                                    {userPw.length == 0 && userPwCheck.length == 0 ? null :
+                                        (userPw == userPwCheck ?
+                                            <span style={{ "color": "red", fontSize: 'small' }}><i class="bi bi-info-circle"></i>  비밀번호가 같습니다.</span> :
+                                            <span style={{ "color": "red", fontSize: 'small' }}><i class="bi bi-info-circle"></i>  비밀번호가 같지 않습니다.</span>)}
                                 </div>
                             </div>
                         </div>
@@ -144,8 +143,6 @@ const Signup = () => {
                             <input type="submit" value="회원가입" class="btn bg-secondary text-white flex-shrink-0 me-2" onClick={(e) => {
                                 e.preventDefault();
 
-                                console.log(document.getElementById("phoneNum").value);
-
 
 
                                 // 입력 안될 시 회원가입 막기
@@ -153,32 +150,32 @@ const Signup = () => {
                                     Swal.fire({
                                         icon: 'error',
                                         text: '이메일을 입력해주세요.'
-                                      })
+                                    })
                                     document.getElementById("email").focus();
                                 } else if (document.getElementById("pwd").value == '') {
                                     Swal.fire({
                                         icon: 'error',
                                         text: '비밀번호를 입력해주세요.'
-                                      })
+                                    })
                                     document.getElementById("pwd").focus();
                                 } else if (document.getElementById("name").value == '') {
                                     Swal.fire({
                                         icon: 'error',
                                         text: '이름을 입력해주세요.'
-                                      })
+                                    })
                                     document.getElementById("name").focus();
                                 } else if (document.getElementById("phoneNum").value == '') {
                                     Swal.fire({
                                         icon: 'error',
                                         text: '휴대폰 번호를 입력해주세요.'
-                                      })
+                                    })
                                     document.getElementById("phoneNum").focus();
 
-                                }else if(userPw != userPwCheck){
+                                } else if (userPw != userPwCheck) {
                                     Swal.fire({
                                         icon: 'error',
                                         text: '비밀번호 재확인 해주세요.'
-                                      })
+                                    })
                                     document.getElementById("pwdCheck").focus();
                                 }
                                 // 다 입력되어있을 시!
@@ -189,7 +186,7 @@ const Signup = () => {
                                         Swal.fire({
                                             icon: 'error',
                                             text: '회원가입을 할 수 없습니다. 다시 확인해주세요.'
-                                          })
+                                        })
                                     } else {
 
                                         const formData = new FormData();
@@ -212,22 +209,22 @@ const Signup = () => {
                                                 Swal.fire({
                                                     icon: 'error',
                                                     text: '중복된 이메일입니다. 다시 입력해주세요.'
-                                                  })
+                                                })
                                                 document.getElementById("email").focus();
-                                            } else if( res.data.code == 401){
+                                            } else if (res.data.code == 401) {
                                                 Swal.fire({
                                                     icon: 'error',
                                                     text: '이미 가입된 회원정보 입니다.'
-                                                  })
-                                            } else if(res.data.code == 200) {
+                                                })
+                                            } else if (res.data.code == 200) {
                                                 Swal.fire(
                                                     '',
                                                     '회원가입 완료되었습니다.',
                                                     'success'
-                                                  )
-                                                setTimeout(function(){
+                                                )
+                                                setTimeout(function () {
                                                     window.location = '/';
-                                                },2000)
+                                                }, 2000)
 
                                             }
                                         });

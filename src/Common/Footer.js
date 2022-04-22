@@ -1,5 +1,4 @@
 import React from 'react';
-import './Footer.css';
 
 const Footer = () => {
     return (
@@ -16,7 +15,7 @@ const Footer = () => {
                                 <i class="bi bi-github" style={{ "fontSize": "1.5rem", "paddingRight":"5px"}}></i>
                             </a>
                         </div> */}
-                        <div class="d-inline-flex flex-wrap"> 
+                        <div class="d-inline-flex flex-wrap">
                             <a href="#" class="link-light p-1">
                                 <i class="bi bi-youtube" style={{ "fontSize": "1.5rem" }}></i>
                             </a>

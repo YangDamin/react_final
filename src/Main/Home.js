@@ -1,16 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { styled } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import VideoList from '../Video/VideoList';
 import './Home.css';
-import ReactLoading from "react-loading";
 import Loader from "../Video/Loader";
 import Nav from '../Common/Nav';
 import axios from 'axios';
-import { NoStyleItemContext } from 'antd/lib/form/context';
-import VideoImageThumbnail from 'react-video-thumbnail-image';
 import { Link } from 'react-router-dom';
 import "../Video/VideoList.css";
 import Grid from "@mui/material/Grid";
@@ -70,7 +64,7 @@ const Home = () => {
     setIsLoading(false);
   }
 
-
+  const moveToTop = () => (document.documentElement.scrollTop = 0);
 
   const loginStart = (link) => {
     if(sessionStorage.getItem("email")){
@@ -104,7 +98,7 @@ const Home = () => {
             borderStyle: 'solid',
             borderColor: 'black'
           }}>
-          <Grid container id='grid' >
+          <Grid container id='grid' className="grid-container">
 
             {result.map((p, index) => {
               return (
@@ -145,6 +139,14 @@ const Home = () => {
         <span>
           {(isLoading && notFirstTime) ? (<Loader />) : ("")}
         </span>
+        <div>
+          <button
+            className="btn-top"
+            onClick={moveToTop}
+          >
+            <i class="bi bi-caret-up-fill"></i>
+          </button>
+        </div>
       </Container>
 
     </>
