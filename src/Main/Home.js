@@ -18,7 +18,7 @@ const Home = () => {
 
   const getFetchData = async () => {
     await axios({
-      url: 'http://localhost:8080/posts',
+      url: 'http://54.193.18.159:8080/posts',
       method: 'get'
     }).then((res) => {
       let response = res.data;
