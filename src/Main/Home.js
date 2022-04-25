@@ -18,7 +18,7 @@ const Home = () => {
 
   const getFetchData = async () => {
     await axios({
-      url: 'http://54.193.18.159:8080/posts',
+      url: 'http://localhost:8080/posts',
       method: 'get'
     }).then((res) => {
       let response = res.data;
@@ -100,6 +100,7 @@ const Home = () => {
           <Grid container id='grid' className="grid-container">
 
             {result.map((p, index) => {
+              console.log(p.open);
               return (
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>

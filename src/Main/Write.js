@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
@@ -10,8 +10,11 @@ import Nav from '../Common/Nav';
 import AWS from 'aws-sdk';
 import { Input } from 'reactstrap';
 
+
 const Write = () => {
 
+    // 게시물 공개/비공개 여부
+    const [visible, setVisible] = useState(0);
 
 
     const [writeContent, setWriteContent] = useState({
@@ -174,7 +177,6 @@ const Write = () => {
                     <div className="write-box" style={{ marginBottom: '25px' }}>
                         <Box sx={{ flexGrow: 1, mt: 6 }}>
                             <div className='form-wrapper' id="write" style={{ "marginBottom": "30px" }}>
-                                
                                 <div style={{ "paddingTop": "25px", "marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-camera-reels-fill"></i>&nbsp;나의 브이로그</div>
                                 <Input color="primary" type="file" onChange={handleFileInput} />
 
@@ -185,12 +187,28 @@ const Write = () => {
                                     onChange={getValue} id='title' />
                                 <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content"></textarea>
 
+                                {/* 게시물(브이어리) 공개/비공개 여부 선택 */}
+                                <div style={{ "paddingTop": "25px", "marginBottom": "3px", "display": "flex" }}>
+                                    <div style={{ "fontSize": "18px", "marginRight": "20px" }}><i class="bi bi-lock-fill"></i>&nbsp;공개 설정</div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="visible" id="public" value="public" onClick={(e)=> {
+                                            setVisible(1);
+                                        }} />
+                                        <label class="form-check-label" for="inlineRadio1">공개</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="visible" id="private" value="private" onClick={(e) => {
+                                            setVisible(0);
+                                        }} />
+                                        <label class="form-check-label" for="inlineRadio2">비공개</label>
+                                    </div>
+                                </div>
                             </div>
 
 
                             <button className="submit-button"
                                 onClick={(e) => {
-
+                                    console.log(visible);
                                     if (selectedFile == '') {     // 브이로그 영상 파일 없을 시, 업로드 막기
                                         Swal.fire({
                                             icon: 'error',
@@ -221,6 +239,11 @@ const Write = () => {
                                             icon: 'error',
                                             text: '썸네일 첨부 파일 타입을 확인해주세요!'
                                         })
+                                    } else if (document.querySelector('input[name="visible"]:checked') == null) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '게시물 공개 설정 해주세요!'
+                                        })
                                     } else {
                                         uploadFile(selectedFile);
                                         uploadThumbnailFile(selectedThumbnailFile);
@@ -238,10 +261,12 @@ const Write = () => {
                                         formData.append("userEmail", sessionStorage.getItem("email"));
                                         formData.append("videoPath", video_Path);
                                         formData.append("videothumbnail", thumbnail_Path);
+                                        formData.append("open", visible);
+                                        console.log(visible);
 
                                         // 게시물의 입력 사항을 post 방식으로 서버에 데이터 전송
                                         axios({
-                                            url: `http://54.193.18.159:8080/write`,
+                                            url: `http://localhost:8080/write`,
                                             method: "post",
                                             data: formData
                                         }).then((res) => {
