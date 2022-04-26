@@ -13,6 +13,10 @@ import { useParams } from 'react-router-dom';
 
 const ModifyPost = () => {
 
+    // 게시물 공개/비공개 여부
+    const [visible, setVisible] = useState(0);
+
+    
     // 수정할 게시물의 아이디를 url 파라미터 값으로 전달 받아옴
     const { id } = useParams();
 
@@ -184,6 +188,22 @@ const ModifyPost = () => {
                                 onChange={getValue} id='title' />
                             <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content"></textarea>
 
+                            {/* 게시물(브이어리) 공개/비공개 여부 선택 */}
+                            <div style={{ "paddingTop": "25px", "marginBottom": "3px", "display": "flex" }}>
+                                    <div style={{ "fontSize": "18px", "marginRight": "20px" }}><i class="bi bi-lock-fill"></i>&nbsp;공개 설정</div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="visible" id="public" value="public" onClick={(e)=> {
+                                            setVisible(1);
+                                        }} />
+                                        <label class="form-check-label" for="inlineRadio1">공개</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="visible" id="private" value="private" onClick={(e) => {
+                                            setVisible(0);
+                                        }} />
+                                        <label class="form-check-label" for="inlineRadio2">비공개</label>
+                                    </div>
+                                </div>
                         </div>
 
 
@@ -220,6 +240,12 @@ const ModifyPost = () => {
                                         icon: 'error',
                                         text: '썸네일 첨부 파일 타입을 확인해주세요!'
                                     })
+                                } else if (document.querySelector('input[name="visible"]:checked') == null) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        text: '게시물 공개 설정 해주세요!'
+                                    })
+                                
                                 } else {
                                     uploadFile(selectedFile);
                                     uploadThumbnailFile(selectedThumbnailFile);
@@ -236,6 +262,7 @@ const ModifyPost = () => {
                                     formData.append("date", date);
                                     formData.append("videoPath", video_Path);
                                     formData.append("videothumbnail", thumbnail_Path);
+                                    formData.append("open", visible);
 
                                     // 게시물 id와 함께 서버에 put 방식으로 데이터를 전달하여 게시물 수정해주기
                                     axios({
