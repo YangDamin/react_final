@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 
 #logo {
-    
     display: flex;
     flex: auto;
     justify-content: left;
-   
-    
 }
-
 
 #signup_css{
     text-align: right;
@@ -25,4 +21,20 @@
 #search_css{
     display: flex;
     flex-wrap: nowrap;   
+}
+
+#dropdown{
+    display: none;
+}
+
+/* 반응형 */
+@media screen and (max-width:1000px) {
+    #notmedia{
+        display: none;
+    }
+    #dropdown{
+        display:flex;
+        margin-top: 3rem;
+        justify-content: right;
+    }
 }

@@ -1,8 +1,6 @@
 import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
-import Footer from "../Common/Footer";
-import Header from "../Common/Header";
 
 const FindPassword = () => {
     return (
@@ -12,7 +10,7 @@ const FindPassword = () => {
             <h6 style={{ "marginTop": "2rem" }}>회원가입 시 등록하신 정보로</h6>
             <h6>임시 비밀번호를 발급 받으실 수 있습니다.</h6>
 
-            <form style={{"paddingBottom":"2rem"}}>
+            <form style={{ "paddingBottom": "2rem" }}>
                 <div style={{ "width": "500px", "margin": "50px auto", "border": "0.2px solid", "borderColor": "lightgray" }}>
                     <div style={{ "margin": "20px auto" }}>
 
@@ -25,30 +23,32 @@ const FindPassword = () => {
                                 e.preventDefault();
                                 const formData = new FormData();
 
+
+                                // 사용자의 이메일, 이름, 핸드폰 번호로 임시 비밀번호 발급 기능
                                 formData.append('email', document.getElementById("find_email").value);
                                 formData.append('name', document.getElementById("find_name").value);
                                 formData.append('phone', document.getElementById("find_phone").value);
 
+                                // 입력한 사항을 post 방식으로 보내, 임시 비밀번호를 발급 받아와 주었다.
                                 axios({
-                                    url: "http://localhost:8080/users/findPassword",
+                                    url: `http://54.193.18.159:8080/users/findPassword`,
                                     method: "post",
                                     data: formData
                                 }).then((res) => {
-                                    console.log(res.data);
-                                    if(res.data.code == 200){
+                                    if (res.data.code == 200) {
                                         Swal.fire(
                                             '<h5>임시 비밀번호 발급했습니다!</h5>',
                                             res.data.findPwd,
                                             'success'
-                                          )
-                                          document.getElementById("find_email").value = '';
-                                          document.getElementById("find_name").value = '';
-                                          document.getElementById("find_phone").value = '';
-                                    }else{
+                                        )
+                                        document.getElementById("find_email").value = '';
+                                        document.getElementById("find_name").value = '';
+                                        document.getElementById("find_phone").value = '';
+                                    } else {
                                         Swal.fire({
                                             icon: 'error',
                                             text: '가입된 계정이 없습니다.'
-                                          })
+                                        })
                                     }
                                 })
                             }}></input>
@@ -59,7 +59,6 @@ const FindPassword = () => {
                 </div>
             </form>
             <hr style={{ "height": "2px", "width": "50%", "color": "#000000", "margin": "0 auto" }} />
-            {/* <Footer /> */}
 
         </div>
     )

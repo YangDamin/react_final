@@ -1,0 +1,45 @@
+
+.back_btn {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    size: 3rem;
+    border : none;
+    padding: 7px;
+    display: flex;
+    margin : 0 8.5rem 2rem 8.5rem;
+}
+
+.pdf_btn {
+    background-color: rgba(49, 120, 221, 1);
+    border-radius: 10px;
+    color: white;
+    border : none;
+    padding: 7px;
+    display: flex;
+    margin : 0 8.5rem 2rem auto;
+}
+
+.box{
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    width: 70%;
+    margin: 0 auto 4rem auto;
+}
+
+.contentTitle{
+    font-weight: bolder;
+    font-size: 2rem;
+    display: flex;
+    margin: 1rem 4rem;
+    font-family: 'LeeSeoyun';
+    color: white;
+}
+
+.content{
+    font-size: 1.55rem;
+    display: flex;
+    margin-left: 4rem;
+    font-family: 'LeeSeoyun';
+    font-weight: bold;
+}

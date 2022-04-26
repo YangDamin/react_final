@@ -1,65 +1,46 @@
+// View는 게시물의 상세 페이지 부분입니다. 제목, 작성자, 내용을 볼 수 있습니다.
+
 import React from "react";
 import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
-import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Header from '../Common/Header';
 import Nav from '../Common/Nav';
-import Footer from '../Common/Footer';
 import Container from "@mui/material/Container";
 import './View.css';
 import axios from 'axios';
+import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { Link, useParams } from "react-router-dom";
-import AWS from 'aws-sdk';
-import { Row, Col, Button, Input, Alert } from 'reactstrap';
+
 
 
 const View = () => {
 
-  // const { no } = match.params;
-  const { postid } = useParams();
 
-  const [post, setPost] = useState([]);
+  const { id } = useParams();   // 게시물의 id를 url 파라미터 값을 받아오기
+
+  const [post, setPost] = useState([]);   // 게시물
+  const [name, setName] = useState('');   // 작성자 이름
+  const [userId, setUserId] = useState();   // 게시물 작성자 id
+
+
 
   useEffect(() => {
     const result = axios({
-      url: `http://localhost:8080/post/detail/${postid}`,
+      url: `http://54.193.18.159:8080/post/detail/${id}`,     // id를 이용하여 get 방식으로 게시물들 받아오기
       method: 'get'
     });
     result.then((res) => {
-      console.log("res" + res);
-      console.log("res.data" + res.data);
-      setPost(res.data);
+      setPost(res.data.post);     // id에 해당하는 게시물 set
+      setName(res.data.name);     // 작성자 이름 set
+      setUserId(res.data.post.user.id);     // 게시물을 작성한 사용자 id set
     });
-    console.log("##################" + postid);
-  }, [postid]);
+  }, [id]);
 
-
-
-  //delete
-  const deletePost = ()=> {
-    axios({
-      url: `http://localhost:8080/post/detail/${postid}`,
-      method: 'delete',
-    }).then(function (res) {
-      alert("게시물 삭제완료");
-      // history.goBack();
-    })
-  };
-
-
-
-
-
-  // const confirm = function(msg, title, resvNum) {
-  //   Swal("Are you sure you want to do this?", {
-  //     buttons: ["Oh noez!", "Aww yiss!"],
-  //   })
-	// }
-
+  let content = post.content;
+  // console.log("post보기:" + post.user.id);
+  console.log("userId보기:" + sessionStorage.getItem("user_id"));
 
 
   return (
@@ -67,49 +48,92 @@ const View = () => {
       <Nav></Nav>
       <CssBaseline />
       <Container className="content-container">
-        <Box sx={{ bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0', borderStyle: 'solid', borderColor: 'rgba(153, 153, 153, 1)', height: '100vh' }}>
-          <Box sx={{ flexGrow: 1, mt: 6 }}>
-            <div className='form-wrapper' id="view" style={{ "marginBottom": "30px" }}>
-              <div class="container" id="content-title">
-                <h2>{post.title}</h2></div>
-              <div class="container" id="content-id">
-                <h6>{post.id} , view : {post.viewCnt}</h6></div>
+        <Box className="viewBox" sx={{
+          width: '98%', bgcolor: 'rgba(238, 238, 238, 1)', borderRadius: '40px 40px 0 0',
+          borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
+          borderColor: 'black', padding: "40px"
+        }}>
 
-
-              <div className="container" id="video">
-                <ReactPlayer
-                  width='500px'
-                  height='300px'
-                  controls url={post.videoPath}
-                  playing={true}
-                />
+          <div className='form-wrapper' id="view" style={{ "margin": "2rem 10rem" }}>
+            <div className="row">
+              <div className="col-1">
+                <a href="/" id="back"><i class="bi bi-arrow-left"></i></a>
               </div>
-              <div className="container" id="content">
-                <tr>
-                  <div class="container" >
-                    <h4 class="my-3 border-bottom pb-2">
-                      {post.content}
-                      <br />
-                    </h4>
-                  </div>
-                </tr>
-                
+              <div className="col-11">
+                {/* 로그인 한 유저 id와 게시물의 작성자id와 같으면 수정,삭제 버튼 보이게 */}
+                {sessionStorage.getItem("user_id") == userId ?
+                  <div style={{"textAlign":"right"}}>
+                    <button type="button" class="btn btn-outline-secondary  flex-shrink-0 mt-3" style={{ "margin": "0 5px 0 0" }} onClick={() => {
+                      window.location = `/post/update/${post.id}`
+                    }} >수정</button>
 
+                    <button type="button" class="btn btn-outline-danger  flex-shrink-0 mt-3" onClick={() => {
+                      Swal.fire({
+                        title: '',
+                        text: "게시물 삭제하시겠습니까?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          axios.delete(`http://54.193.18.159:8080/post/delete/${id}`)
+                            .then((res) => {
+                              Swal.fire(
+                                '',
+                                '삭제 완료되었습니다.',
+                                'success'
+                              )
+                              setTimeout(function () {
+                                window.location = '/';
+                              }, 2000)
+                            })
+                        }
+                      })
+
+                    }} >삭제</button>
+                  </div>
+                  : null
+                }
               </div>
             </div>
-            
-          </Box>
+            <div id="content-title">
+              <span>{post.title}</span>
+            </div>
+            <div id="content-id">
+              <span style={{ "fontWeight": "bold" }}><i class="bi bi-person-hearts"></i> {name}</span>
+              <span style={{ "color": "gray" }}>{post.date}</span>
+            </div>
+
+
+            <div id="video">
+              <ReactPlayer
+                width='804px'
+                height='452px'
+                controls url={post.videoPath}
+                playing={true}
+              />
+            </div>
+            <span style={{ "display": "flex", "color": "gray", "marginTop": "1rem" }}><i class="bi bi-eye-fill"></i>&nbsp;{post.viewCnt}</span>
+            <hr />
+
+            <div className="container" id="content">
+              {(content || '').split("<br>").map((line) => {
+                return (
+                  <span class="my-3 pb-2" style={{ "fontSize": "18px" }}>
+                    {line}
+                    <br />
+                  </span>
+                )
+              })}
+            </div>
+
+
+          </div>
+
         </Box>
-        <button type="button" class="btn btn-primary" onClick={() => {
-          sessionStorage.setItem("id",post.id);
-                  window.location = `/post/update/${post.id}`
-                }} >수정</button>
-                <button type="button" class="btn btn-primary" onClick={deletePost} >삭제</button>
 
-                <br/>
-
-                <Link to="/"> <button type="button" class="btn btn-primary" >목록</button>
-                </Link>
       </Container >
     </>
   )

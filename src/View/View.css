@@ -1,36 +1,41 @@
-#content-title{
-  font-family: 'Pretendard-Medium';
+#back{
   display: flex;
-  justify-content: center;
-   
+  font-weight: bolder;
+  font-size: 2.3rem;
+  cursor: pointer;
+  color: gray;
+}
+
+#content-title{
+  display: flex;
+  font-weight: bolder;
+  font-size: 2.3rem;
 }
 
 #content-id{
   display: flex;
-  justify-content: center;
-
-  
+  justify-content: space-between;
+  font-size: 17px;
+  padding-top: 10px;
 }
 
 
 #video{
   margin-top: 20px;
   display: flex;
-  flex: auto;
-  justify-content: center;
-  width: 70%;
+  /* width: 70%; */
 
 }
 
 #content{
-  font-family: 'Pretendard-Medium';
   font-size: 15px;
-  margin-top: 40px;
+  margin-top: 10px;
   background-color: white;
   border-radius: 5px 5px 5px 5px ;
-  width: 65%;
-  text-align: center;
-
+  height: 400px;
+  text-align: left;
+  padding: 1rem;
+  overflow : auto;
 }
 
 .btn.btn-primary{
@@ -67,4 +72,21 @@
 
 ::-webkit-scrollbar-track {
 display: none;
+}
+
+.viewBox{
+  display: inline-block;
+  width: 100%;
+  padding: 50px auto;
+  flex: auto;
+}
+
+#write-input-container{
+  white-space: pre-wrap;
+}
+
+.pdf_btn{
+  display : flex;
+  margin : 0 3.5rem 0 auto;
+  background-color : rgba(49, 120, 221, 1);
 }

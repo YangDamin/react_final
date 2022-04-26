@@ -1,5 +1,76 @@
+
+
 .left{
     width: 500px;
     height: 500px;;
 }
 
+#MyFeedListBox{
+    transition: all 0.4s ease;
+    margin: "0.3rem";
+    padding: "0.2rem";
+    width: 300px;
+}
+
+#MyFeedListBox:hover{
+    transform: scale(1.08);
+    background-color: rgba(250, 250, 250, 1);
+}
+
+#popularListBox{
+    transition: all 0.4s ease;
+    margin: 10px 40px 10px 0;
+    padding: 10px;
+    background: whitesmoke;
+    box-shadow: 0 5px 25px #e9ecef;
+    border-radius: 1.5rem;
+}
+
+#popularListBox:hover{
+    transform: scale(1.08);
+}
+
+.popular_title{
+    margin-top: 5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    text-decoration-color: black;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.popular_date{
+    display: flex;
+    margin-left: 5px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    color: gray;
+    font-size: 13px;
+}
+.btn-moreItem{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 15px;
+    border-color: transparent;
+    width: 100px;
+    height: 35px;
+    color:dimgrey;
+}
+
+.btn-moreItem:hover{
+    opacity: 0.7;
+    transition: all 0.4s ease;
+}
+
+.myfeed-box{
+    margin-left: 5%;
+    border-radius: 20px;
+    margin-top: 60px;
+    height: 85%;
+    background-color: rgba(250, 250, 250, 1);
+}

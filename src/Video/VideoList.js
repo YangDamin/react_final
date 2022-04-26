@@ -1,29 +1,28 @@
+// VideoList는 게시물들을 모두 보여줍니다.
+
+
 import React from "react";
 import "./VideoList.css";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Container, { containerClasses } from "@mui/material/Container";
+import Container from "@mui/material/Container";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import thumbnail from '../assets/img/thumbnail.png'
-import VideoImageThumbnail from 'react-video-thumbnail-image';
 
 
 const VideoList = () => {
 
-  const [postList, setPostList] = useState([]);
+  const [postList, setPostList] = useState([]);   // postList 선언
 
   useEffect(() => {
     axios({
-      url: 'http://localhost:8080/posts',
-      method: 'get'
+      url: `http://54.193.18.159:8080/posts`,
+      method: 'get'               // get 방식으로 서버에서 게시물들을 받아옴
     }).then((res) => {
-      console.log(res.data);
       setPostList(res.data);
     });
-  }, []); // deps
-
+  }, []); // 빈 리스트 이므로, 한 번만 수행
 
   return (
     <>
@@ -36,19 +35,22 @@ const VideoList = () => {
 
                 <Grid item col-xs={4} col-6 col-md-4>
                   <Grid item col-xs={4}>
-                    <div className="container" id="home">
-                      <Link to={`/view/${p.id}`} className="link">
-                        {/* <img className="videoCard_thubmnail" src={p.video_path} alt="video_thubmnail" /> */}
-
-                        <VideoImageThumbnail
+                    <div id="videoListBox">
+                      <Link to={`/post/detail/${p.id}`} className="link">
+                        {/* <VideoImageThumbnail
                           videoUrl={p.videoPath}
-                          className="videoCard_thubmnail"/>
-                       
+                          className="videoCard_thubmnail"/> */}
+                        <img className="videoCard_thubmnail" src={p.videothumbnail} alt="video_thubmnail" />
+
+
                         <div className="video_title">
                           {p.title}
                         </div>
                         <div className="video_date">
-                          {p.date}
+                          {p.user.name}  ·  {p.date}
+                        </div>
+                        <div className="video_date">
+                          조회수  {p.viewCnt}회
                         </div>
                       </Link>
                     </div>

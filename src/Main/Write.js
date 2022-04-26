@@ -1,32 +1,40 @@
-import { useState, useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import './Write.css';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import Server from '../S3/Server';
 import Nav from '../Common/Nav';
 import AWS from 'aws-sdk';
-import { Row, Col, Button, Input, Alert } from 'reactstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Input } from 'reactstrap';
+import { useParams } from "react-router-dom";
 
 const Write = () => {
 
-
-
+    const { id } = useParams();
     const [post, setPost] = useState([]);
+    const [name, setName] = useState('');
+  
 
+    useEffect(() => {
+        const result = axios({
+          url: `http://localhost:8080/post/update/${id}`,
+          method: 'post'
+        });
+        result.then((res) => {
+          setPost(res.data.post);
+          setName(res.data.name);
+        });
+        console.log("##################" + id);
+      }, [id]);
 
     const [writeContent, setWriteContent] = useState({
         title: '',
         content: ''
     })
 
-    const [viewContent, setViewContent] = useState([]);
 
     const getValue = e => {
         const { name, value } = e.target;
@@ -36,15 +44,20 @@ const Write = () => {
     }
 
 
-    const [selectedFile, setSelectedFile] = useState([]);
+    const [selectedFile, setSelectedFile] = useState([]);       // 첨부한 동영상 파일
+    const [selectedThumbnailFile, setSelectedThumbnailFile] = useState([]);         // 첨부한 썸네일 파일
 
-    const [fileName, setFileName] = useState('');
+    const [video_Path, setVideoPath] = useState('');        // 동영상 s3 링크
+    const [thumbnail_Path, setThumbnailPath] = useState('');         // 썸네일 s3 링크
+
+    //동영상 타입 및 이미지 타입에 안맞는 걸 첨부했을 경우, true/false
+    const [vtcorrect, setVTCorrect] = useState(false);
+    const [itcorrect, setITCorrect] = useState(false);
+
 
 
     const ACCESS_KEY = process.env.REACT_APP_AWS_ACCESS_KEY;
     const SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
-    // const RESION = 'us-east-2';
-    // const S3_BUCKET = 's3-bucket-react-file-upload-test-5jo';
     const RESION = 'us-west-1';
     const S3_BUCKET = 'viary';
 
@@ -60,7 +73,7 @@ const Write = () => {
     })
 
 
-
+    // 비디오 경로 설정
     const handleFileInput = e => {
         const file = e.target.files[0];
 
@@ -68,25 +81,62 @@ const Write = () => {
         const imgName = randomName + "_" + file.name
         console.log(imgName);
         const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
-        if(file.type !== 'video/mp4' || fileExt !=='mp4'){ //파일타입과 익스텐션이 jpg인것만
+
+        if (file.type !== 'video/mp4' || fileExt !== 'mp4') { //파일타입과 익스텐션이 mp4인것만
             Swal.fire(
                 '',
-                'video만 업로드 가능합니다.',
+                'mp4 타입만 업로드 가능합니다.',
                 'warning'
             )
-          return;
+            //mp4 타입이 아닐 경우 false
+            setVTCorrect(false);
+        } else {
+            //mp4 타입이 아닐 경우 true
+            setVTCorrect(true);
         }
+
         const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/";
         const videoPath = s3Url + file.name;
 
         console.log("주소" + videoPath);
-        setFileName(videoPath);
+        setVideoPath(videoPath);
         setSelectedFile(e.target.files[0]);
+    }
+
+    // 썸네일 경로 설정
+    const handleThumbnailInput = e => {
+        const file = e.target.files[0];
+
+        const randomName = Math.random().toString(36).substr(2, 11);
+        const imgName = randomName + "_" + file.name
+        console.log(imgName);
+        const fileExt = file.name.split('.').pop();  //파일익스텐션값 가져오기
+        
+
+        if ((file.type !== 'image/jpeg' || fileExt !== 'jpg') && (file.type !== 'image/png' || fileExt !== 'png')) { //파일타입과 익스텐션이 jpg,png인것만
+            Swal.fire(
+                '',
+                'jpg,png 타입만 업로드 가능합니다.',
+                'warning'
+            )
+            //이미지 타입이 아닐 경우 false
+            setITCorrect(false);
+        } else {
+            //이미지 타입이 아닐 경우 true
+            setITCorrect(true);
+        }
+
+        const s3Url = "https://viary.s3.us-west-1.amazonaws.com/upload/thumbnail/";     // s3의 고정 링크
+        const thumbnailPath = s3Url + file.name;        // s3 고정 링크에 해당 파일 이름 저장
+
+        // console.log("주소" + thumbnailPath);
+        setThumbnailPath(thumbnailPath);
+        setSelectedThumbnailFile(e.target.files[0]);
     }
 
 
 
-
+    // 비디오 S3에 업로드
     const uploadFile = file => { //챕터4!의 사진을 업로드 하는 코드
         const params = {
             Bucket: S3_BUCKET,
@@ -94,7 +144,7 @@ const Write = () => {
             Body: file
         };
         myBucket.putObject(params)
-            .on('httpUploadProgress',(evt) => {
+            .on('httpUploadProgress', (evt) => {
                 setTimeout(() => {
                     setSelectedFile(null);
                 }, 50000)
@@ -103,6 +153,25 @@ const Write = () => {
             })
 
         console.log("파일 이름 :" + file.name);
+    }
+
+    // 썸네일 S3에 업로드
+    const uploadThumbnailFile = file => { //챕터4!의 사진을 업로드 하는 코드
+        const params = {
+            Bucket: S3_BUCKET,
+            Key: "upload/thumbnail/" + file.name,
+            Body: file
+        };
+        myBucket.putObject(params)
+            .on('httpUploadProgress', (evt) => {
+                setTimeout(() => {
+                    setSelectedThumbnailFile(null);
+                }, 50000)
+            }).send((err) => {
+                if (err) console.log(err)
+            })
+
+        console.log("썸넬 파일 이름 :" + file.name);
     }
 
 
@@ -118,83 +187,98 @@ const Write = () => {
                     borderWidth: "5px", borderColor: 'black', borderStyle: 'solid',
                     borderColor: 'black', padding: "20px"
                 }}>
-                    <Box sx={{ flexGrow: 1, mt: 6 }}>
-                        <div className='form-wrapper' id="write" style={{ "marginBottom": "30px" }}>
-                            {/* <Server/> */}
-                            <p style={{"display":"flex", "fontSize":"20px","fontWeight":"bold"}}>브이로그 영상 올리기</p>
-                            <Input color="primary" type="file" onChange={handleFileInput} />
-                           
-                           <hr/>
-                           <p style={{"display":"flex", "fontSize":"20px","fontWeight":"bold"}}>나의 브이어리 포토북 이미지 올리기</p>
-                            <input className="title-input" type='text' placeholder='제목'
-                                onChange={getValue} name='title' />
-                            <CKEditor
-                                editor={ClassicEditor}
-                                styled={{ 'width': '80%' }}
-                                data=""
-                                onReady={editor => {
-                                    // You can store the "editor" and use when it is needed.
-                                    console.log('Editor is ready to use!', editor);
-                                }}
-                                onChange={(event, editor) => {
-                                    const data = editor.getData().substr(3, editor.getData().length - 7)
-                                    console.log({ event, editor, data });
-                                    setWriteContent({
-                                        ...writeContent, content: data
-                                    })
-                                    console.log(writeContent);
-                                }}
-                                onBlur={(event, editor) => {
-                                    console.log('Blur.', editor);
-                                }}
-                                onFocus={(event, editor) => {
-                                    console.log('Focus.', editor);
-                                }}
-                            />
-                        </div>
+                    <div className="write-box" style={{ marginBottom: '25px' }}>
+                        <Box sx={{ flexGrow: 1, mt: 6 }}>
+                            <div className='form-wrapper' id="write" style={{ "marginBottom": "30px" }}>
+                                
+                                <div style={{ "paddingTop": "25px", "marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-camera-reels-fill"></i>&nbsp;나의 브이로그</div>
+                                <Input color="primary" type="file" onChange={handleFileInput} />
+
+                                <div style={{ "marginTop": "25px", "marginBottom": "3px", "display": "flex", "fontSize": "18px" }}><i class="bi bi-image" />&nbsp;나의 브이로그 썸네일 설정</div>
+                                <Input color="primary" type="file" onChange={handleThumbnailInput} />
+
+                                <input className="title-input" type='text' placeholder='제목'
+                                    onChange={getValue} id='title' />
+                                <textarea rows="18" style={{ "width": "100%", "textAlign": "left" }} id="content"></textarea>
+
+                            </div>
 
 
-                        {selectedFile ? (
                             <button className="submit-button"
                                 onClick={(e) => {
-                                    uploadFile(selectedFile);
-                                    e.preventDefault();
 
-                                    let today = new Date();
-                                    let date = today.toLocaleDateString();      // 현재 날짜
+                                    if (selectedFile == '') {     // 브이로그 영상 파일 없을 시, 업로드 막기
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '동영상 첨부해주세요!'
+                                        })
+                                    } else if (selectedThumbnailFile == "") {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '사용하실 썸네일을 첨부해주세요!'
+                                        })
+                                    } else if (document.getElementById("title").value == '') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '제목을 입력해주세요!'
+                                        })
+                                    } else if (document.getElementById("content").value == '') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '내용을 입력해주세요!'
+                                        })
+                                    } else if (vtcorrect == false) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '브이로그 첨부 파일 타입을 확인해주세요!'
+                                        })
+                                    } else if (itcorrect == false) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            text: '썸네일 첨부 파일 타입을 확인해주세요!'
+                                        })
+                                    } else {
+                                        uploadFile(selectedFile);
+                                        uploadThumbnailFile(selectedThumbnailFile);
+                                        e.preventDefault();
 
-                                    setViewContent(viewContent.concat({ ...writeContent }));
+                                        let today = new Date();
+                                        let date = today.toLocaleDateString();      // 현재 날짜
 
-                                    const formData = new FormData();
-                                    formData.append("title", writeContent.title);
-                                    formData.append("content", writeContent.content);
-                                    formData.append("date", date);
-                                    formData.append("userEmail", sessionStorage.getItem("email"));
-                                    formData.append("videoPath", fileName);
+                                        const formData = new FormData();
+                                        formData.append("title", document.getElementById("title").value);
+                                        var contents = document.getElementById("content").value;
+                                        contents = contents.replace(/(\n|\r\n)/g, '<br>');              // 게시물을 작성할 때, 내용에 <br>이 같이 들어가게 된다. 따라서 <br>을 띄어쓰기로 변경해주었다.
+                                        formData.append("content", contents);
+                                        formData.append("date", date);
+                                        formData.append("userEmail", sessionStorage.getItem("email"));
+                                        formData.append("videoPath", video_Path);
+                                        formData.append("videothumbnail", thumbnail_Path);
 
-                                    axios({
-                                        url: "http://localhost:8080/write",
-                                        method: "post",
-                                        data: formData
-                                    }).then((res) => {
-                                        console.log(res.data);
+                                        // 게시물의 입력 사항을 post 방식으로 서버에 데이터 전송
+                                        axios({
+                                            url: `http://54.193.18.159:8080/write`,
+                                            method: "post",
+                                            data: formData
+                                        }).then((res) => {
 
-                                        Swal.fire(
-                                            '',
-                                            '업로드 완료!',
-                                            'success'
-                                        )
-                                        setTimeout(function () {
-                                            // window.location = '/myfeed';
-                                        }, 200000)
+                                            Swal.fire(
+                                                '',
+                                                '업로드 완료!',
+                                                'success'
+                                            )
+                                            setTimeout(function () {
+                                                window.location = '/myfeed';
+                                            }, 2000)
 
-                                    }).catch((error) => {
-                                        console.log(error);
-                                    })
+                                        }).catch((error) => {
+                                            console.log(error);
+                                        })
+                                    }
 
-                            }}>업로드</button>
-                            ) : null}
-                    </Box>
+                                }}>업로드</button>
+                        </Box>
+                    </div>
                 </Box>
             </Container >
 
@@ -208,3 +292,4 @@ const Write = () => {
 
 
 export default Write;
+
