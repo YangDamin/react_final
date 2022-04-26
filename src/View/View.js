@@ -17,46 +17,48 @@ import AWS from 'aws-sdk';
 import { Row, Col, Button, Input, Alert } from 'reactstrap';
 
 
-const View = ({history}) => {
+const View = () => {
 
   // const { no } = match.params;
-  const { id } = useParams();
+  const { postid } = useParams();
 
   const [post, setPost] = useState([]);
 
   useEffect(() => {
     const result = axios({
-      url: `http://localhost:8080/post/detail/${id}`,
+      url: `http://localhost:8080/post/detail/${postid}`,
       method: 'get'
     });
     result.then((res) => {
-      console.log(res);
-      console.log(res.data);
+      console.log("res" + res);
+      console.log("res.data" + res.data);
       setPost(res.data);
     });
-    console.log("##################" + id);
-  }, [id]);
+    console.log("##################" + postid);
+  }, [postid]);
 
 
 
+  //delete
   const deletePost = ()=> {
     axios({
-      url: `http://localhost:8080/post/delete/${id}`,
+      url: `http://localhost:8080/post/detail/${postid}`,
       method: 'delete',
     }).then(function (res) {
-      confirm();
-      history.goBack();
+      alert("게시물 삭제완료");
+      // history.goBack();
     })
   };
 
 
 
 
-  const confirm = function(msg, title, resvNum) {
-    Swal("Are you sure you want to do this?", {
-      buttons: ["Oh noez!", "Aww yiss!"],
-    })
-	}
+
+  // const confirm = function(msg, title, resvNum) {
+  //   Swal("Are you sure you want to do this?", {
+  //     buttons: ["Oh noez!", "Aww yiss!"],
+  //   })
+	// }
 
 
 

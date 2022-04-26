@@ -44,9 +44,9 @@ function App() {
           <Route path="/users/findEmail" element={<FindEmail/>}></Route>
           {/* <Route path="/profile"><Profile /></Route> */}
           <Route path="/users/findPassword" element={<FindPassword/>}></Route>
-          <Route path="/view/:id" element={<View/>}></Route>
-          <Route path="/post/delete/:id" element={<Home/>}></Route>
-          <Route path="/post/update/:id" element={<Write/>}></Route>
+          <Route path="/view/:postid" element={<View/>}></Route>
+          <Route path="/post/delete/:postid" element={<Home/>}></Route>
+          <Route path="/post/update/:postid" element={<Write/>}></Route>
           <Route path="/buy" element={<Buy/>}></Route>
           <Route path="/search/:word" element={<Search/>}></Route>
         </Routes>

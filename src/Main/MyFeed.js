@@ -30,6 +30,8 @@ const MyFeed = () => {
 
 	}, []);
 
+	console.log(mypostList);
+
 	return (
 		<>
 			<Nav />
